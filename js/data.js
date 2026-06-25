@@ -5,9 +5,8 @@ const produtos = [
     precoNovo: "R$ 99,90",
     precoAntigo: "R$ 159,90",
     link: "#",
-    diasRestantes: 3,
+    diasRestantes: 7,
     categoria: "Sem categoria",
-    frete: "R$ 0",
   },
 ];
 
@@ -44,7 +43,6 @@ const cardStrings = {
   offerRemainingText: "Oferta até {dias} dias no site",
   categoryLabel: "Categoria:",
   discountedTotalLabel: "Total com desconto",
-  shippingLabel: "Frete:",
   totalLabel: "Total:",
   buttonLabel: "Comprar",
   buttonAriaLabel: "Ver detalhes do produto",
