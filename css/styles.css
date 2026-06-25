@@ -29,10 +29,11 @@
 }
 
 .site-header__logo-wrap {
+  --logo-size: 110px;
   position: relative;
   flex-shrink: 0;
-  width: 120px;
-  height: 120px;
+  width: var(--logo-size);
+  height: var(--logo-size);
   overflow: hidden;
   border-radius: 50%;
   border: 10px solid #000;
@@ -45,6 +46,7 @@
   height: 100%;
   object-fit: contain;
   padding: 8px;
+  border-radius: 50%; /* garante o recorte circular mesmo se o overflow:hidden falhar */
 }
 
 .site-header__logo-placeholder {
@@ -84,15 +86,13 @@
   }
 
   .site-header__logo-wrap {
-    width: 120px;
-    height: 120px;
+    --logo-size: 130px;
   }
 }
 
 @media (min-width: 768px) {
   .site-header__logo-wrap {
-    width: 180px;
-    height: 180px;
+    --logo-size: 150px;
   }
 }
 
