@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#010101" />
+    <meta
+      name="description"
+      content="Top Achadinhos BR — Promoções reais, cupons exclusivos e dicas para economizar todos os dias."
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Top Achadinhos" />
+
+    <title>Top Achadinhos BR — Produtos do Mês</title>
+
+    <link rel="icon" href="assets/TopAchadinhoLogo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/TopAchadinhoLogo.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="container">
+        <section>
+          <header class="site-header">
+            <div class="site-header__logo-wrap">
+              <img id="header-logo" src="assets/TopAchadinhoLogo.png" alt="Top Achadinho" width="180" height="180" />
+            </div>
+            <h1 class="site-header__title">Top Achadinhos br - Produtos do Mês</h1>
+          </header>
+
+          <div class="hero">
+            <div class="hero__content">
+              <div id="texto-anuncio" class="texto-anuncio" aria-live="polite"></div>
+            </div>
+
+            <nav id="mobile-social" class="mobile-social" aria-label="Redes sociais"></nav>
+          </div>
+
+          <div id="produtos-grid" class="produtos-grid" aria-label="Lista de produtos"></div>
+        </section>
+
+        <footer class="site-footer">
+          <p>
+            © <span id="ano-atual"></span> Top Achadinhos BR —
+            <a href="https://www.instagram.com/top_achadinho.br" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </p>
+        </footer>
+      </div>
+    </main>
+
+    <aside class="slidebar" aria-label="Barra lateral de redes sociais">
+      <img id="slidebar-logo" class="slidebar__logo" src="assets/TopAchadinhoLogo.png" alt="Top Achadinhos" width="64" height="64" />
+      <div id="slidebar-links" class="slidebar__links"></div>
+    </aside>
+
+    <script>
+      document.getElementById("ano-atual").textContent = new Date().getFullYear();
+    </script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

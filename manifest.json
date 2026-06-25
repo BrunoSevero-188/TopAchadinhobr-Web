@@ -1,0 +1,19 @@
+{
+  "name": "Top Achadinhos BR",
+  "short_name": "Top Achadinhos",
+  "description": "Promoções reais, cupons exclusivos e dicas para economizar todos os dias.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#010101",
+  "theme_color": "#010101",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "assets/TopAchadinhoLogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

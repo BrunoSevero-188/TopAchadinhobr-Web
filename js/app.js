@@ -1,0 +1,189 @@
+(function () {
+  "use strict";
+
+  function escapeHtml(text) {
+    return String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function resolveRemainingText(template, diasRestantes) {
+    return template.replace("{dias}", String(diasRestantes));
+  }
+
+  function renderSocialLink(social) {
+    return (
+      '<a href="' +
+      escapeHtml(social.href) +
+      '" target="_blank" rel="noopener noreferrer" aria-label="' +
+      escapeHtml(social.alt) +
+      '" class="social-link">' +
+      '<img src="' +
+      escapeHtml(social.src) +
+      '" alt="' +
+      escapeHtml(social.alt) +
+      '" loading="lazy" width="128" height="128" />' +
+      "</a>"
+    );
+  }
+
+  function renderCardProduto(produto) {
+    var copy = cardStrings;
+    var categoria = produto.categoria || "Sem categoria";
+    var frete = produto.frete || "R$ 0";
+    var total = produto.precoNovo;
+    var discountedTotal = produto.precoNovo;
+    var hasLink = produto.link && produto.link !== "#";
+    var linkHref = hasLink ? produto.link : "#";
+    var linkAttrs = hasLink
+      ? 'target="_blank" rel="noreferrer"'
+      : 'aria-disabled="true" tabindex="-1"';
+
+    var imagemHtml = produto.imagem
+      ? '<img class="card-produto__image" src="' +
+        escapeHtml(produto.imagem) +
+        '" alt="' +
+        escapeHtml(produto.titulo) +
+        '" loading="lazy" />'
+      : '<div class="card-produto__image card-produto__image--placeholder">Sem imagem</div>';
+
+    var precoAntigoHtml = produto.precoAntigo
+      ? "<small>" + escapeHtml(produto.precoAntigo) + "</small>"
+      : "";
+
+    return (
+      '<article class="card-produto">' +
+      '<div class="card-produto__header">' +
+      "<h2>" +
+      escapeHtml(copy.offerTitle) +
+      "</h2>" +
+      "<p>" +
+      escapeHtml(resolveRemainingText(copy.offerRemainingText, produto.diasRestantes)) +
+      "</p>" +
+      "</div>" +
+      '<div class="card-produto__product">' +
+      imagemHtml +
+      '<div class="card-produto__info">' +
+      "<h4>" +
+      escapeHtml(produto.titulo) +
+      "</h4>" +
+      "<span>" +
+      escapeHtml(copy.categoryLabel) +
+      " " +
+      escapeHtml(categoria) +
+      "</span>" +
+      "</div>" +
+      '<div class="card-produto__price">' +
+      precoAntigoHtml +
+      "<strong>" +
+      escapeHtml(produto.precoNovo) +
+      "</strong>" +
+      "</div>" +
+      "</div>" +
+      '<div class="card-produto__details">' +
+      '<div class="card-produto__row">' +
+      "<span>" +
+      escapeHtml(copy.discountedTotalLabel) +
+      "</span>" +
+      "<span>" +
+      escapeHtml(discountedTotal) +
+      "</span>" +
+      "</div>" +
+      '<div class="card-produto__row">' +
+      "<span>" +
+      escapeHtml(copy.shippingLabel) +
+      "</span>" +
+      "<span>" +
+      escapeHtml(frete) +
+      "</span>" +
+      "</div>" +
+      '<div class="card-produto__row card-produto__row--total">' +
+      "<span>" +
+      escapeHtml(copy.totalLabel) +
+      "</span>" +
+      "<span>" +
+      escapeHtml(total) +
+      "</span>" +
+      "</div>" +
+      "</div>" +
+      '<a href="' +
+      escapeHtml(linkHref) +
+      '" ' +
+      linkAttrs +
+      ' class="card-produto__button" aria-label="' +
+      escapeHtml(copy.buttonAriaLabel) +
+      '">' +
+      escapeHtml(copy.buttonLabel) +
+      "</a>" +
+      "</article>"
+    );
+  }
+
+  function renderProdutos() {
+    var grid = document.getElementById("produtos-grid");
+    if (!grid) return;
+
+    if (!produtos.length) {
+      grid.innerHTML =
+        '<p class="produtos-vazio">Nenhum produto cadastrado no momento. Volte em breve!</p>';
+      return;
+    }
+
+    grid.innerHTML = produtos.map(renderCardProduto).join("");
+  }
+
+  function renderSocialLinks() {
+    var slidebarLinks = document.getElementById("slidebar-links");
+    var mobileSocial = document.getElementById("mobile-social");
+    var html = socialLinks.map(renderSocialLink).join("");
+
+    if (slidebarLinks) slidebarLinks.innerHTML = html;
+    if (mobileSocial) mobileSocial.innerHTML = html;
+  }
+
+  function renderTextoAnuncio() {
+    var el = document.getElementById("texto-anuncio");
+    if (!el) return;
+
+    el.innerHTML =
+      "<p>" +
+      escapeHtml(textoAnuncio.linha1) +
+      "<br />" +
+      escapeHtml(textoAnuncio.linha2) +
+      "<br />" +
+      escapeHtml(textoAnuncio.linha3) +
+      "<br />" +
+      escapeHtml(textoAnuncio.linha4) +
+      "</p>";
+  }
+
+  function renderHeader() {
+    var logoImg = document.getElementById("header-logo");
+    if (logoImg) {
+      logoImg.src = LOGO_SRC;
+      logoImg.alt = "Top Achadinho";
+    }
+
+    var slidebarLogo = document.getElementById("slidebar-logo");
+    if (slidebarLogo) {
+      slidebarLogo.src = LOGO_SRC;
+      slidebarLogo.alt = "Top Achadinhos";
+    }
+  }
+
+  function init() {
+    renderHeader();
+    renderTextoAnuncio();
+    renderSocialLinks();
+    renderProdutos();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
