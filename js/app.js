@@ -33,7 +33,6 @@
   function renderCardProduto(produto) {
     var copy = cardStrings;
     var categoria = produto.categoria || "Sem categoria";
-    var frete = produto.frete || "R$ 0";
     var total = produto.precoNovo;
     var discountedTotal = produto.precoNovo;
     var hasLink = produto.link && produto.link !== "#";
