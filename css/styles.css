@@ -29,15 +29,13 @@
 }
 
 .site-header__logo-wrap {
-  --logo-size: 110px;
+  --logo-size: 150px;
   position: relative;
   flex-shrink: 0;
   width: var(--logo-size);
   height: var(--logo-size);
   overflow: hidden;
   border-radius: 50%;
-  border: 10px solid #000;
-  background: #fff;
   padding: 4px;
 }
 

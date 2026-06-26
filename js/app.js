@@ -35,9 +35,26 @@
     var categoria = produto.categoria || "Sem categoria";
     var total = produto.precoNovo;
     var discountedTotal = produto.precoNovo;
+
+    var diasRestantes = 0;
+    if (produto.dataFim) {
+      var fim = new Date(produto.dataFim + "T23:59:59");
+      var agora = new Date();
+      var diffMs = fim.getTime() - agora.getTime();
+      diasRestantes = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+      if (isNaN(diasRestantes)) diasRestantes = 0;
+    }
+
+    var isIndisponivel = diasRestantes <= 0;
+    var diasRestantesTexto = isIndisponivel
+      ? "PRODUTO INDISPONIVEL NO MOMENTO ATUAL"
+      : resolveRemainingText(copy.offerRemainingText, diasRestantes);
+
     var hasLink = produto.link && produto.link !== "#";
     var linkHref = hasLink ? produto.link : "#";
-    var linkAttrs = hasLink
+    var linkAttrs = isIndisponivel
+      ? 'aria-disabled="true" tabindex="-1"'
+      : hasLink
       ? 'target="_blank" rel="noreferrer"'
       : 'aria-disabled="true" tabindex="-1"';
 
@@ -60,7 +77,7 @@
       escapeHtml(copy.offerTitle) +
       "</h2>" +
       "<p>" +
-      escapeHtml(resolveRemainingText(copy.offerRemainingText, produto.diasRestantes)) +
+      escapeHtml(diasRestantesTexto) +
       "</p>" +
       "</div>" +
       '<div class="card-produto__product">' +
@@ -91,14 +108,7 @@
       escapeHtml(discountedTotal) +
       "</span>" +
       "</div>" +
-      '<div class="card-produto__row">' +
-      "<span>" +
-      escapeHtml(copy.shippingLabel) +
-      "</span>" +
-      "<span>" +
-      escapeHtml(frete) +
-      "</span>" +
-      "</div>" +
+
       '<div class="card-produto__row card-produto__row--total">' +
       "<span>" +
       escapeHtml(copy.totalLabel) +

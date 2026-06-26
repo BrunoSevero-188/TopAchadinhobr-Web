@@ -5,7 +5,9 @@ const produtos = [
     precoNovo: "R$ 99,90",
     precoAntigo: "R$ 159,90",
     link: "#",
-    diasRestantes: 7,
+    // Defina a data de expiração do produto (timer real)
+    // Formato: "YYYY-MM-DD" (local)
+    dataFim: "2026-07-01",
     categoria: "Sem categoria",
   },
 ];
@@ -28,6 +30,18 @@ const socialLinks = [
     src: "assets/PinterestLogo.png",
     alt: "Pinterest",
     label: "Pinterest",
+  },
+  {
+    href: "https://www.youtube.com/channel/UCDzLFznAsfidOweL2Skxyzw/",
+    src: "assets/YoutubeLogo.avif",
+    alt: "YouTube",
+    label: "YouTube",
+  },
+  {
+    href: "https://www.tiktok.com/@topachadinhosbr2026",
+    src: "assets/TikTokLogo.avif",
+    alt: "TikTok",
+    label: "TikTok",
   },
 ];
 
