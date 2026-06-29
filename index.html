@@ -32,6 +32,13 @@
             <h1 class="site-header__title">Top Achadinhos br - Produtos do Mês</h1>
           </header>
 
+          <div id="user-identifier" class="user-identifier" aria-live="polite"></div>
+          <button id="switch-to-guest" type="button" class="user-switch-to-guest" aria-hidden="true">
+            Mudar para anônimo
+          </button>
+
+
+
           <div class="hero">
             <div class="hero__content">
               <div id="texto-anuncio" class="texto-anuncio" aria-live="polite"></div>
@@ -41,7 +48,35 @@
           </div>
 
           <div id="produtos-grid" class="produtos-grid" aria-label="Lista de produtos"></div>
+
+          <section id="login-modal" class="login-modal" aria-label="Escolha como entrar">
+            <div class="login-modal__overlay" data-close="true" aria-hidden="true"></div>
+            <div class="login-modal__card" role="dialog" aria-modal="true" aria-labelledby="login-modal__title">
+              <h2 id="login-modal__title" class="login-modal__title">Quer entrar?</h2>
+              <p class="login-modal__subtitle">Você pode conectar com Google ou continuar sem conta.</p>
+
+              <div class="login-modal__actions">
+                <button id="login-google" type="button" class="login-modal__btn login-modal__btn--google">
+                  Conectar com Google
+                </button>
+
+                <button id="login-guest" type="button" class="login-modal__btn login-modal__btn--guest">
+                  Continuar sem conta
+                </button>
+              </div>
+
+              <p id="login-status" class="login-modal__status" aria-live="polite"></p>
+
+              <div class="login-modal__actions login-modal__actions--second">
+                <button id="login-change-to-guest" type="button" class="login-modal__btn login-modal__btn--guest login-modal__btn--small">
+                  Mudar para anônimo
+                </button>
+              </div>
+            </div>
+          </section>
+
         </section>
+
 
         <footer class="site-footer">
           <p>

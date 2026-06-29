@@ -183,12 +183,114 @@
     }
   }
 
+  function initLoginModal() {
+    var modal = document.getElementById("login-modal");
+    if (!modal) return;
+
+    var overlay = modal.querySelector(".login-modal__overlay");
+    var btnGoogle = document.getElementById("login-google");
+    var btnGuest = document.getElementById("login-guest");
+    var status = document.getElementById("login-status");
+    var btnChangeToGuest = document.getElementById("login-change-to-guest");
+
+    var STORAGE_KEY = "topachadinho_user_mode";
+
+    var saved = null;
+    try {
+      saved = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      saved = null;
+    }
+
+    function setStatus(text) {
+      if (status) status.textContent = text;
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      if (overlay) overlay.setAttribute("aria-hidden", "true");
+    }
+
+    function openModal() {
+      modal.classList.add("is-open");
+      if (overlay) overlay.setAttribute("aria-hidden", "false");
+    }
+
+    var userIdentifier = document.getElementById("user-identifier");
+
+    function setUserIdentifier(mode) {
+      if (!userIdentifier) return;
+      if (mode === "google") {
+        userIdentifier.textContent = "Conectado com Google";
+      } else if (mode === "guest") {
+        userIdentifier.textContent = "Conectado como conta anônima";
+      } else {
+        userIdentifier.textContent = "";
+      }
+    }
+
+    function choose(mode) {
+      try {
+        localStorage.setItem(STORAGE_KEY, mode);
+      } catch (e) {}
+      if (mode === "google") setStatus("Modo Google selecionado (integração pendente).");
+      if (mode === "guest") setStatus("Você está usando sem conta.");
+
+      setUserIdentifier(mode);
+      closeModal();
+    }
+
+
+    function handleOverlayClick(e) {
+      if (!e) return;
+      if (e.target && overlay && e.target === overlay) {
+        closeModal();
+      }
+    }
+
+
+    // Persistência: se já escolheu, não mostra
+    if (saved === "google" || saved === "guest") {
+      setUserIdentifier(saved);
+      closeModal();
+      return;
+    }
+
+    openModal();
+
+
+    if (overlay) {
+      overlay.addEventListener("click", handleOverlayClick);
+    }
+
+    if (btnGoogle) {
+      btnGoogle.addEventListener("click", function () {
+        choose("google");
+      });
+    }
+
+    if (btnGuest) {
+      btnGuest.addEventListener("click", function () {
+        choose("guest");
+      });
+    }
+
+    if (btnChangeToGuest) {
+      btnChangeToGuest.addEventListener("click", function () {
+        choose("guest");
+      });
+    }
+  }
+
+
   function init() {
     renderHeader();
     renderTextoAnuncio();
     renderSocialLinks();
     renderProdutos();
+    initLoginModal();
   }
+
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
