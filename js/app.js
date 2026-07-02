@@ -43,12 +43,25 @@
       if (isNaN(diasRestantes)) diasRestantes = 0;
     }
 
+    function formatDataFim(dataFimStr) {
+      if (!dataFimStr) return "";
+      var fimDate = new Date(dataFimStr);
+      if (isNaN(fimDate.getTime())) {
+        return escapeHtml(String(dataFimStr));
+      }
+      var dd = String(fimDate.getDate()).padStart(2, "0");
+      var mm = String(fimDate.getMonth() + 1).padStart(2, "0");
+      var yyyy = fimDate.getFullYear();
+      return dd + "/" + mm + "/" + yyyy;
+    }
+
     var isIndisponivel = diasRestantes <= 0;
     var diasRestantesTexto = isIndisponivel
-      ? "PRODUTO INDISPONIVEL NO MOMENTO ATUAL"
+      ? "Oferta até " + formatDataFim(produto.dataFim)
       : resolveRemainingText(copy.offerRemainingText, diasRestantes);
 
     var hasLink = produto.link && produto.link !== "#";
+
     var linkHref = hasLink ? produto.link : "#";
     var linkAttrs = isIndisponivel
       ? 'aria-disabled="true" tabindex="-1"'
