@@ -1,14 +1,12 @@
 const produtos = [
   {
-    titulo: "Produto exemplo",
+    titulo: "",
     imagem: "",
-    precoNovo: "R$ 99,90",
-    precoAntigo: "R$ 159,90",
-    link: "#",
-    // Defina a data de expiração do produto (timer real)
-    // Formato: "YYYY-MM-DD" (local)
-    dataFim: "2026-07-01",
-    categoria: "Sem categoria",
+    precoNovo: "R$ ",
+    precoAntigo: "R$ ",
+    link: "",
+    dataFim: "2026-07-",
+    categoria: "",
   },
 ];
 

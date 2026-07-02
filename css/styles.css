@@ -387,17 +387,26 @@
 }
 
 .card-produto__product:hover .card-produto__image {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+/* Wrapper para garantir que a imagem externa sempre preencha 100% */
+.card-produto__image-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .card-produto__image {
   width: 100%;
-  max-width: 220px;
-  border-radius: 10px;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
   transition: transform 0.4s ease;
-  object-fit: cover;
-  aspect-ratio: 1;
-  background: #1e293b;
+  border-radius: 10px;
 }
 
 .card-produto__image--placeholder {
@@ -405,7 +414,6 @@
   align-items: center;
   justify-content: center;
   min-height: 160px;
-  color: #9ca3af;
   font-size: 0.875rem;
 }
 

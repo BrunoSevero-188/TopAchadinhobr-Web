@@ -57,8 +57,8 @@
       : 'aria-disabled="true" tabindex="-1"';
 
     var imagemHtml = produto.imagem
-      ? '<img class="card-produto__image" src="' + escapeHtml(produto.imagem) + '" alt="' + escapeHtml(produto.titulo) + '" loading="lazy" />'
-      : '<div class="card-produto__image card-produto__image--placeholder">Sem imagem</div>';
+      ? '<div class="card-produto__image-wrap"><img class="card-produto__image" src="' + escapeHtml(produto.imagem) + '" alt="' + escapeHtml(produto.titulo) + '" loading="lazy" /></div>'
+      : '<div class="card-produto__image-wrap card-produto__image--placeholder">Sem imagem</div>';
 
     var precoAntigoHtml = produto.precoAntigo
       ? "<small>" + escapeHtml(produto.precoAntigo) + "</small>"
