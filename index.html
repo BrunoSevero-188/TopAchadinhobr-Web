@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="css/globals.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/slidebar-mobile.css" />
   </head>
   <body>
     <main class="main">
@@ -55,6 +56,15 @@
     <!-- SLIDEBAR: logo substituído pelo botão de contato com o ADM via WhatsApp -->
     <aside class="slidebar" aria-label="Barra lateral de redes sociais">
 
+      <button
+        id="slidebar-toggle"
+        type="button"
+        class="slidebar__toggle"
+        aria-label="Ocultar barra lateral"
+      >
+        ✕
+      </button>
+
       <!-- Botão de contato direto com o administrador no WhatsApp -->
       <a
         id="slidebar-contact-btn"
@@ -75,10 +85,28 @@
       <div id="slidebar-links" class="slidebar__links"></div>
     </aside>
 
+    <!-- Botão para reexibir perfis/slidebar no desktop -->
+    <button id="slidebar-reopen" type="button" class="slidebar-reopen" aria-label="Mostrar barra lateral">
+      ≡
+    </button>
+
+    <!-- Botão de WhatsApp para celular -->
+    <a
+      id="mobile-chat"
+      class="mobile-chat"
+      href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Convesar com o ADM"
+    >
+      Conversar com o ADM
+    </a>
+
     <script>
       document.getElementById("ano-atual").textContent = new Date().getFullYear();
     </script>
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/slidebar.js"></script>
   </body>
 </html>

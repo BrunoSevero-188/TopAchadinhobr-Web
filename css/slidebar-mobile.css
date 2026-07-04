@@ -1,0 +1,102 @@
+/* Botão WhatsApp para celular */
+
+.mobile-chat {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(37, 211, 102, 0.2);
+  border: 1px solid rgba(37, 211, 102, 0.45);
+  color: #eafff2;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.mobile-chat:hover,
+.mobile-chat:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(37, 211, 102, 0.28);
+  border-color: rgba(37, 211, 102, 0.65);
+}
+
+@media (min-width: 1024px) {
+  .mobile-chat {
+    display: none;
+  }
+}
+
+/* Botão fechar/hide no desktop */
+
+.slidebar__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.slidebar__toggle:hover,
+.slidebar__toggle:focus-visible {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  outline: none;
+}
+
+/* ocultar slidebar */
+
+.slidebar--hidden {
+  display: none !important;
+}
+
+/* Botão flutuante para reexibir a slidebar no desktop */
+
+.slidebar-reopen {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 55;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.95);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.slidebar-reopen:hover,
+.slidebar-reopen:focus-visible {
+  outline: none;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 1023.98px) {
+  .slidebar-reopen {
+    display: none;
+  }
+}
+
+
