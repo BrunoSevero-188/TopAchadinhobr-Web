@@ -1,23 +1,4 @@
-const produtos = [
-  {
-    titulo: "Mochila Dos Homens Com Faixa Impermeável Para Expansão",
-    imagem: "https://http2.mlstatic.com/D_NQ_NP_2X_741399-MLB112035982759_052026-F.webp",
-    precoNovo: "R$ 89,90",
-    precoAntigo: "R$ 297,00",
-    link: "https://meli.la/1HPDuTH",
-    dataFim: "2026-07-09 T00:00:00",
-    categoria: "Mochila",
-  },
-  {
-    titulo: "",
-    imagem: "",
-    precoNovo: "R$ ",
-    precoAntigo: "R$ ",
-    link: "",
-    dataFim: "2026-07-",
-    categoria: "",
-  },
-];
+const PRODUTOS_JSON_URL = "data/produtos.json";
 
 const socialLinks = [
   {
@@ -63,7 +44,6 @@ const cardStrings = {
   offerTitle: "Oferta Achadinho",
   offerRemainingText: "Oferta até {dias} dias no site",
   categoryLabel: "Categoria:",
-  discountedTotalLabel: "Total com desconto",
   totalLabel: "Total:",
   buttonLabel: "Comprar",
   buttonAriaLabel: "Ver detalhes do produto",

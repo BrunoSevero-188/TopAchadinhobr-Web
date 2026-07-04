@@ -1,0 +1,16 @@
+{
+  "name": "top-achadinho-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site Top Achadinhos BR com API de produtos",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "node --watch api/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

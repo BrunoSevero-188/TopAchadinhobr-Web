@@ -32,7 +32,6 @@
     var copy = cardStrings;
     var categoria = produto.categoria || "Sem categoria";
     var total = produto.precoNovo;
-    var discountedTotal = produto.precoNovo;
 
     var diasRestantes = 0;
     if (produto.dataFim) {
@@ -95,10 +94,6 @@
       "</div>" +
       "</div>" +
       '<div class="card-produto__details">' +
-      '<div class="card-produto__row">' +
-      "<span>" + escapeHtml(copy.discountedTotalLabel) + "</span>" +
-      "<span>" + escapeHtml(discountedTotal) + "</span>" +
-      "</div>" +
       '<div class="card-produto__row card-produto__row--total">' +
       "<span>" + escapeHtml(copy.totalLabel) + "</span>" +
       "<span>" + escapeHtml(total) + "</span>" +
@@ -111,7 +106,7 @@
     );
   }
 
-  function renderProdutos() {
+  function renderProdutos(produtos) {
     var grid = document.getElementById("produtos-grid");
     if (!grid) return;
 
@@ -121,6 +116,26 @@
     }
 
     grid.innerHTML = produtos.map(renderCardProduto).join("");
+  }
+
+  function carregarProdutos() {
+    var grid = document.getElementById("produtos-grid");
+    if (!grid) return Promise.resolve([]);
+
+    return fetch(PRODUTOS_JSON_URL)
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Falha ao carregar produtos");
+        }
+        return response.json();
+      })
+      .then(function (produtos) {
+        return Array.isArray(produtos) ? produtos : [];
+      })
+      .catch(function () {
+        grid.innerHTML = '<p class="produtos-vazio">Não foi possível carregar os produtos. Tente novamente mais tarde.</p>';
+        return [];
+      });
   }
 
   /* ─── Render: links sociais nas duas zonas ─── */
@@ -163,7 +178,7 @@
     renderHeader();
     renderTextoAnuncio();
     renderSocialLinks();
-    renderProdutos();
+    carregarProdutos().then(renderProdutos);
   }
 
   if (document.readyState === "loading") {
