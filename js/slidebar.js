@@ -3,42 +3,37 @@
 
   function initSlidebar() {
     var btn = document.getElementById("slidebar-toggle");
+
     var slidebar = document.querySelector("aside.slidebar");
+
     var reopenBtn = document.getElementById("slidebar-reopen");
-    if (!slidebar) return;
+
+    if (!slidebar || !reopenBtn) return;
+
+    function syncReopenBtn() {
+      var isHidden = slidebar.classList.contains("slidebar--hidden");
+
+      if (isHidden) {
+        reopenBtn.classList.add("slidebar-reopen--visible");
+      } else {
+        reopenBtn.classList.remove("slidebar-reopen--visible");
+      }
+    }
 
     if (btn) {
       btn.addEventListener("click", function () {
         slidebar.classList.add("slidebar--hidden");
-        if (reopenBtn) {
-          reopenBtn.style.display = "inline-flex";
-          reopenBtn.style.left = "1rem";
-          reopenBtn.style.right = "auto";
-        }
+        syncReopenBtn();
       });
     }
 
     if (reopenBtn) {
       reopenBtn.addEventListener("click", function () {
         slidebar.classList.remove("slidebar--hidden");
-        // reposiciona/garante visibilidade do botão
-        reopenBtn.style.display = slidebar.classList.contains("slidebar--hidden") ? "inline-flex" : "none";
-      });
-    }
-
-    function syncReopenBtn() {
-      if (!reopenBtn) return;
-      // Mostra o botão apenas quando a slidebar estiver oculta
-      reopenBtn.style.display = slidebar.classList.contains("slidebar--hidden") ? "inline-flex" : "none";
-    }
-
-    if (btn) {
-      btn.addEventListener("click", function () {
         syncReopenBtn();
       });
     }
 
-    // estado inicial
     syncReopenBtn();
   }
 

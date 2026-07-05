@@ -1,5 +1,3 @@
-/* Botão WhatsApp para celular */
-
 .mobile-chat {
   position: fixed;
   right: 1rem;
@@ -32,9 +30,6 @@
     display: none;
   }
 }
-
-/* Botão fechar/hide no desktop */
-
 .slidebar__toggle {
   display: inline-flex;
   align-items: center;
@@ -57,20 +52,15 @@
   outline: none;
 }
 
-/* ocultar slidebar */
-
 .slidebar--hidden {
   display: none !important;
 }
 
-/* Botão flutuante para reexibir a slidebar no desktop */
-
 .slidebar-reopen {
   position: fixed;
-  display: none !important;
   left: 1rem;
-  top: 430px;
-  transform: none;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 55;
   width: 52px;
   height: 52px;
@@ -78,7 +68,7 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(0, 0, 0, 0.6);
   color: rgba(255, 255, 255, 0.95);
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
@@ -86,6 +76,7 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
 }
 
 .slidebar-reopen:hover,
@@ -94,8 +85,16 @@
   background: rgba(0, 0, 0, 0.75);
 }
 
+.slidebar-reopen--visible {
+  display: inline-flex !important;
+}
+
 @media (max-width: 1023.98px) {
   .slidebar-reopen {
-    display: none;
+    display: none !important;
+  }
+
+  .slidebar-reopen--visible {
+    display: none !important;
   }
 }

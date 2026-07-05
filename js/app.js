@@ -1,14 +1,12 @@
 (function () {
   "use strict";
 
-  /* ─── Utilitários ─── */
-
   function escapeHtml(text) {
     return String(text)
       .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
+      .replace(/</g, "<")
+      .replace(/>/g, ">")
+      .replace(/\"/g, """)
       .replace(/'/g, "&#39;");
   }
 
@@ -16,20 +14,25 @@
     return template.replace("{dias}", String(diasRestantes));
   }
 
-  /* ─── Render: links sociais ─── */
-
   function renderSocialLink(social) {
     return (
-      '<a href="' + escapeHtml(social.href) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(social.alt) + '" class="social-link">' +
-      '<img src="' + escapeHtml(social.src) + '" alt="' + escapeHtml(social.alt) + '" loading="lazy" width="128" height="128" />' +
+      '<a href="' +
+      escapeHtml(social.href) +
+      '" target="_blank" rel="noopener noreferrer" aria-label="' +
+      escapeHtml(social.alt) +
+      '" class="social-link">' +
+      '<img src="' +
+      escapeHtml(social.src) +
+      '" alt="' +
+      escapeHtml(social.alt) +
+      '" loading="lazy" width="128" height="128" />' +
       "</a>"
     );
   }
 
-  /* ─── Render: cards de produto ─── */
-
   function renderCardProduto(produto) {
     var copy = cardStrings;
+
     var categoria = produto.categoria || "Sem categoria";
     var total = produto.precoNovo;
 
@@ -44,13 +47,16 @@
 
     function formatDataFim(dataFimStr) {
       if (!dataFimStr) return "";
+
       var fimDate = new Date(dataFimStr);
       if (isNaN(fimDate.getTime())) {
         return escapeHtml(String(dataFimStr));
       }
+
       var dd = String(fimDate.getDate()).padStart(2, "0");
       var mm = String(fimDate.getMonth() + 1).padStart(2, "0");
       var yyyy = fimDate.getFullYear();
+
       return dd + "/" + mm + "/" + yyyy;
     }
 
@@ -60,8 +66,8 @@
       : resolveRemainingText(copy.offerRemainingText, diasRestantes);
 
     var hasLink = produto.link && produto.link !== "#";
-
     var linkHref = hasLink ? produto.link : "#";
+
     var linkAttrs = isIndisponivel
       ? 'aria-disabled="true" tabindex="-1"'
       : hasLink
@@ -69,7 +75,11 @@
       : 'aria-disabled="true" tabindex="-1"';
 
     var imagemHtml = produto.imagem
-      ? '<div class="card-produto__image-wrap"><img class="card-produto__image" src="' + escapeHtml(produto.imagem) + '" alt="' + escapeHtml(produto.titulo) + '" loading="lazy" /></div>'
+      ? '<div class="card-produto__image-wrap"><img class="card-produto__image" src="' +
+        escapeHtml(produto.imagem) +
+        '" alt="' +
+        escapeHtml(produto.titulo) +
+        '" loading="lazy" /></div>'
       : '<div class="card-produto__image-wrap card-produto__image--placeholder">Sem imagem</div>';
 
     var precoAntigoHtml = produto.precoAntigo
@@ -86,7 +96,11 @@
       imagemHtml +
       '<div class="card-produto__info">' +
       "<h4>" + escapeHtml(produto.titulo) + "</h4>" +
-      "<span>" + escapeHtml(copy.categoryLabel) + " " + escapeHtml(categoria) + "</span>" +
+      "<span>" +
+      escapeHtml(copy.categoryLabel) +
+      " " +
+      escapeHtml(categoria) +
+      "</span>" +
       "</div>" +
       '<div class="card-produto__price">' +
       precoAntigoHtml +
@@ -99,7 +113,13 @@
       "<span>" + escapeHtml(total) + "</span>" +
       "</div>" +
       "</div>" +
-      '<a href="' + escapeHtml(linkHref) + '" ' + linkAttrs + ' class="card-produto__button" aria-label="' + escapeHtml(copy.buttonAriaLabel) + '">' +
+      '<a href="' +
+      escapeHtml(linkHref) +
+      '" ' +
+      linkAttrs +
+      ' class="card-produto__button" aria-label="' +
+      escapeHtml(copy.buttonAriaLabel) +
+      '">' +
       escapeHtml(copy.buttonLabel) +
       "</a>" +
       "</article>"
@@ -111,7 +131,8 @@
     if (!grid) return;
 
     if (!produtos.length) {
-      grid.innerHTML = '<p class="produtos-vazio">Nenhum produto cadastrado no momento. Volte em breve!</p>';
+      grid.innerHTML =
+        '<p class="produtos-vazio">Nenhum produto cadastrado no momento. Volte em breve!</p>';
       return;
     }
 
@@ -124,35 +145,33 @@
 
     return fetch(PRODUTOS_JSON_URL)
       .then(function (response) {
-        if (!response.ok) {
-          throw new Error("Falha ao carregar produtos");
-        }
+        if (!response.ok) throw new Error("Falha ao carregar produtos");
         return response.json();
       })
       .then(function (produtos) {
         return Array.isArray(produtos) ? produtos : [];
       })
       .catch(function () {
-        grid.innerHTML = '<p class="produtos-vazio">Não foi possível carregar os produtos. Tente novamente mais tarde.</p>';
+        grid.innerHTML =
+          '<p class="produtos-vazio">Não foi possível carregar os produtos. Tente novamente mais tarde.</p>';
         return [];
       });
   }
 
-  /* ─── Render: links sociais nas duas zonas ─── */
-
   function renderSocialLinks() {
     var slidebarLinks = document.getElementById("slidebar-links");
-    var mobileSocial  = document.getElementById("mobile-social");
-    var html = socialLinks.map(renderSocialLink).join("");
-    if (slidebarLinks) slidebarLinks.innerHTML = html;
-    if (mobileSocial)  mobileSocial.innerHTML  = html;
-  }
+    var mobileSocial = document.getElementById("mobile-social");
 
-  /* ─── Render: texto do hero ─── */
+    var html = socialLinks.map(renderSocialLink).join("");
+
+    if (slidebarLinks) slidebarLinks.innerHTML = html;
+    if (mobileSocial) mobileSocial.innerHTML = html;
+  }
 
   function renderTextoAnuncio() {
     var el = document.getElementById("texto-anuncio");
     if (!el) return;
+
     el.innerHTML =
       "<p>" +
       escapeHtml(textoAnuncio.linha1) + "<br />" +
@@ -162,17 +181,13 @@
       "</p>";
   }
 
-  /* ─── Render: logo do header ─── */
-
   function renderHeader() {
     var logoImg = document.getElementById("header-logo");
-    if (logoImg) {
-      logoImg.src = LOGO_SRC;
-      logoImg.alt = "Top Achadinho";
-    }
-  }
+    if (!logoImg) return;
 
-  /* ─── Init ─── */
+    logoImg.src = LOGO_SRC;
+    logoImg.alt = "Top Achadinho";
+  }
 
   function init() {
     renderHeader();
