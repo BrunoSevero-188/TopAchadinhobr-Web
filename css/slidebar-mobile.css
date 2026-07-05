@@ -67,9 +67,10 @@
 
 .slidebar-reopen {
   position: fixed;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  display: none !important;
+  left: 1rem;
+  top: 430px;
+  transform: none;
   z-index: 55;
   width: 52px;
   height: 52px;
