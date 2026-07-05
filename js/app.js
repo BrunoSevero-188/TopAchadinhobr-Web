@@ -6,7 +6,7 @@
       .replace(/&/g, "&amp;")
       .replace(/</g, "<")
       .replace(/>/g, ">")
-      .replace(/\"/g, """)
+      .replace(/\"/g, '"')
       .replace(/'/g, "&#39;");
   }
 
@@ -190,10 +190,58 @@
   }
 
   function init() {
-    renderHeader();
-    renderTextoAnuncio();
-    renderSocialLinks();
-    carregarProdutos().then(renderProdutos);
+    try {
+      // garante que não vai quebrar em branco
+      if (typeof LOGO_SRC === "undefined") {
+        var grid = document.getElementById("produtos-grid");
+        if (grid) {
+          grid.innerHTML =
+            '<p class="produtos-vazio">Erro: LOGO_SRC não definido. Verifique js/data.js.</p>';
+        }
+        return;
+      }
+
+      // texto do anúncio (mesmo se textoAnuncio vier ausente)
+      renderHeader();
+
+      if (typeof textoAnuncio !== "undefined") {
+        renderTextoAnuncio();
+      } else {
+        var el = document.getElementById("texto-anuncio");
+        if (el) el.innerHTML = "<p>Bem-vindo ao Top Achadinhos 🛒</p>";
+      }
+
+      if (typeof socialLinks !== "undefined") {
+        renderSocialLinks();
+      }
+
+      if (typeof cardStrings === "undefined") {
+        var grid2 = document.getElementById("produtos-grid");
+        if (grid2) {
+          grid2.innerHTML =
+            '<p class="produtos-vazio">Erro: cardStrings não definido. Verifique js/data.js.</p>';
+        }
+        return;
+      }
+
+      carregarProdutos().then(renderProdutos);
+    } catch (err) {
+      var grid = document.getElementById("produtos-grid");
+      var anuncio = document.getElementById("texto-anuncio");
+      var msg = err && err.message ? err.message : String(err);
+
+      if (anuncio) {
+        anuncio.innerHTML = '<p>Erro ao carregar página. ' + escapeHtml(msg) + "</p>";
+      }
+      if (grid) {
+        grid.innerHTML =
+          '<p class="produtos-vazio">Erro ao carregar produtos: ' + escapeHtml(msg) + "</p>";
+      }
+
+      try {
+        console.error(err);
+      } catch (e) {}
+    }
   }
 
   if (document.readyState === "loading") {
@@ -202,3 +250,4 @@
     init();
   }
 })();
+
