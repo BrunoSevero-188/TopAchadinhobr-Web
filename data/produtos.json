@@ -5,7 +5,7 @@
     "precoNovo": "R$ 89,90",
     "precoAntigo": "R$ 297,00",
     "link": "https://meli.la/1HPDuTH",
-    "dataFim": "2026-07-09",
+    "dataFim": "2026-07-12",
     "categoria": "Mochila"
   },
   {
@@ -14,7 +14,70 @@
     "precoNovo": "R$ 48,71",
     "precoAntigo": "R$ 88,27",
     "link": "https://s.shopee.com.br/3g1mMQhzOv",
-    "dataFim": "2026-07-09",
+    "dataFim": "2026-07-12",
     "categoria": "Toalhas de Banho"
+  },
+  {
+    "titulo": "Kit C/ 4 Toalha De Banho Gigante 80 X 150 Cm Atacado + Softmax",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_655993-MLA112117491538_062026-F.webp",
+    "precoNovo": "R$ 76,62",
+    "precoAntigo": "R$ 154,22",
+    "link": "https://meli.la/2iFaYaN",
+    "dataFim": "2026-07-12",
+    "categoria": "Toalhas de Banho"
+  },
+  {
+    "titulo": "Kit 2 Mochila Masculina Impermeável Pequena Bolsa de Ombro yihan",
+    "imagem": "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m1tvpq9jg24xe8@resize_w900_nl.webp",
+    "precoNovo": "R$ 24,99",
+    "precoAntigo": "R$ 66,00",
+    "link": "https://s.shopee.com.br/8AUGe9J8sz",
+    "dataFim": "2026-07-13",
+    "categoria": "Mochila"
+  },
+  {
+    "titulo": "AirPods 4 com Cancelamento Ativo de Ruído",
+    "imagem": "https://m.media-amazon.com/images/I/41paWip4xcL._AC_SX679_.jpg",
+    "precoNovo": "R$ 1.420,10",
+    "precoAntigo": "R$ 1.999,00",
+    "link": "https://link.amazon/B0iduHinG",
+    "dataFim": "2026-07-13",
+    "categoria": "Fone de Ouvido"
+  },
+  {
+    "titulo": "Body Splash Masculino Lion Strength 200ml - Miss Care by Miss Rôse · Desodorante com Vitamina E · Inspiração Árabe Asad",
+    "imagem": "https://ae-pic-a1.aliexpress-media.com/kf/A0004f770541b48489fd38288561865f5S.jpg_960x960q75.jpg_.avif",
+    "precoNovo": "R$ 8,40",
+    "precoAntigo": "R$ 64,00",
+    "link": "https://s.click.aliexpress.com/e/_c44yFAvR",
+    "dataFim": "2026-07-13",
+    "categoria": "Perfumaria / Cosméticos"
+  },
+  {
+    "titulo": "Perfume Rabanne Invictus Victory Elixir Parfum 200 ml Masculino",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_941156-MLA100377237888_122025-F.webp",
+    "precoNovo": "R$ 619,00",
+    "precoAntigo": "R$ 1.289,00",
+    "link": "https://meli.la/2h9WWAs",
+    "dataFim": "2026-07-14",
+    "categoria": "Perfumaria / Cosméticos"
+  },
+  {
+    "titulo": "Kit Capilar Shampoo Condicionador Mascara de Hidratação Leave In Cavalo de Raça Anti Queda Força e Crescimento Bio Ins",
+    "imagem": "https://down-br.img.susercontent.com/file/sg-11134201-7ren8-m2346vpexd0ddd@resize_w900_nl.webp",
+    "precoNovo": "R$ 31,79",
+    "precoAntigo": "R$ 69,90",
+    "link": "https://s.shopee.com.br/3B5aw5BFdZ",
+    "dataFim": "2026-07-14",
+    "categoria": "Tratamento Capilar"
+  },
+  {
+    "titulo": "Casaco curto masculino grosso e quente para outono e inverno, jaqueta casual masculina estampada à prova de vento com zíper, tamanhos M-5XL",
+    "imagem": "https://ae-pic-a1.aliexpress-media.com/kf/S8054f9b116c1427084fc91668c202826M.jpg_960x960q75.jpg_.avif",
+    "precoNovo": "R$ 20,16",
+    "precoAntigo": "R$ 105,69",
+    "link": "https://s.click.aliexpress.com/e/_c4EttYat",
+    "dataFim": "2026-07-14",
+    "categoria": "Casaco / Jaqueta"
   }
 ]
