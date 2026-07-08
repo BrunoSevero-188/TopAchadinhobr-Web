@@ -3,9 +3,7 @@
 
   function initSlidebar() {
     var btn = document.getElementById("slidebar-toggle");
-
     var slidebar = document.querySelector("aside.slidebar");
-
     var reopenBtn = document.getElementById("slidebar-reopen");
 
     if (!slidebar || !reopenBtn) return;

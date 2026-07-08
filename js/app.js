@@ -4,9 +4,9 @@
   function escapeHtml(text) {
     return String(text)
       .replace(/&/g, "&amp;")
-      .replace(/</g, "<")
-      .replace(/>/g, ">")
-      .replace(/\"/g, '"')
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\"/g, "&quot;")
       .replace(/'/g, "&#39;");
   }
 
@@ -33,7 +33,20 @@
   function renderCardProduto(produto) {
     var copy = cardStrings;
 
-    var categoria = produto.categoria || "Sem categoria";
+    // Cada produto pertence a uma única categoria (categoria001 a categoria007).
+    var categoriasPadrao = {
+      Categoria001: "categoria001",
+      Categoria002: "categoria002",
+      Categoria003: "categoria003",
+      Categoria004: "categoria004",
+      Categoria005: "categoria005",
+      Categoria006: "categoria006",
+      Categoria007: "categoria007",
+    };
+
+    var categoriaBruta = String(produto.categoria || "").trim();
+    var categoriaNormalizada = categoriasPadrao[categoriaBruta] || categoriaBruta || "Sem categoria";
+
     var total = produto.precoNovo;
 
     var diasRestantes = 0;
@@ -99,7 +112,7 @@
       "<span>" +
       escapeHtml(copy.categoryLabel) +
       " " +
-      escapeHtml(categoria) +
+      escapeHtml(categoriaNormalizada) +
       "</span>" +
       "</div>" +
       '<div class="card-produto__price">' +
@@ -231,7 +244,7 @@
       var msg = err && err.message ? err.message : String(err);
 
       if (anuncio) {
-        anuncio.innerHTML = '<p>Erro ao carregar página. ' + escapeHtml(msg) + "</p>";
+        anuncio.innerHTML = "<p>Erro ao carregar página. " + escapeHtml(msg) + "</p>";
       }
       if (grid) {
         grid.innerHTML =
@@ -250,4 +263,3 @@
     init();
   }
 })();
-
