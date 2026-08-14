@@ -1,13 +1,42 @@
 :root {
-  --bg-main: #010101;
-  --bg-panel: #111111;
-  --text-main: #ffffff;
-  --accent-soft: #fff0b0;
-  --brand-green: #20d502;
-  --header-bg: #f7f3c8;
-  --hero-bg: #e9e9e9;
-  --text-dark: #333333;
-  --font-main: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  /* Cores base */
+  --bg-main: #0a0e17;
+  --bg-panel: #111726;
+  --bg-panel-alt: #161d2e;
+  --surface: #faf7f0;
+  --surface-border: rgba(10, 14, 23, 0.08);
+  --text-main: #f2f4f9;
+  --text-muted: #97a1b5;
+  --text-dark: #171b26;
+  --text-dark-muted: #5c6577;
+
+  /* Acentos */
+  --accent: #f2a93b;
+  --accent-strong: #ff7a45;
+  --accent-soft: rgba(242, 169, 59, 0.14);
+  --whatsapp: #25d366;
+  --price-off: #ff6b57;
+
+  /* Bordas e sombras */
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --shadow-sm: 0 8px 20px rgba(4, 6, 12, 0.28);
+  --shadow-md: 0 20px 45px rgba(4, 6, 12, 0.45);
+  --shadow-lg: 0 26px 60px rgba(4, 6, 12, 0.55);
+
+  /* Raios */
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
+  --radius-sm: 0.65rem;
+
+  /* Tipografia */
+  --font-display: "Manrope", "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+
+  /* Compat: nomes antigos referenciados em outros arquivos/JS, se houver */
+  --header-bg: var(--surface);
+  --hero-bg: var(--surface);
+  --brand-green: var(--whatsapp);
+  --font-main: var(--font-body);
 }
 
 *,
@@ -25,9 +54,16 @@ body {
   margin: 0;
   background: var(--bg-main);
   color: var(--text-main);
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
 }
 
 a {
@@ -43,6 +79,12 @@ img {
 
 button {
   font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .sr-only {
