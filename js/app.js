@@ -1,6 +1,9 @@
 (function () {
   "use strict";
 
+  var todosProdutos = [];
+  var categoriaAtiva = "todas";
+
   function escapeHtml(text) {
     return String(text)
       .replace(/&/g, "&amp;")
@@ -12,6 +15,26 @@
 
   function resolveRemainingText(template, diasRestantes) {
     return template.replace("{dias}", String(diasRestantes));
+  }
+
+  // Normaliza o valor bruto de produto.categoria para um rótulo de exibição.
+  // Usada tanto no card quanto no filtro, para as duas partes falarem a
+  // mesma língua (mesmo rótulo = mesmo grupo).
+  function normalizeCategoria(categoriaBruta) {
+    var categoriasPadrao = {
+      Categoria001: "Categoria 01",
+      Categoria002: "Categoria 02",
+      Categoria003: "Categoria 03",
+      Categoria004: "Categoria 04",
+      Categoria005: "Categoria 05",
+      Categoria006: "Categoria 06",
+      Categoria007: "Categoria 07",
+    };
+
+    var bruta = String(categoriaBruta || "").trim();
+    if (!bruta) return "Sem categoria";
+    if (categoriasPadrao[bruta]) return categoriasPadrao[bruta];
+    return bruta.charAt(0).toUpperCase() + bruta.slice(1);
   }
 
   function renderSocialLink(social) {
@@ -33,19 +56,7 @@
   function renderCardProduto(produto) {
     var copy = cardStrings;
 
-    // Cada produto pertence a uma única categoria (categoria001 a categoria007).
-    var categoriasPadrao = {
-      Categoria001: "categoria001",
-      Categoria002: "categoria002",
-      Categoria003: "categoria003",
-      Categoria004: "categoria004",
-      Categoria005: "categoria005",
-      Categoria006: "categoria006",
-      Categoria007: "categoria007",
-    };
-
-    var categoriaBruta = String(produto.categoria || "").trim();
-    var categoriaNormalizada = categoriasPadrao[categoriaBruta] || categoriaBruta || "Sem categoria";
+    var categoriaNormalizada = normalizeCategoria(produto.categoria);
 
     var total = produto.precoNovo;
 
@@ -144,12 +155,92 @@
     if (!grid) return;
 
     if (!produtos.length) {
-      grid.innerHTML =
-        '<p class="produtos-vazio">Nenhum produto cadastrado no momento. Volte em breve!</p>';
+      var mensagem =
+        categoriaAtiva === "todas"
+          ? "Nenhum produto cadastrado no momento. Volte em breve!"
+          : "Nenhum produto encontrado nesta categoria.";
+      grid.innerHTML = '<p class="produtos-vazio">' + escapeHtml(mensagem) + "</p>";
       return;
     }
 
     grid.innerHTML = produtos.map(renderCardProduto).join("");
+  }
+
+  // ---------------------------------------------------------------------
+  // Filtro de categorias
+  // ---------------------------------------------------------------------
+
+  function coletarCategorias(produtos) {
+    var contagemPorCategoria = {};
+    produtos.forEach(function (produto) {
+      var label = normalizeCategoria(produto.categoria);
+      contagemPorCategoria[label] = (contagemPorCategoria[label] || 0) + 1;
+    });
+    return contagemPorCategoria;
+  }
+
+  function filtrarProdutosPorCategoria(produtos) {
+    if (categoriaAtiva === "todas") return produtos;
+    return produtos.filter(function (produto) {
+      return normalizeCategoria(produto.categoria) === categoriaAtiva;
+    });
+  }
+
+  function renderFiltroBotao(chave, label, contagem, ativo) {
+    return (
+      '<button type="button" class="filtro-categorias__item' +
+      (ativo ? " filtro-categorias__item--ativo" : "") +
+      '" data-categoria="' +
+      escapeHtml(chave) +
+      '" aria-pressed="' +
+      (ativo ? "true" : "false") +
+      '">' +
+      escapeHtml(label) +
+      ' <span class="filtro-categorias__contagem">' +
+      contagem +
+      "</span>" +
+      "</button>"
+    );
+  }
+
+  function aplicarFiltro(novaCategoria) {
+    categoriaAtiva = novaCategoria;
+    renderFiltroCategorias(todosProdutos);
+    renderProdutos(filtrarProdutosPorCategoria(todosProdutos));
+  }
+
+  function renderFiltroCategorias(produtos) {
+    var container = document.getElementById("filtro-categorias");
+    if (!container) return;
+
+    if (!produtos.length) {
+      container.innerHTML = "";
+      return;
+    }
+
+    var contagemPorCategoria = coletarCategorias(produtos);
+    var categoriasOrdenadas = Object.keys(contagemPorCategoria).sort(function (a, b) {
+      return a.localeCompare(b, "pt-BR", { numeric: true, sensitivity: "base" });
+    });
+
+    var botoes = [
+      renderFiltroBotao("todas", "Todos", produtos.length, categoriaAtiva === "todas"),
+    ];
+
+    categoriasOrdenadas.forEach(function (label) {
+      botoes.push(
+        renderFiltroBotao(label, label, contagemPorCategoria[label], categoriaAtiva === label)
+      );
+    });
+
+    container.innerHTML = botoes.join("");
+
+    var itens = container.querySelectorAll("[data-categoria]");
+    for (var i = 0; i < itens.length; i++) {
+      itens[i].addEventListener("click", function (evento) {
+        aplicarFiltro(evento.currentTarget.getAttribute("data-categoria"));
+      });
+    }
   }
 
   function carregarProdutos() {
@@ -204,7 +295,6 @@
 
   function init() {
     try {
-      // garante que não vai quebrar em branco
       if (typeof LOGO_SRC === "undefined") {
         var grid = document.getElementById("produtos-grid");
         if (grid) {
@@ -214,7 +304,6 @@
         return;
       }
 
-      // texto do anúncio (mesmo se textoAnuncio vier ausente)
       renderHeader();
 
       if (typeof textoAnuncio !== "undefined") {
@@ -237,17 +326,22 @@
         return;
       }
 
-      carregarProdutos().then(renderProdutos);
+      carregarProdutos().then(function (produtos) {
+        todosProdutos = produtos;
+        categoriaAtiva = "todas";
+        renderFiltroCategorias(todosProdutos);
+        renderProdutos(filtrarProdutosPorCategoria(todosProdutos));
+      });
     } catch (err) {
-      var grid = document.getElementById("produtos-grid");
+      var gridErro = document.getElementById("produtos-grid");
       var anuncio = document.getElementById("texto-anuncio");
       var msg = err && err.message ? err.message : String(err);
 
       if (anuncio) {
         anuncio.innerHTML = "<p>Erro ao carregar página. " + escapeHtml(msg) + "</p>";
       }
-      if (grid) {
-        grid.innerHTML =
+      if (gridErro) {
+        gridErro.innerHTML =
           '<p class="produtos-vazio">Erro ao carregar produtos: ' + escapeHtml(msg) + "</p>";
       }
 
