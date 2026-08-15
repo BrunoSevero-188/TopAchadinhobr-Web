@@ -17,24 +17,41 @@
     return template.replace("{dias}", String(diasRestantes));
   }
 
-  // Normaliza o valor bruto de produto.categoria para um rótulo de exibição.
-  // Usada tanto no card quanto no filtro, para as duas partes falarem a
-  // mesma língua (mesmo rótulo = mesmo grupo).
+  // Normaliza o valor bruto de uma categoria para um rótulo de exibição.
   function normalizeCategoria(categoriaBruta) {
-    var categoriasPadrao = {
-      Categoria001: "Categoria 01",
-      Categoria002: "Categoria 02",
-      Categoria003: "Categoria 03",
-      Categoria004: "Categoria 04",
-      Categoria005: "Categoria 05",
-      Categoria006: "Categoria 06",
-      Categoria007: "Categoria 07",
-    };
-
     var bruta = String(categoriaBruta || "").trim();
     if (!bruta) return "Sem categoria";
-    if (categoriasPadrao[bruta]) return categoriasPadrao[bruta];
     return bruta.charAt(0).toUpperCase() + bruta.slice(1);
+  }
+
+  // Um produto pode ter de 1 a 5 categorias: categoria01..categoria03 são
+  // as principais, categoria04 e categoria05 são opcionais (ficam "" quando
+  // não usadas). Retorna a lista de rótulos únicos e já normalizados.
+  function getCategoriasProduto(produto) {
+    var chaves = ["categoria01", "categoria02", "categoria03", "categoria04", "categoria05"];
+    var vistos = {};
+    var categorias = [];
+
+    chaves.forEach(function (chave) {
+      var bruta = String((produto && produto[chave]) || "").trim();
+      if (!bruta) return; // categoria04/05 opcionais — pula se vazia
+
+      var label = normalizeCategoria(bruta);
+      if (!vistos[label]) {
+        vistos[label] = true;
+        categorias.push(label);
+      }
+    });
+
+    if (!categorias.length) categorias.push("Sem categoria");
+    return categorias;
+  }
+
+  // Um produto "vazio" (slot de template ainda não preenchido pelo
+  // scraper) não tem título nem link — não deve virar card nem entrar
+  // na contagem de categorias.
+  function ehProdutoValido(produto) {
+    return Boolean(produto && String(produto.titulo || "").trim());
   }
 
   function renderSocialLink(social) {
@@ -56,7 +73,12 @@
   function renderCardProduto(produto) {
     var copy = cardStrings;
 
-    var categoriaNormalizada = normalizeCategoria(produto.categoria);
+    var categoriasProduto = getCategoriasProduto(produto);
+    var categoriasHtml = categoriasProduto
+      .map(function (categoria) {
+        return '<span class="card-produto__categoria-tag">' + escapeHtml(categoria) + "</span>";
+      })
+      .join("");
 
     var total = produto.precoNovo;
 
@@ -120,11 +142,9 @@
       imagemHtml +
       '<div class="card-produto__info">' +
       "<h4>" + escapeHtml(produto.titulo) + "</h4>" +
-      "<span>" +
-      escapeHtml(copy.categoryLabel) +
-      " " +
-      escapeHtml(categoriaNormalizada) +
-      "</span>" +
+      '<div class="card-produto__categorias">' +
+      categoriasHtml +
+      "</div>" +
       "</div>" +
       '<div class="card-produto__price">' +
       precoAntigoHtml +
@@ -173,8 +193,9 @@
   function coletarCategorias(produtos) {
     var contagemPorCategoria = {};
     produtos.forEach(function (produto) {
-      var label = normalizeCategoria(produto.categoria);
-      contagemPorCategoria[label] = (contagemPorCategoria[label] || 0) + 1;
+      getCategoriasProduto(produto).forEach(function (label) {
+        contagemPorCategoria[label] = (contagemPorCategoria[label] || 0) + 1;
+      });
     });
     return contagemPorCategoria;
   }
@@ -182,7 +203,7 @@
   function filtrarProdutosPorCategoria(produtos) {
     if (categoriaAtiva === "todas") return produtos;
     return produtos.filter(function (produto) {
-      return normalizeCategoria(produto.categoria) === categoriaAtiva;
+      return getCategoriasProduto(produto).indexOf(categoriaAtiva) !== -1;
     });
   }
 
@@ -253,7 +274,7 @@
         return response.json();
       })
       .then(function (produtos) {
-        return Array.isArray(produtos) ? produtos : [];
+        return Array.isArray(produtos) ? produtos.filter(ehProdutoValido) : [];
       })
       .catch(function () {
         grid.innerHTML =
@@ -295,6 +316,7 @@
 
   function init() {
     try {
+      // garante que não vai quebrar em branco
       if (typeof LOGO_SRC === "undefined") {
         var grid = document.getElementById("produtos-grid");
         if (grid) {
@@ -304,6 +326,7 @@
         return;
       }
 
+      // texto do anúncio (mesmo se textoAnuncio vier ausente)
       renderHeader();
 
       if (typeof textoAnuncio !== "undefined") {

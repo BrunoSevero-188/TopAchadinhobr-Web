@@ -1,104 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0e17" />
+    <meta
+      name="description"
+      content="Top Achadinhos BR — Promoções reais, cupons exclusivos e dicas para economizar todos os dias."
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Top Achadinhos" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0a0e17" />
-  <meta name="description"
-    content="Top Achadinhos BR — Promoções reais, cupons exclusivos e dicas para economizar todos os dias." />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Top Achadinhos" />
+    <title>Top Achadinhos BR — Produtos do Mês</title>
 
-  <title>Top Achadinhos BR — Produtos do Mês</title>
+    <link rel="icon" href="assets/TopAchadinhoLogo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/TopAchadinhoLogo.png" />
+    <link rel="manifest" href="manifest.json" />
 
-  <link rel="icon" href="assets/TopAchadinhoLogo.png" type="image/png" />
-  <link rel="apple-touch-icon" href="assets/TopAchadinhoLogo.png" />
-  <link rel="manifest" href="manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
-    rel="stylesheet" />
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/slidebar-mobile.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="container">
+        <section>
+          <header class="site-header">
+            <div class="site-header__logo-wrap">
+              <img id="header-logo" src="assets/TopAchadinhoLogo.png" alt="Top Achadinho" width="500" height="500" />
+            </div>
+            <h1 class="site-header__title">Top Achadinhos BR - Produtos do Mês</h1>
+          </header>
 
-  <link rel="stylesheet" href="css/globals.css" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/slidebar-mobile.css" />
-</head>
+          <div class="hero">
+            <div class="hero__content">
+              <span class="hero__eyebrow">🔥 Ofertas verificadas hoje</span>
+              <div id="texto-anuncio" class="texto-anuncio" aria-live="polite"></div>
+            </div>
 
-<body>
-  <main class="main">
-    <div class="container">
-      <section>
-        <header class="site-header">
-          <div class="site-header__logo-wrap">
-            <img id="header-logo" src="assets/TopAchadinhoLogo.png" alt="Top Achadinho" width="500" height="500" />
+            <nav id="mobile-social" class="mobile-social" aria-label="Redes sociais"></nav>
           </div>
-          <h1 class="site-header__title">Top Achadinhos BR - Produtos do Mês</h1>
-        </header>
 
-        <div class="hero">
-          <div class="hero__content">
-            <span class="hero__eyebrow">🔥 Ofertas verificadas hoje</span>
-            <div id="texto-anuncio" class="texto-anuncio" aria-live="polite"></div>
-          </div>
+          <div
+            id="filtro-categorias"
+            class="filtro-categorias"
+            role="group"
+            aria-label="Filtrar produtos por categoria"
+          ></div>
 
-          <nav id="mobile-social" class="mobile-social" aria-label="Redes sociais"></nav>
-        </div>
+          <div id="produtos-grid" class="produtos-grid" aria-label="Lista de produtos"></div>
+        </section>
 
-        <div id="filtro-categorias" class="filtro-categorias" role="group" aria-label="Filtrar produtos por categoria">
-        </div>
+        <footer class="site-footer">
+          <p>
+            © <span id="ano-atual"></span> Top Achadinhos BR —
+            <a href="https://www.instagram.com/top_achadinho.br" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </p>
+        </footer>
+      </div>
+    </main>
 
-        <div id="produtos-grid" class="produtos-grid" aria-label="Lista de produtos"></div>
-      </section>
+    <aside class="slidebar" aria-label="Barra lateral de redes sociais">
+      <button
+        id="slidebar-toggle"
+        type="button"
+        class="slidebar__toggle"
+        aria-label="Ocultar barra lateral"
+      >
+        ✕
+      </button>
 
-      <footer class="site-footer">
-        <p>
-          © <span id="ano-atual"></span> Top Achadinhos BR —
-          <a href="https://www.instagram.com/top_achadinho.br" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </p>
-      </footer>
-    </div>
-  </main>
+      <a
+        id="slidebar-contact-btn"
+        class="slidebar__contact-btn"
+        href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar com o administrador no WhatsApp"
+      >
+        <span class="slidebar__contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+            <path d="M17.6 6.32A8.86 8.86 0 0 0 12.04 4C7.32 4 3.5 7.82 3.5 12.54c0 1.55.41 3.06 1.18 4.39L3.42 21l4.18-1.23a8.84 8.84 0 0 0 4.43 1.19h.01c4.72 0 8.55-3.82 8.55-8.54 0-2.28-.89-4.4-2.19-6.1z" />
+          </svg>
+        </span>
+        <span id="slidebar-contact-tooltip" class="slidebar__contact-tooltip">Falar com o ADM</span>
+      </a>
 
-  <aside class="slidebar" aria-label="Barra lateral de redes sociais">
-    <button id="slidebar-toggle" type="button" class="slidebar__toggle" aria-label="Ocultar barra lateral">
-      ✕
+      <div id="slidebar-links" class="slidebar__links"></div>
+    </aside>
+
+    <button id="slidebar-reopen" type="button" class="slidebar-reopen" aria-label="Mostrar barra lateral">
+      ≡
     </button>
 
-    <a id="slidebar-contact-btn" class="slidebar__contact-btn"
-      href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!" target="_blank"
-      rel="noopener noreferrer" aria-label="Falar com o administrador no WhatsApp">
-      <span class="slidebar__contact-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-          <path
-            d="M17.6 6.32A8.86 8.86 0 0 0 12.04 4C7.32 4 3.5 7.82 3.5 12.54c0 1.55.41 3.06 1.18 4.39L3.42 21l4.18-1.23a8.84 8.84 0 0 0 4.43 1.19h.01c4.72 0 8.55-3.82 8.55-8.54 0-2.28-.89-4.4-2.19-6.1z" />
-        </svg>
-      </span>
-      <span id="slidebar-contact-tooltip" class="slidebar__contact-tooltip">Falar com o ADM</span>
+    <a
+      id="mobile-chat"
+      class="mobile-chat"
+      href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Conversar com o ADM"
+    >
+      Conversar com o ADM
     </a>
 
-    <div id="slidebar-links" class="slidebar__links"></div>
-  </aside>
-
-  <button id="slidebar-reopen" type="button" class="slidebar-reopen" aria-label="Mostrar barra lateral">
-    ≡
-  </button>
-
-  <a id="mobile-chat" class="mobile-chat"
-    href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!" target="_blank"
-    rel="noopener noreferrer" aria-label="Conversar com o ADM">
-    Conversar com o ADM
-  </a>
-
-  <script>
-    document.getElementById("ano-atual").textContent = new Date().getFullYear();
-  </script>
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/slidebar.js"></script>
-</body>
-
+    <script>
+      document.getElementById("ano-atual").textContent = new Date().getFullYear();
+    </script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/slidebar.js"></script>
+  </body>
 </html>
