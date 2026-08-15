@@ -1,39 +1,62 @@
 [
   {
-    "titulo": "Soprador De Ar Turbo 21v Portátil Bateria Recarregável Potente Para Folhas Pó Limpeza Carro Tso-21a The Black Tools",
-    "imagem": "https://http2.mlstatic.com/D_Q_NP_987154-MLA116188035225_082026-F.webp",
-    "precoNovo": "R$ 96,90",
-    "precoAntigo": "R$ 219,90",
-    "link": "https://meli.la/2YYXHHE",
+    "titulo": "Escrivaninha Gamer Industrial Maxído Brasil para Computador e Estudos, Com Prateleira e Suporte de CPU, Preta e Canela",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_758486-MLA99472512452_112025-F.webp",
+    "precoNovo": "R$ 187,00",
+    "precoAntigo": "R$ 499,90",
+    "link": "https://meli.la/2dixStV",
     "dataFim": "2026-07-20",
-    "categoria": "Sopradores"
+    "categoria01": "Escrivaninha",
+    "categoria02": "Móveis",
+    "categoria03": "Escritorio",
+    "categoria04": "Decoração"
   },
   {
-    "titulo": "Óculos De Sol Clássico Preto Hexagonal Harbor Black Uv400 Desenho Espelho",
-    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_728319-MLA92712461733_092025-F.webp",
-    "precoNovo": "R$ 63,90",
-    "precoAntigo": "R$ 183,42",
-    "link": "https://meli.la/1TVZUan",
+    "titulo": "Camiseta Masculina Insider Light",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_872306-MLB109411892684_042026-F-camiseta-masculina-insider-light.webp",
+    "precoNovo": "R$ 69,00",
+    "precoAntigo": "R$ 187,40",
+    "link": "https://meli.la/1fdS24y",
     "dataFim": "2026-07-20",
-    "categoria": "Óculos"
+    "categoria01": "Camiseta",
+    "categoria02": "Masculina",
+    "categoria03": "Roupa"
   },
   {
-    "titulo": "Câmera de Segurança Aprova Dágua A8 Externa Branco Icsee",
-    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_855866-MLA96126735431_102025-F.webp",
-    "precoNovo": "R$ 74,83",
-    "precoAntigo": "R$ 159,39",
-    "link": "https://meli.la/1bBDjGS",
+    "titulo": "Camisa Social Masculina Slim Premium Manga Longa / Curta",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_864582-MLB108696083701_032026-F-camisa-social-masculina-slim-premium-manga-longa-curta.webp",
+    "precoNovo": "R$ 50,43",
+    "precoAntigo": "R$ 69,90",
+    "link": "https://meli.la/23dXk8K",
     "dataFim": "2026-07-20",
-    "categoria": "Câmeras de Segurança"
+    "categoria01": "Camisa",
+    "categoria02": "Masculina",
+    "categoria03": "Roupa",
+    "categoria04": "Social"
   },
   {
-    "titulo": "Kit 3 Camisetas Masculinas Polo Wear",
-    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_950390-MLB113675252045_062026-F-kit-3-camisetas-masculinas-polo-wear.webp",
-    "precoNovo": "R$ 99,99",
-    "precoAntigo": "R$ 179,99",
-    "link": "https://meli.la/1XSGP9P",
+    "titulo": "Camiseta Nike Sportswear Club Masculina",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_636166-MLB100389447094_122025-F-camiseta-nike-sportswear-club-masculina.webp",
+    "precoNovo": "R$ 66,49",
+    "precoAntigo": "R$ 129,99",
+    "link": "https://meli.la/2q6E1PT",
     "dataFim": "2026-07-20",
-    "categoria": "Camisetas"
+    "categoria01": "Camiseta",
+    "categoria02": "Masculina",
+    "categoria03": "Roupa",
+    "categoria04": "Nike",
+    "categoria05": "Fitness"
+  },
+  {
+    "titulo": "Monitor Gamer AOC AGON QUAD 27" QHD 180Hz 0,5ms IPS HDR10 Base Ajustável Q27G4F Preto",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_739170-MLA98410816390_112025-F.webp",
+    "precoNovo": "R$ 1.219,00",
+    "precoAntigo": "R$ 1.299,00",
+    "link": "https://meli.la/2w72CQK",
+    "dataFim": "2026-07-20",
+    "categoria01": "Monitor",
+    "categoria02": "Tela",
+    "categoria03": "Informática"
   },
   {
     "titulo": "",
@@ -42,7 +65,11 @@
     "precoAntigo": "R$ ",
     "link": "",
     "dataFim": "2026-07-20",
-    "categoria": ""
+    "categoria01": "",
+    "categoria02": "",
+    "categoria03": "",
+    "categoria04": "",
+    "categoria05": ""
   },
   {
     "titulo": "",
@@ -51,6 +78,10 @@
     "precoAntigo": "R$ ",
     "link": "",
     "dataFim": "2026-07-20",
-    "categoria": ""
+    "categoria01": "",
+    "categoria02": "",
+    "categoria03": "",
+    "categoria04": "",
+    "categoria05": ""
   }
 ]
