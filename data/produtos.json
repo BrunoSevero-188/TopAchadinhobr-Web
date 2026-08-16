@@ -6,10 +6,9 @@
     "precoAntigo": "R$ 499,90",
     "link": "https://meli.la/2dixStV",
     "dataFim": "2026-08-25",
-    "categoria01": "Escrivaninha",
-    "categoria02": "Móveis",
-    "categoria03": "Escritorio",
-    "categoria04": "Decoração"
+    "categoria01": "Escrivaninhas",
+    "categoria02": "Móveis para Casa",
+    "categoria03": "Casa, Móveis e Decoração"
   },
   {
     "titulo": "Camiseta Masculina Insider Light",
@@ -18,9 +17,8 @@
     "precoAntigo": "R$ 187,40",
     "link": "https://meli.la/1fdS24y",
     "dataFim": "2026-08-25",
-    "categoria01": "Camiseta",
-    "categoria02": "Masculina",
-    "categoria03": "Roupa"
+    "categoria01": "Camisetas e Regatas",
+    "categoria02": "Calçados, Roupas e Bolsas"
   },
   {
     "titulo": "Camisa Social Masculina Slim Premium Manga Longa / Curta",
@@ -28,11 +26,10 @@
     "precoNovo": "R$ 50,43",
     "precoAntigo": "R$ 69,90",
     "link": "https://meli.la/23dXk8K",
-        "dataFim": "2026-08-25",
-    "categoria01": "Camisa",
-    "categoria02": "Masculina",
-    "categoria03": "Roupa",
-    "categoria04": "Social"
+    "dataFim": "2026-08-25",
+    "categoria01": "Camisa Social Masculina",
+    "categoria02": "Camisas",
+    "categoria03": "Calçados, Roupas e Bolsas"
   },
   {
     "titulo": "Camiseta Nike Sportswear Club Masculina",
@@ -41,11 +38,10 @@
     "precoAntigo": "R$ 129,99",
     "link": "https://meli.la/2q6E1PT",
     "dataFim": "2026-08-25",
-    "categoria01": "Camiseta",
-    "categoria02": "Masculina",
-    "categoria03": "Roupa",
-    "categoria04": "Nike",
-    "categoria05": "Fitness"
+    "categoria01": "Camiseta Nike",
+    "categoria02": "Camisetas e Regatas",
+    "categoria03": "Moda Fitness",
+    "categoria04": "Esportes e Fitness"
   },
   {
     "titulo": "Monitor Gamer AOC AGON QUAD 27 QHD 180Hz 0,5ms IPS HDR10 Base Ajustável Q27G4F Preto",
@@ -54,8 +50,58 @@
     "precoAntigo": "R$ 1.299,00",
     "link": "https://meli.la/2w72CQK",
     "dataFim": "2026-08-25",
-    "categoria01": "Monitor",
-    "categoria02": "Tela",
+    "categoria01": "Monitores",
+    "categoria02": "Monitores e Acessórios",
     "categoria03": "Informática"
+  },
+  {
+    "titulo": "Conjunto De Agasalho Masculino Woven 3 Listras Adidas",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_797082-MLB99009668292_112025-F-conjunto-de-agasalho-masculino-woven-3-listras-adidas.webp",
+    "precoNovo": "R$ 377,99",
+    "precoAntigo": "R$ 499,99",
+    "link": "https://meli.la/1h3N6Nu",
+    "dataFim": "2026-08-25",
+    "categoria01": "Conjuntos",
+    "categoria02": "Moda Fitness",
+    "categoria03": "Calçados, Roupas e Bolsas"
+  },
+  {
+    "titulo": "",
+    "imagem": "",
+    "precoNovo": "R$ ",
+    "precoAntigo": "R$ ",
+    "link": "",
+    "dataFim": "2026-08-25",
+    "categoria01": "",
+    "categoria02": "",
+    "categoria03": "",
+    "categoria04": "",
+    "categoria05": ""
+  },
+  {
+    "titulo": "",
+    "imagem": "",
+    "precoNovo": "R$ ",
+    "precoAntigo": "R$ ",
+    "link": "",
+    "dataFim": "2026-08-25",
+    "categoria01": "",
+    "categoria02": "",
+    "categoria03": "",
+    "categoria04": "",
+    "categoria05": ""
+  },
+  {
+    "titulo": "",
+    "imagem": "",
+    "precoNovo": "R$ ",
+    "precoAntigo": "R$ ",
+    "link": "",
+    "dataFim": "2026-08-25",
+    "categoria01": "",
+    "categoria02": "",
+    "categoria03": "",
+    "categoria04": "",
+    "categoria05": ""
   }
 ]
