@@ -48,7 +48,7 @@
     "categoria05": "Fitness"
   },
   {
-    "titulo": "Monitor Gamer AOC AGON QUAD 27" QHD 180Hz 0,5ms IPS HDR10 Base Ajustável Q27G4F Preto",
+    "titulo": "Monitor Gamer AOC AGON QUAD 27 QHD 180Hz 0,5ms IPS HDR10 Base Ajustável Q27G4F Preto",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_739170-MLA98410816390_112025-F.webp",
     "precoNovo": "R$ 1.219,00",
     "precoAntigo": "R$ 1.299,00",
@@ -57,31 +57,5 @@
     "categoria01": "Monitor",
     "categoria02": "Tela",
     "categoria03": "Informática"
-  },
-  {
-    "titulo": "",
-    "imagem": "",
-    "precoNovo": "R$ ",
-    "precoAntigo": "R$ ",
-    "link": "",
-    "dataFim": "2026-07-20",
-    "categoria01": "",
-    "categoria02": "",
-    "categoria03": "",
-    "categoria04": "",
-    "categoria05": ""
-  },
-  {
-    "titulo": "",
-    "imagem": "",
-    "precoNovo": "R$ ",
-    "precoAntigo": "R$ ",
-    "link": "",
-    "dataFim": "2026-07-20",
-    "categoria01": "",
-    "categoria02": "",
-    "categoria03": "",
-    "categoria04": "",
-    "categoria05": ""
   }
 ]
