@@ -2,7 +2,8 @@
   "use strict";
 
   var todosProdutos = [];
-  var categoriaAtiva = "todas";
+  var buscaCategorias = "";
+  var filtroCaixaAberta = false;
 
   function escapeHtml(text) {
     return String(text)
@@ -175,10 +176,9 @@
     if (!grid) return;
 
     if (!produtos.length) {
-      var mensagem =
-        categoriaAtiva === "todas"
-          ? "Nenhum produto cadastrado no momento. Volte em breve!"
-          : "Nenhum produto encontrado nesta categoria.";
+      var mensagem = !buscaCategorias.trim()
+        ? "Nenhum produto cadastrado no momento. Volte em breve!"
+        : "Nenhum produto encontrado para essas categorias.";
       grid.innerHTML = '<p class="produtos-vazio">' + escapeHtml(mensagem) + "</p>";
       return;
     }
@@ -201,33 +201,74 @@
   }
 
   function filtrarProdutosPorCategoria(produtos) {
-    if (categoriaAtiva === "todas") return produtos;
+    var termos = parseTermosBusca(buscaCategorias);
+    if (!termos.length) return produtos;
+
     return produtos.filter(function (produto) {
-      return getCategoriasProduto(produto).indexOf(categoriaAtiva) !== -1;
+      var categoriasProduto = getCategoriasProduto(produto).map(function (categoria) {
+        return categoria.toLowerCase();
+      });
+      return termos.some(function (termo) {
+        return categoriasProduto.some(function (categoria) {
+          return categoria.indexOf(termo) !== -1;
+        });
+      });
     });
   }
 
-  function renderFiltroBotao(chave, label, contagem, ativo) {
+  // "roupa, camiseta nike" -> ["roupa", "camiseta nike"]
+  function parseTermosBusca(texto) {
+    return String(texto || "")
+      .split(",")
+      .map(function (termo) {
+        return termo.trim().toLowerCase();
+      })
+      .filter(function (termo) {
+        return termo.length > 0;
+      });
+  }
+
+  function renderFiltroBotaoTodos(total, ativo) {
     return (
       '<button type="button" class="filtro-categorias__item' +
       (ativo ? " filtro-categorias__item--ativo" : "") +
-      '" data-categoria="' +
-      escapeHtml(chave) +
-      '" aria-pressed="' +
+      '" data-categoria="todas" aria-pressed="' +
       (ativo ? "true" : "false") +
       '">' +
-      escapeHtml(label) +
+      "Todos" +
       ' <span class="filtro-categorias__contagem">' +
-      contagem +
+      total +
       "</span>" +
       "</button>"
     );
   }
 
-  function aplicarFiltro(novaCategoria) {
-    categoriaAtiva = novaCategoria;
+  function limparFiltro() {
+    buscaCategorias = "";
+    filtroCaixaAberta = false;
     renderFiltroCategorias(todosProdutos);
     renderProdutos(filtrarProdutosPorCategoria(todosProdutos));
+  }
+
+  function alternarCaixaFiltro() {
+    filtroCaixaAberta = !filtroCaixaAberta;
+    renderFiltroCategorias(todosProdutos);
+    var input = document.getElementById("filtro-categorias-input");
+    if (filtroCaixaAberta && input) input.focus();
+  }
+
+  function aoDigitarBusca(evento) {
+    buscaCategorias = evento.target.value;
+    renderProdutos(filtrarProdutosPorCategoria(todosProdutos));
+
+    // Só atualiza o estado do botão "Todos" na hora — evita redesenhar
+    // a caixa inteira a cada tecla, o que tiraria o foco do input.
+    var botaoTodos = document.querySelector('[data-categoria="todas"]');
+    if (botaoTodos) {
+      var todosAtivo = !buscaCategorias.trim();
+      botaoTodos.classList.toggle("filtro-categorias__item--ativo", todosAtivo);
+      botaoTodos.setAttribute("aria-pressed", todosAtivo ? "true" : "false");
+    }
   }
 
   function renderFiltroCategorias(produtos) {
@@ -244,24 +285,52 @@
       return a.localeCompare(b, "pt-BR", { numeric: true, sensitivity: "base" });
     });
 
-    var botoes = [
-      renderFiltroBotao("todas", "Todos", produtos.length, categoriaAtiva === "todas"),
-    ];
+    var todosAtivo = !buscaCategorias.trim();
 
-    categoriasOrdenadas.forEach(function (label) {
-      botoes.push(
-        renderFiltroBotao(label, label, contagemPorCategoria[label], categoriaAtiva === label)
-      );
-    });
+    var datalistOptions = categoriasOrdenadas
+      .map(function (label) {
+        return (
+          '<option value="' +
+          escapeHtml(label) +
+          '" label="' +
+          escapeHtml(label) +
+          " (" +
+          contagemPorCategoria[label] +
+          ')"></option>'
+        );
+      })
+      .join("");
 
-    container.innerHTML = botoes.join("");
+    container.innerHTML =
+      '<div class="filtro-categorias__barra">' +
+      renderFiltroBotaoTodos(produtos.length, todosAtivo) +
+      '<button type="button" id="filtro-categorias-toggle" class="filtro-categorias__toggle' +
+      (filtroCaixaAberta ? " filtro-categorias__toggle--ativo" : "") +
+      '" aria-expanded="' +
+      (filtroCaixaAberta ? "true" : "false") +
+      '" aria-controls="filtro-categorias-caixa">' +
+      "Filtrar categorias" +
+      "</button>" +
+      "</div>" +
+      '<div id="filtro-categorias-caixa" class="filtro-categorias__caixa' +
+      (filtroCaixaAberta ? "" : " filtro-categorias__caixa--oculta") +
+      '">' +
+      '<input type="text" id="filtro-categorias-input" class="filtro-categorias__input" list="filtro-categorias-lista" placeholder="Digite categorias, separadas por vírgula (ex: Roupa, Camiseta)" aria-label="Digite categorias para filtrar" value="' +
+      escapeHtml(buscaCategorias) +
+      '" />' +
+      '<datalist id="filtro-categorias-lista">' +
+      datalistOptions +
+      "</datalist>" +
+      "</div>";
 
-    var itens = container.querySelectorAll("[data-categoria]");
-    for (var i = 0; i < itens.length; i++) {
-      itens[i].addEventListener("click", function (evento) {
-        aplicarFiltro(evento.currentTarget.getAttribute("data-categoria"));
-      });
-    }
+    var botaoTodos = container.querySelector('[data-categoria="todas"]');
+    if (botaoTodos) botaoTodos.addEventListener("click", limparFiltro);
+
+    var botaoToggle = document.getElementById("filtro-categorias-toggle");
+    if (botaoToggle) botaoToggle.addEventListener("click", alternarCaixaFiltro);
+
+    var inputBusca = document.getElementById("filtro-categorias-input");
+    if (inputBusca) inputBusca.addEventListener("input", aoDigitarBusca);
   }
 
   function carregarProdutos() {
@@ -351,7 +420,8 @@
 
       carregarProdutos().then(function (produtos) {
         todosProdutos = produtos;
-        categoriaAtiva = "todas";
+        buscaCategorias = "";
+        filtroCaixaAberta = false;
         renderFiltroCategorias(todosProdutos);
         renderProdutos(filtrarProdutosPorCategoria(todosProdutos));
       });
