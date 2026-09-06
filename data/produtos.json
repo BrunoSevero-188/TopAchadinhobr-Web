@@ -1,28 +1,26 @@
 [
-  [
-    {
-      "titulo": "Deo Colônia Kaiak Oceano Natura Masculino 100 ml",
-      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_971808-MLU74117534826_012024-F.webp",
-      "precoNovo": "R$ 104,56",
-      "precoAntigo": "R$ 114,90",
-      "link": "https://meli.la/2Jd3kY8",
-      "dataFim": "2026-10-01",
-      "categoria01": "Natura",
-      "categoria02": "Perfumes",
-      "categoria03": "Beleza e Cuidado Pessoal"
-    },
-    {
-      "titulo": "",
-      "imagem": "",
-      "precoNovo": "R$ ",
-      "precoAntigo": "R$ ",
-      "link": "",
-      "dataFim": "2026-10-01",
-      "categoria01": "",
-      "categoria02": "",
-      "categoria03": "",
-      "categoria04": "",
-      "categoria05": ""
-    }
-  ]
-  ]
+  {
+    "titulo": "Deo Colônia Kaiak Oceano Natura Masculino 100 ml",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_971808-MLU74117534826_012024-F.webp",
+    "precoNovo": "R$ 104,56",
+    "precoAntigo": "R$ 114,90",
+    "link": "https://meli.la/2Jd3kY8",
+    "dataFim": "2026-10-01",
+    "categoria01": "Natura",
+    "categoria02": "Perfumes",
+    "categoria03": "Beleza e Cuidado Pessoal"
+  },
+  {
+    "titulo": "",
+    "imagem": "",
+    "precoNovo": "R$ ",
+    "precoAntigo": "R$ ",
+    "link": "",
+    "dataFim": "2026-10-01",
+    "categoria01": "",
+    "categoria02": "",
+    "categoria03": "",
+    "categoria04": "",
+    "categoria05": ""
+  }
+]
