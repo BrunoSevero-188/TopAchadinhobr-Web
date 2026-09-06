@@ -8,31 +8,33 @@
 
     if (!slidebar || !reopenBtn) return;
 
-    function syncReopenBtn() {
+    function syncButtons() {
       var isHidden = slidebar.classList.contains("slidebar--hidden");
 
       if (isHidden) {
         reopenBtn.classList.add("slidebar-reopen--visible");
+        if (btn) btn.classList.add("slidebar__toggle--hidden");
       } else {
         reopenBtn.classList.remove("slidebar-reopen--visible");
+        if (btn) btn.classList.remove("slidebar__toggle--hidden");
       }
     }
 
     if (btn) {
       btn.addEventListener("click", function () {
         slidebar.classList.add("slidebar--hidden");
-        syncReopenBtn();
+        syncButtons();
       });
     }
 
     if (reopenBtn) {
       reopenBtn.addEventListener("click", function () {
         slidebar.classList.remove("slidebar--hidden");
-        syncReopenBtn();
+        syncButtons();
       });
     }
 
-    syncReopenBtn();
+    syncButtons();
   }
 
   if (document.readyState === "loading") {
