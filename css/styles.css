@@ -734,3 +734,22 @@
   cursor: not-allowed;
   box-shadow: none;
 }
+
+/* Efeito de rotação personalizada para o selo de indisponível */
+.rotated-badge {
+    transform: rotate(-18deg);
+}
+
+/* Estilização do container da imagem e selo de indisponibilidade no card */
+.card-produto__image-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-produto--indisponivel .card-produto__image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
