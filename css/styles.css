@@ -713,7 +713,6 @@
   border-color: var(--accent);
 }
 
-/* Estilo para cards de produtos que não estão mais em promoção */
 .card-produto--indisponivel {
   border-color: rgba(255, 107, 87, 0.35);
   opacity: 0.85;
@@ -750,8 +749,4 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
     pointer-events: none;
-}
-
-.rotated-badge {
-    transform: rotate(-18deg);
 }

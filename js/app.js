@@ -87,7 +87,7 @@
 
     var isIndisponivel = diasRestantes <= 0;
     
-    // Mensagem dinâmica solicitada informando que o produto não está mais em promoção
+    // Texto descritivo informando que expirou a promoção
     var diasRestantesTexto = isIndisponivel
       ? "(" + (produto.titulo || "Este produto") + " não está mais em promoção)"
       : resolveRemainingText(copy.offerRemainingText, diasRestantes);
@@ -101,20 +101,20 @@
       ? 'target="_blank" rel="noreferrer"'
       : 'aria-disabled="true" tabindex="-1"';
 
-    // Inclusão do selo rotacionado inspirado no modelo enviado caso esteja indisponível
-    // Selo rotacionado posicionado por cima da imagem
+    // Selo idêntico ao modelo da imagem (tarja escura inclinada com borda e sombra)
     var seloIndisponivelHtml = isIndisponivel
       ? '<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">' +
-        '<span class="rotated-badge text-white font-bold text-xl sm:text-2xl tracking-wide uppercase drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] bg-black/70 px-4 py-2 rounded-lg border border-white/20">' +
-        'Produto indisponível</span></div>'
+        '<span class="rotated-badge bg-black/80 text-white font-extrabold text-lg sm:text-xl tracking-wider uppercase px-5 py-2.5 rounded-xl shadow-2xl border border-white/20 text-center">' +
+        'PRODUTO INDISPONÍVEL</span></div>'
       : '';
 
+    // Montagem da imagem com o selo por cima quando esgotado
     var imagemHtml = produto.imagem
-      ? '<div class="card-produto__image-wrap relative w-full flex items-center justify-center overflow-hidden">' +
-        '<img class="card-produto__image ' + (isIndisponivel ? 'opacity-50 filter grayscale' : '') + '" src="' + escapeHtml(produto.imagem) + '" alt="' + escapeHtml(produto.titulo) + '" loading="lazy" />' +
+      ? '<div class="card-produto__image-wrap relative w-full flex items-center justify-center">' +
+        '<img class="card-produto__image ' + (isIndisponivel ? 'opacity-60' : '') + '" src="' + escapeHtml(produto.imagem) + '" alt="' + escapeHtml(produto.titulo) + '" loading="lazy" />' +
         seloIndisponivelHtml +
         '</div>'
-      : '<div class="card-produto__image-wrap card-produto__image--placeholder relative w-full flex items-center justify-center overflow-hidden">' +
+      : '<div class="card-produto__image-wrap card-produto__image--placeholder relative w-full flex items-center justify-center">' +
         '<span>Sem imagem</span>' +
         seloIndisponivelHtml +
         '</div>';
