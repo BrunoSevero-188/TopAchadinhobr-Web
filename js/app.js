@@ -18,16 +18,12 @@
     return template.replace("{dias}", String(diasRestantes));
   }
 
-  // Normaliza o valor bruto de uma categoria para um rótulo de exibição.
   function normalizeCategoria(categoriaBruta) {
     var bruta = String(categoriaBruta || "").trim();
     if (!bruta) return "Sem categoria";
     return bruta.charAt(0).toUpperCase() + bruta.slice(1);
   }
 
-  // Um produto pode ter de 1 a 5 categorias: categoria01..categoria03 são
-  // as principais, categoria04 e categoria05 são opcionais (ficam "" quando
-  // não usadas). Retorna a lista de rótulos únicos e já normalizados.
   function getCategoriasProduto(produto) {
     var chaves = ["categoria01", "categoria02", "categoria03", "categoria04", "categoria05"];
     var vistos = {};
@@ -48,9 +44,6 @@
     return categorias;
   }
 
-  // Um produto "vazio" (slot de template ainda não preenchido pelo
-  // scraper) não tem título nem link — não deve virar card nem entrar
-  // na contagem de categorias.
   function ehProdutoValido(produto) {
     return Boolean(produto && String(produto.titulo || "").trim());
   }
@@ -108,8 +101,10 @@
     }
 
     var isIndisponivel = diasRestantes <= 0;
+    
+    // ADAPTAÇÃO SOLICITADA: Mensagem indicando que o produto não está mais em promoção
     var diasRestantesTexto = isIndisponivel
-      ? "Oferta até " + formatDataFim(produto.dataFim)
+      ? "(" + (produto.titulo || "Este produto") + " não está mais em promoção)"
       : resolveRemainingText(copy.offerRemainingText, diasRestantes);
 
     var hasLink = produto.link && produto.link !== "#";
@@ -133,8 +128,11 @@
       ? "<small>" + escapeHtml(produto.precoAntigo) + "</small>"
       : "";
 
+    // Adicionamos uma classe condicional no article caso esteja indisponível para estilização opcional
+    var cardClasses = "card-produto" + (isIndisponivel ? " card-produto--indisponivel" : "");
+
     return (
-      '<article class="card-produto">' +
+      '<article class="' + cardClasses + '">' +
       '<div class="card-produto__header">' +
       "<h2>" + escapeHtml(copy.offerTitle) + "</h2>" +
       "<p>" + escapeHtml(diasRestantesTexto) + "</p>" +
@@ -165,7 +163,7 @@
       ' class="card-produto__button" aria-label="' +
       escapeHtml(copy.buttonAriaLabel) +
       '">' +
-      escapeHtml(copy.buttonLabel) +
+      (isIndisponivel ? "Indisponível" : escapeHtml(copy.buttonLabel)) +
       "</a>" +
       "</article>"
     );
