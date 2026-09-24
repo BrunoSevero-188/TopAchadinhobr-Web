@@ -735,12 +735,10 @@
   box-shadow: none;
 }
 
-/* Efeito de rotação personalizada para o selo de indisponível */
 .rotated-badge {
     transform: rotate(-18deg);
 }
 
-/* Estilização do container da imagem e selo de indisponibilidade no card */
 .card-produto__image-wrap {
     position: relative;
     overflow: hidden;
@@ -752,4 +750,12 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
     pointer-events: none;
+}
+
+.rotated-badge {
+    transform: rotate(-18deg);
+}
+
+.card-produto__image-wrap {
+    position: relative;
 }

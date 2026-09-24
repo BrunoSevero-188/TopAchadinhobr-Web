@@ -102,18 +102,22 @@
       : 'aria-disabled="true" tabindex="-1"';
 
     // Inclusão do selo rotacionado inspirado no modelo enviado caso esteja indisponível
+    // Selo rotacionado posicionado por cima da imagem
     var seloIndisponivelHtml = isIndisponivel
-      ? '<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">' +
-        '<span class="rotated-badge text-white font-bold text-base sm:text-lg tracking-wide uppercase drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] bg-black/70 px-3 py-1.5 rounded-lg border border-white/20">' +
+      ? '<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">' +
+        '<span class="rotated-badge text-white font-bold text-xl sm:text-2xl tracking-wide uppercase drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] bg-black/70 px-4 py-2 rounded-lg border border-white/20">' +
         'Produto indisponível</span></div>'
       : '';
 
     var imagemHtml = produto.imagem
-      ? '<div class="card-produto__image-wrap relative flex items-center justify-center">' +
-        '<img class="card-produto__image" src="' + escapeHtml(produto.imagem) + '" alt="' + escapeHtml(produto.titulo) + '" loading="lazy" />' +
+      ? '<div class="card-produto__image-wrap relative w-full flex items-center justify-center overflow-hidden">' +
+        '<img class="card-produto__image ' + (isIndisponivel ? 'opacity-50 filter grayscale' : '') + '" src="' + escapeHtml(produto.imagem) + '" alt="' + escapeHtml(produto.titulo) + '" loading="lazy" />' +
         seloIndisponivelHtml +
         '</div>'
-      : '<div class="card-produto__image-wrap card-produto__image--placeholder relative flex items-center justify-center"><span>Sem imagem</span>' + seloIndisponivelHtml + '</div>';
+      : '<div class="card-produto__image-wrap card-produto__image--placeholder relative w-full flex items-center justify-center overflow-hidden">' +
+        '<span>Sem imagem</span>' +
+        seloIndisponivelHtml +
+        '</div>';
 
     var precoAntigoHtml = produto.precoAntigo
       ? "<small>" + escapeHtml(produto.precoAntigo) + "</small>"
