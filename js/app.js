@@ -87,7 +87,6 @@
 
     var isIndisponivel = diasRestantes <= 0;
     
-    // Texto descritivo informando que expirou a promoção
     var diasRestantesTexto = isIndisponivel
       ? "(" + (produto.titulo || "Este produto") + " não está mais em promoção)"
       : resolveRemainingText(copy.offerRemainingText, diasRestantes);
@@ -95,20 +94,20 @@
     var hasLink = produto.link && produto.link !== "#";
     var linkHref = hasLink ? produto.link : "#";
 
+    // Se estiver indisponível, anulamos o link real e colocamos um marcador
+    var finalHref = isIndisponivel ? "#" : linkHref;
     var linkAttrs = isIndisponivel
-      ? 'aria-disabled="true" tabindex="-1"'
+      ? 'data-indisponivel="true"'
       : hasLink
       ? 'target="_blank" rel="noreferrer"'
-      : 'aria-disabled="true" tabindex="-1"';
+      : '';
 
-    // Selo idêntico ao modelo da imagem (tarja escura inclinada com borda e sombra)
     var seloIndisponivelHtml = isIndisponivel
       ? '<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">' +
         '<span class="rotated-badge bg-black/80 text-white font-extrabold text-lg sm:text-xl tracking-wider uppercase px-5 py-2.5 rounded-xl shadow-2xl border border-white/20 text-center">' +
         'PRODUTO INDISPONÍVEL</span></div>'
       : '';
 
-    // Montagem da imagem com o selo por cima quando esgotado
     var imagemHtml = produto.imagem
       ? '<div class="card-produto__image-wrap relative w-full flex items-center justify-center">' +
         '<img class="card-produto__image ' + (isIndisponivel ? 'opacity-60' : '') + '" src="' + escapeHtml(produto.imagem) + '" alt="' + escapeHtml(produto.titulo) + '" loading="lazy" />' +
@@ -151,7 +150,7 @@
       "</div>" +
       "</div>" +
       '<a href="' +
-      escapeHtml(linkHref) +
+      escapeHtml(finalHref) +
       '" ' +
       linkAttrs +
       ' class="card-produto__button" aria-label="' +
@@ -177,10 +176,6 @@
 
     grid.innerHTML = produtos.map(renderCardProduto).join("");
   }
-
-  // ---------------------------------------------------------------------
-  // Filtro de categorias
-  // ---------------------------------------------------------------------
 
   function coletarCategorias(produtos) {
     var contagemPorCategoria = {};
@@ -387,7 +382,6 @@
         return;
       }
 
-      // texto do anúncio (mesmo se textoAnuncio vier ausente)
       renderHeader();
 
       if (typeof textoAnuncio !== "undefined") {
@@ -441,4 +435,36 @@
   } else {
     init();
   }
+
+  function mostrarAvisoIndisponivel() {
+ 
+   var alertaAntigo = document.getElementById('toast-indisponivel');
+    if (alertaAntigo) {
+      alertaAntigo.remove();
+    }
+
+    var toast = document.createElement('div');
+    toast.id = 'toast-indisponivel';
+    toast.className = 'fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-xl shadow-2xl border border-red-500/40 text-sm font-medium z-50 flex items-center gap-3 transition-all duration-300 animate-bounce-short';
+    toast.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span> Produto Indisponível - Esta promoção já foi encerrada.';
+
+    document.body.appendChild(toast);
+
+    setTimeout(function () {
+      if (toast && toast.parentNode) {
+        toast.style.opacity = '0';
+        setTimeout(function() {
+          toast.remove();
+        }, 300);
+      }
+    }, 10000);
+  }
+
+  document.addEventListener('click', function (event) {
+    var targetLink = event.target.closest('a[data-indisponivel="true"]');
+    if (targetLink) {
+      event.preventDefault(); 
+      mostrarAvisoIndisponivel();
+    }
+  });
 })();
