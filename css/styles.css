@@ -755,7 +755,3 @@
 .rotated-badge {
     transform: rotate(-18deg);
 }
-
-.card-produto__image-wrap {
-    position: relative;
-}
