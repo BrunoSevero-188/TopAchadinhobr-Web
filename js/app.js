@@ -92,15 +92,8 @@
       : resolveRemainingText(copy.offerRemainingText, diasRestantes);
 
     var hasLink = produto.link && produto.link !== "#";
-    var linkHref = hasLink ? produto.link : "#";
-
-    // Se estiver indisponível, anulamos o link real e colocamos um marcador
-    var finalHref = isIndisponivel ? "#" : linkHref;
-    var linkAttrs = isIndisponivel
-      ? 'data-indisponivel="true"'
-      : hasLink
-      ? 'target="_blank" rel="noreferrer"'
-      : '';
+    var finalHref = isIndisponivel ? "#" : (hasLink ? produto.link : "#");
+    var linkAttrs = isIndisponivel ? 'data-indisponivel="true"' : (hasLink ? 'target="_blank" rel="noreferrer"' : '');
 
     var seloIndisponivelHtml = isIndisponivel
       ? '<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">' +
@@ -464,7 +457,30 @@
     var targetLink = event.target.closest('a[data-indisponivel="true"]');
     if (targetLink) {
       event.preventDefault(); 
-      mostrarAvisoIndisponivel();
+
+      if (targetLink.getAttribute('data-active-alert') === 'true') return;
+      targetLink.setAttribute('data-active-alert', 'true');
+
+      var htmlOriginal = targetLink.innerHTML;
+
+      targetLink.className = 'card-produto__button flex items-center justify-center gap-2 px-3 py-3 rounded-xl shadow-lg text-white font-bold text-xs sm:text-sm text-center transition-all duration-300 cursor-default';
+      targetLink.style.background = 'linear-gradient(90deg, #ff331e 0%, #ff8c3b 50%, #ffd043 100%)';
+      
+      targetLink.innerHTML = `
+        <div class="flex items-center justify-center w-7 h-7 rounded-full bg-red-600 border-2 border-white flex-shrink-0 shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <span class="leading-tight tracking-wide text-left text-black font-extrabold drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">Produto Indisponível - Esta promoção já foi encerrada.</span>
+      `;
+
+      setTimeout(function () {
+        targetLink.innerHTML = htmlOriginal;
+        targetLink.className = 'card-produto__button';
+        targetLink.style.background = '';
+        targetLink.removeAttribute('data-active-alert');
+      }, 10000);
     }
   });
 })();
