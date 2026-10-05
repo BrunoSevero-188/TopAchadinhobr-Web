@@ -1,19 +1,15 @@
 {
-  "name": "Top Achadinhos BR",
-  "short_name": "Top Achadinhos",
-  "description": "Promoções reais, cupons exclusivos e dicas para economizar todos os dias.",
+  "name": "Top Achadinho BR",
+  "short_name": "Top Achadinho",
+  "description": "Achadinhos, ofertas e produtos interessantes selecionados pelo Top Achadinho BR.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#010101",
-  "theme_color": "#010101",
+  "background_color": "#ffffff",
+  "theme_color": "#f5c400",
   "orientation": "portrait-primary",
   "lang": "pt-BR",
   "icons": [
-    {
-      "src": "assets/TopAchadinhoLogo.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "assets/TopAchadinhoLogo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/logo-simbolo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }

@@ -1,49 +1,51 @@
-# Top Achadinho BR (Web)
+# Top Achadinho BR
 
-Site promocional "Top Achadinhos BR" que exibe ofertas em cards e carrega os produtos via arquivo JSON local (servido por uma API Express simples).
+Site estático de descoberta de produtos e ofertas (HTML + CSS + JavaScript puros + JSON).
+O Express em `api/server.js` serve apenas os arquivos para uso local.
 
-## Como funciona
-- Os dados dos produtos ficam em `data/produtos.json`.
-- No front, o JavaScript faz `fetch` em `data/produtos.json` e renderiza os cards na página.
-- A barra lateral de redes sociais e o texto do anúncio são renderizados a partir de constantes definidas no `js/data.js`.
-- O servidor Express (`api/server.js`) serve os arquivos estáticos e expõe o JSON de produtos.
-
-## Estrutura principal
-- `index.html` — layout da página.
-- `js/app.js` — renderização dos cards e carregamento do JSON.
-- `js/data.js` — constantes (texto do anúncio, links sociais, etc.).
-- `js/slidebar.js` — comportamento da barra lateral.
-- `data/produtos.json` — lista de produtos com campos:
-  - `titulo`, `imagem`, `precoNovo`, `precoAntigo` (opcional), `link`, `dataFim`, `categoria` (uma única categoria, de `categoria001` a `categoria007`).
-- `api/server.js` — servidor Express mínimo (arquivo reconstituído — não estava no material original; ajuste conforme sua implementação real).
-
-## Rodar o projeto
-Instale as dependências e rode:
+## Rodar localmente
 
 ```bash
 npm install
-npm run start   # produção
-npm run dev     # com --watch, reinicia sozinho
+npm start          # http://localhost:3000
 ```
 
-O servidor sobe por padrão em `http://localhost:3000`.
+## Estrutura
 
-## Observações
-- A página exibe `produto.categoria` diretamente no card.
-- Para alterar a categoria de um produto, ajuste o campo `categoria` em `data/produtos.json` (aceita `categoria001` a `categoria007`).
-- Exemplo de estrutura de produto em `data/produtos.json`:
-  - `titulo` (string)
-  - `imagem` (string URL)
-  - `precoNovo` (string)
-  - `precoAntigo` (string, opcional — omitir se não houver preço antigo)
-  - `link` (string URL)
-  - `dataFim` (string YYYY-MM-DD)
-  - `categoria` (string única, ex: `"categoria003"`)
+```
+index.html            página principal
+privacidade.html      Política de Privacidade (texto-base)
+termos.html           Termos de Uso (texto-base)
+manifest.json         PWA
+data/produtos.json    catálogo de produtos
+css/globals.css       tokens de design (cores, espaçamentos, raios, sombras, fontes) e base
+css/styles.css        componentes (header, hero, cards, filtros, rodapé...)
+js/data.js            textos, regras de negócio (preço, desconto, prazo, categorias) e carregamento
+js/render.js          geração do HTML dos cards, chips e categorias
+js/filters.js         estado, busca, filtros, ordenação e seleção de destaques
+js/ui.js              menu mobile, header e utilidades de interface
+js/app.js             orquestra tudo
+assets/               logo PNG original + logos SVG (símbolo, horizontal, escuro, monocromático)
+```
 
-## Correções aplicadas nesta reorganização
-1. Removido o campo solto `"categoria"` (singular) duplicado que só existia em 2 produtos, e depois reintroduzido de forma consistente como campo único em todos os produtos (ver item 5).
-2. Corrigido `"precoAntigo": "R$ 000,00"` no produto do DJI Mini 4 Pro — removido o campo (fica sem preço "de/por" já que não havia valor real informado). Se você tiver o preço antigo real, é só adicionar de volta.
-3. Corrigido caractere corrompido no fallback de erro do `app.js` (estava aparecendo `▤` no lugar do emoji 🛒).
-4. Criado `api/server.js` mínimo (Express, serve estático + rota de produtos), já que o `package.json` referenciava esse arquivo mas ele não veio no material enviado.
-5. Substituído o array `categorias` (que repetia as 7 categorias em todo produto) por um campo único `categoria`, distribuído ciclicamente de `categoria001` a `categoria007` entre os 15 produtos. O `app.js` foi simplificado para ler esse campo direto, sem a lógica de normalizar array.
-6. Corrigido bug em `app.js`: o template do card referenciava uma variável `categoria` que nunca tinha sido declarada (só existia `categoriaNormalizada`), o que quebraria a renderização de todos os cards.
+## Formato de `data/produtos.json`
+
+| Campo | Obrigatório | Descrição |
+|---|---|---|
+| `titulo` | sim | Itens sem título são ignorados |
+| `precoNovo` | sim | Ex.: `"R$ 49,90"` |
+| `precoAntigo` | não | Se maior que o novo, o desconto (%) é calculado automaticamente |
+| `link` | sim | Link do produto (afiliado). Só `http(s)` é aceito |
+| `dataFim` | sim | `AAAA-MM-DD`. Depois dessa data o card vira "Produto indisponível" |
+| `imagem` | não | URL da imagem |
+| `categoria01` ... `categoria05` | não | Texto livre. As categorias do site são geradas a partir delas |
+| `descricao` | não | Texto curto exibido no card |
+| `textoBotao` | não | Padrão: "Ver oferta" |
+| `destaque` | não | `true` para aparecer em "Achadinhos em destaque" |
+| `desconto` | não | Ex.: `"-37%"`. Se vazio, é calculado |
+
+Sem produtos ativos marcados com `destaque`, a seção de destaques mostra as 4 ofertas ativas de maior desconto.
+
+## Personalização visual
+
+Cores, tipografia, espaçamentos e raios ficam em `css/globals.css` (`:root`).

@@ -1,42 +1,50 @@
+/* ==========================================================================
+   Top Achadinho BR — Design tokens e base
+   Mude cores, espaçamentos e tipografia APENAS aqui.
+   ========================================================================== */
 :root {
-  /* Cores base */
-  --bg-main: #0a0e17;
-  --bg-panel: #111726;
-  --bg-panel-alt: #161d2e;
-  --surface: #faf7f0;
-  --surface-border: rgba(10, 14, 23, 0.08);
-  --text-main: #f2f4f9;
-  --text-muted: #97a1b5;
-  --text-dark: #171b26;
-  --text-dark-muted: #5c6577;
+  /* Cores */
+  --cor-principal: #f5c400;
+  --cor-principal-hover: #ddb000;
+  --cor-principal-suave: #fff6cc;
+  --cor-acento: #e53935;
+  --cor-acento-escuro: #c62828;
+  --cor-texto: #171717;
+  --cor-texto-secundario: #666666;
+  --cor-fundo: #ffffff;
+  --cor-fundo-secundario: #f6f6f6;
+  --cor-borda: #e7e7e7;
 
-  /* Acentos */
-  --accent: #f2a93b;
-  --accent-strong: #ff7a45;
-  --accent-soft: rgba(242, 169, 59, 0.14);
-  --whatsapp: #25d366;
-  --price-off: #ff6b57;
-
-  /* Bordas e sombras */
-  --border-hairline: rgba(255, 255, 255, 0.08);
-  --shadow-sm: 0 8px 20px rgba(4, 6, 12, 0.28);
-  --shadow-md: 0 20px 45px rgba(4, 6, 12, 0.45);
-  --shadow-lg: 0 26px 60px rgba(4, 6, 12, 0.55);
-
-  /* Raios */
-  --radius-lg: 1.5rem;
-  --radius-md: 1rem;
-  --radius-sm: 0.65rem;
+  /* Tema "indisponível" (card escuro) */
+  --ind-fundo: #131926;
+  --ind-borda: #212d42;
+  --ind-midia: #e5e7eb;
 
   /* Tipografia */
-  --font-display: "Manrope", "Segoe UI", Arial, sans-serif;
-  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+  --fonte-corpo: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fonte-titulo: "Manrope", "Inter", system-ui, sans-serif;
 
-  /* Compat: nomes antigos referenciados em outros arquivos/JS, se houver */
-  --header-bg: var(--surface);
-  --hero-bg: var(--surface);
-  --brand-green: var(--whatsapp);
-  --font-main: var(--font-body);
+  /* Espaçamento */
+  --esp-1: 4px;
+  --esp-2: 8px;
+  --esp-3: 12px;
+  --esp-4: 16px;
+  --esp-5: 24px;
+  --esp-6: 32px;
+  --esp-7: 48px;
+  --esp-8: 72px;
+
+  /* Formas e sombras */
+  --raio-card: 18px;
+  --raio-botao: 10px;
+  --raio-pill: 999px;
+  --sombra-1: 0 1px 2px rgba(23, 23, 23, 0.06), 0 4px 14px rgba(23, 23, 23, 0.06);
+  --sombra-2: 0 2px 4px rgba(23, 23, 23, 0.06), 0 12px 28px rgba(23, 23, 23, 0.12);
+
+  /* Layout */
+  --largura-conteudo: 1200px;
+  --altura-header: 64px;
+  --transicao: 180ms ease;
 }
 
 *,
@@ -47,54 +55,112 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--altura-header) + 12px);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  background: var(--bg-main);
-  color: var(--text-main);
-  font-family: var(--font-body);
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-display);
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+button,
+input {
+  font: inherit;
+  color: inherit;
 }
 
 button {
-  font-family: inherit;
+  cursor: pointer;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline: 3px solid var(--cor-texto);
+  outline-offset: 2px;
   border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--largura-conteudo);
+  margin-inline: auto;
+  padding-inline: var(--esp-4);
 }
 
 .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0;
   margin: -1px;
+  padding: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--esp-4);
+  top: -60px;
+  z-index: 100;
+  padding: var(--esp-3) var(--esp-4);
+  background: var(--cor-texto);
+  color: #fff;
+  border-radius: var(--raio-botao);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: var(--esp-2);
+}
+
+@media (min-width: 720px) {
+  .container {
+    padding-inline: var(--esp-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
