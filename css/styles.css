@@ -468,3 +468,96 @@
 .legal p, .legal li { color: #333; }
 .legal ul { padding-left: var(--esp-5); }
 .legal__data { color: var(--cor-texto-secundario); font-size: 0.9rem; }
+
+
+/* ---------- Ajustes do tema automático ---------- */
+html[data-tema="escuro"] .header {
+  background: rgba(16, 16, 16, 0.94);
+}
+
+html[data-tema="escuro"] .header__painel {
+  background: #101010;
+}
+
+html[data-tema="escuro"] .busca input {
+  background: var(--cor-input);
+  color: var(--cor-texto);
+}
+
+html[data-tema="escuro"] .busca input:focus {
+  background: #222;
+}
+
+html[data-tema="escuro"] .btn--escuro {
+  background: #f5f5f5;
+  color: #111;
+}
+
+html[data-tema="escuro"] .btn--escuro:hover {
+  background: #ffffff;
+}
+
+html[data-tema="escuro"] .btn--contorno:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+html[data-tema="escuro"] .hero {
+  background: linear-gradient(135deg, #2d2700 0%, #101010 72%);
+}
+
+html[data-tema="escuro"] .vazio,
+html[data-tema="escuro"] .card,
+html[data-tema="escuro"] .categoria-card,
+html[data-tema="escuro"] .motivo,
+html[data-tema="escuro"] .chip {
+  background: #1a1a1a;
+  color: var(--cor-texto);
+}
+
+html[data-tema="escuro"] .card__midia {
+  background: #222;
+}
+
+html[data-tema="escuro"] .card__por strong,
+html[data-tema="escuro"] .vazio strong {
+  color: #fff;
+}
+
+html[data-tema="escuro"] .categoria-card__icone {
+  background: #3a3100;
+}
+
+html[data-tema="escuro"] .chip[aria-pressed="true"] {
+  color: #171717;
+}
+
+html[data-tema="escuro"] .motivo__icone {
+  color: #171717;
+}
+
+html[data-tema="escuro"] .legal p,
+html[data-tema="escuro"] .legal li {
+  color: #d0d0d0;
+}
+
+html[data-tema="escuro"] .skip-link {
+  background: #f5f5f5;
+  color: #111;
+}
+
+html[data-tema="escuro"] .fab {
+  color: #171717;
+}
+
+html[data-tema="escuro"] .rodape {
+  background: #080808;
+}
+
+html[data-tema="escuro"] .rodape__aviso {
+  background: #151515;
+}
+
+html[data-tema="escuro"] .rodape__base {
+  border-top-color: #2a2a2a;
+}
