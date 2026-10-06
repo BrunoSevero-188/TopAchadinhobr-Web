@@ -4,7 +4,7 @@
   "description": "Achadinhos, ofertas e produtos interessantes selecionados pelo Top Achadinho BR.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#101010",
   "theme_color": "#f5c400",
   "orientation": "portrait-primary",
   "lang": "pt-BR",
