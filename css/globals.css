@@ -14,6 +14,9 @@
   --cor-fundo: #ffffff;
   --cor-fundo-secundario: #f6f6f6;
   --cor-borda: #e7e7e7;
+  --cor-input: #ffffff;
+  --cor-foco: #171717;
+  --cor-logo-contraste: #171717;
 
   /* Tema "indisponível" (card escuro) */
   --ind-fundo: #131926;
@@ -163,4 +166,34 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+
+/* ==========================================================================
+   Tema escuro automático
+   O tema é definido por js/theme.js usando o horário local do dispositivo.
+   Claro: 06:00–17:59 | Escuro: 18:00–05:59
+   ========================================================================== */
+html[data-tema="escuro"] {
+  color-scheme: dark;
+  --cor-texto: #f5f5f5;
+  --cor-texto-secundario: #b5b5b5;
+  --cor-fundo: #101010;
+  --cor-fundo-secundario: #181818;
+  --cor-borda: #303030;
+  --cor-input: #1b1b1b;
+  --cor-foco: #ffffff;
+  --cor-logo-contraste: #ffffff;
+  --cor-principal-suave: #3a3100;
+  --cor-principal-hover: #ffd633;
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 4px 14px rgba(0, 0, 0, 0.22);
+  --sombra-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+html[data-tema="escuro"] body {
+  color-scheme: dark;
+}
+
+html[data-tema="escuro"] :focus-visible {
+  outline-color: var(--cor-foco);
 }
