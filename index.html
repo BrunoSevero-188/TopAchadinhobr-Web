@@ -2,29 +2,89 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
     <meta name="theme-color" content="#F5C400" />
-    <link rel="icon" href="assets/logo-simbolo.svg" type="image/svg+xml" />
-    <link rel="icon" href="assets/TopAchadinhoLogo.png" type="image/png" />
-    <link rel="apple-touch-icon" href="assets/TopAchadinhoLogo.png" />
+
+    <link
+      rel="icon"
+      href="assets/logo-simbolo.svg"
+      type="image/svg+xml"
+    />
+
+    <link
+      rel="icon"
+      href="assets/TopAchadinhoLogo.png"
+      type="image/png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      href="assets/TopAchadinhoLogo.png"
+    />
+
     <link rel="manifest" href="manifest.json" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/globals.css" />
+
+    <script src="js/theme.js"></script>
+
     <link rel="stylesheet" href="css/styles.css" />
 
-    <title>Top Achadinho BR | Achadinhos, Ofertas e Produtos</title>
-    <meta name="description" content="Encontre achadinhos, ofertas e produtos interessantes selecionados pelo Top Achadinho BR." />
-    <link rel="canonical" href="https://top-achadinhobr-web.vercel.app/" />
+    <title>
+      Top Achadinho BR | Achadinhos, Ofertas e Produtos
+    </title>
+
+    <meta
+      name="description"
+      content="Encontre achadinhos, ofertas e produtos interessantes selecionados pelo Top Achadinho BR."
+    />
+
+    <link
+      rel="canonical"
+      href="https://top-achadinhobr-web.vercel.app/"
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Top Achadinho BR" />
-    <meta property="og:title" content="Top Achadinho BR | Achadinhos, Ofertas e Produtos" />
-    <meta property="og:description" content="Produtos interessantes, ofertas e oportunidades selecionadas para você." />
-    <meta property="og:url" content="https://top-achadinhobr-web.vercel.app/" />
-    <meta property="og:image" content="https://top-achadinhobr-web.vercel.app/assets/TopAchadinhoLogo.png" />
+
+    <meta
+      property="og:title"
+      content="Top Achadinho BR | Achadinhos, Ofertas e Produtos"
+    />
+
+    <meta
+      property="og:description"
+      content="Produtos interessantes, ofertas e oportunidades selecionadas para você."
+    />
+
+    <meta
+      property="og:url"
+      content="https://top-achadinhobr-web.vercel.app/"
+    />
+
+    <meta
+      property="og:image"
+      content="https://top-achadinhobr-web.vercel.app/assets/TopAchadinhoLogo.png"
+    />
+
     <meta name="twitter:card" content="summary" />
 
     <script type="application/ld+json">
@@ -43,184 +103,925 @@
       }
     </script>
   </head>
+
   <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <a class="skip-link" href="#conteudo">
+      Pular para o conteúdo
+    </a>
 
     <header class="header" id="topo">
       <div class="container header__inner">
-        <a class="marca" href="#inicio" aria-label="Top Achadinho BR - início">
-          <svg viewBox="0 0 64 64" role="img" aria-label="Top Achadinho BR"><polygon points="8,34 32,24 56,34 32,44" fill="#171717"/><polygon points="8,34 32,44 32,62 8,52" fill="#F5C400"/><polygon points="56,34 32,44 32,62 56,52" fill="#FFD84D"/><path d="M32 1 35.5 8.5 43 12 35.5 15.5 32 23 28.5 15.5 21 12 28.5 8.5z" fill="#E53935"/></svg>
-          <span>Top Achadinho</span><span class="marca__br">BR</span>
+
+        <a
+          class="marca"
+          href="#inicio"
+          aria-label="Top Achadinho BR - início"
+        >
+          <svg
+            viewBox="0 0 64 64"
+            role="img"
+            aria-label="Top Achadinho BR"
+          >
+            <polygon
+              points="8,34 32,24 56,34 32,44"
+              fill="#171717"
+            />
+
+            <polygon
+              points="8,34 32,44 32,62 8,52"
+              fill="#F5C400"
+            />
+
+            <polygon
+              points="56,34 32,44 32,62 56,52"
+              fill="#FFD84D"
+            />
+
+            <path
+              d="M32 1 35.5 8.5 43 12 35.5 15.5 32 23 28.5 15.5 21 12 28.5 8.5z"
+              fill="#E53935"
+            />
+          </svg>
+
+          <span>Top Achadinho</span>
+          <span class="marca__br">BR</span>
         </a>
 
-        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-          <svg class="icone-abrir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <svg class="icone-fechar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menu"
+          aria-label="Abrir menu"
+        >
+          <svg
+            class="icone-abrir"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+
+          <svg
+            class="icone-fechar"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
         </button>
 
         <div class="header__painel" id="menu">
-          <nav class="nav" aria-label="Navegação principal">
+
+          <nav
+            class="nav"
+            aria-label="Navegação principal"
+          >
             <a href="#inicio">Início</a>
             <a href="#ofertas">Ofertas</a>
             <a href="#categorias">Categorias</a>
             <a href="#novidades">Novidades</a>
             <a href="#sobre">Sobre</a>
           </nav>
-          <form class="busca" id="form-busca" role="search">
-            <label class="sr-only" for="busca">Buscar achadinhos</label>
-            <input id="busca" type="search" placeholder="Buscar" autocomplete="off" />
-            <button type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+
+          <form
+            class="busca"
+            id="form-busca"
+            role="search"
+          >
+            <label
+              class="sr-only"
+              for="busca"
+            >
+              Buscar achadinhos
+            </label>
+
+            <input
+              id="busca"
+              type="search"
+              placeholder="Buscar"
+              autocomplete="off"
+            />
+
+            <button
+              type="submit"
+              aria-label="Buscar"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="6.5"
+                />
+
+                <path d="m16 16 4 4" />
+              </svg>
+            </button>
           </form>
-          <a class="btn btn--escuro btn--sm" href="https://chat.whatsapp.com/GZKmX76IJlRCjEy1NuF7ZB" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/><path d="M9.2 8.8c-.4 1.6 1.9 4.6 4.6 5.4l1.1-1.4-1.8-.9-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-.9-1.8z"/></svg>Entrar no WhatsApp</a>
+
+          <a
+            class="btn btn--escuro btn--sm"
+            href="https://chat.whatsapp.com/GZKmX76IJlRCjEy1NuF7ZB"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"
+              />
+
+              <path
+                d="M9.2 8.8c-.4 1.6 1.9 4.6 4.6 5.4l1.1-1.4-1.8-.9-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-.9-1.8z"
+              />
+            </svg>
+
+            Entrar no WhatsApp
+          </a>
         </div>
       </div>
     </header>
 
     <main id="conteudo">
-      <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+
+      <section
+        class="hero"
+        id="inicio"
+        aria-labelledby="hero-titulo"
+      >
         <div class="container hero__inner">
+
           <div>
-            <span class="hero__eyebrow">Ofertas selecionadas</span>
-            <h1 class="hero__titulo" id="hero-titulo">Achadinhos que valem a <mark>descoberta.</mark></h1>
-            <p class="hero__texto">Produtos interessantes, ofertas e oportunidades selecionadas para você.</p>
+            <span class="hero__eyebrow">
+              Ofertas selecionadas
+            </span>
+
+            <h1
+              class="hero__titulo"
+              id="hero-titulo"
+            >
+              Achadinhos que valem a
+              <mark>descoberta.</mark>
+            </h1>
+
+            <p class="hero__texto">
+              Produtos interessantes, ofertas e oportunidades
+              selecionadas para você.
+            </p>
+
             <div class="hero__acoes">
-              <a class="btn btn--primario" href="#ofertas">Ver ofertas</a>
-              <a class="btn btn--contorno" href="#categorias">Explorar categorias</a>
+              <a
+                class="btn btn--primario"
+                href="#ofertas"
+              >
+                Ver ofertas
+              </a>
+
+              <a
+                class="btn btn--contorno"
+                href="#categorias"
+              >
+                Explorar categorias
+              </a>
             </div>
+
             <ul class="hero__selos">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Promoções reais</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Lojas confiáveis</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Cupons exclusivos</li>
+
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12.5 4.5 4.5L19 7.5" />
+                </svg>
+
+                Promoções reais
+              </li>
+
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12.5 4.5 4.5L19 7.5" />
+                </svg>
+
+                Lojas confiáveis
+              </li>
+
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12.5 4.5 4.5L19 7.5" />
+                </svg>
+
+                Cupons exclusivos
+              </li>
+
             </ul>
           </div>
-          <div class="hero__arte" aria-hidden="true"><svg viewBox="0 0 64 64" role="img" aria-label="Top Achadinho BR"><polygon points="8,34 32,24 56,34 32,44" fill="#171717"/><polygon points="8,34 32,44 32,62 8,52" fill="#F5C400"/><polygon points="56,34 32,44 32,62 56,52" fill="#FFD84D"/><path d="M32 1 35.5 8.5 43 12 35.5 15.5 32 23 28.5 15.5 21 12 28.5 8.5z" fill="#E53935"/></svg></div>
+
+          <div
+            class="hero__arte"
+            aria-hidden="true"
+          >
+            <svg
+              viewBox="0 0 64 64"
+              role="img"
+              aria-label="Top Achadinho BR"
+            >
+              <polygon
+                points="8,34 32,24 56,34 32,44"
+                fill="#171717"
+              />
+
+              <polygon
+                points="8,34 32,44 32,62 8,52"
+                fill="#F5C400"
+              />
+
+              <polygon
+                points="56,34 32,44 32,62 56,52"
+                fill="#FFD84D"
+              />
+
+              <path
+                d="M32 1 35.5 8.5 43 12 35.5 15.5 32 23 28.5 15.5 21 12 28.5 8.5z"
+                fill="#E53935"
+              />
+            </svg>
+          </div>
+
         </div>
       </section>
 
-      <section class="secao" id="ofertas" aria-labelledby="ofertas-titulo">
+
+      <section
+        class="secao"
+        id="ofertas"
+        aria-labelledby="ofertas-titulo"
+      >
         <div class="container">
+
           <div class="secao__cab">
-            <h2 class="secao__titulo" id="ofertas-titulo">Achadinhos em destaque</h2>
-            <p class="secao__sub">Ofertas que encontramos para você.</p>
+            <h2
+              class="secao__titulo"
+              id="ofertas-titulo"
+            >
+              Achadinhos em destaque
+            </h2>
+
+            <p class="secao__sub">
+              Ofertas que encontramos para você.
+            </p>
           </div>
-          <div id="destaques-grid" class="produtos-grid" aria-live="polite"></div>
+
+          <div
+            id="destaques-grid"
+            class="produtos-grid"
+            aria-live="polite"
+          ></div>
+
         </div>
       </section>
 
-      <section class="secao secao--alt" id="categorias" aria-labelledby="categorias-titulo">
+
+      <section
+        class="secao secao--alt"
+        id="categorias"
+        aria-labelledby="categorias-titulo"
+      >
         <div class="container">
+
           <div class="secao__cab">
-            <h2 class="secao__titulo" id="categorias-titulo">Explore por categoria</h2>
-            <p class="secao__sub">Escolha um assunto e veja só os achadinhos dele.</p>
+            <h2
+              class="secao__titulo"
+              id="categorias-titulo"
+            >
+              Explore por categoria
+            </h2>
+
+            <p class="secao__sub">
+              Escolha um assunto e veja só os achadinhos dele.
+            </p>
           </div>
-          <div id="categorias-grid" class="categorias-grid"></div>
+
+          <div
+            id="categorias-grid"
+            class="categorias-grid"
+          ></div>
+
         </div>
       </section>
 
-      <section class="secao" id="novidades" aria-labelledby="novidades-titulo">
+
+      <section
+        class="secao"
+        id="novidades"
+        aria-labelledby="novidades-titulo"
+      >
         <div class="container">
+
           <div class="secao__cab">
-            <h2 class="secao__titulo" id="novidades-titulo">Achadinhos recentes</h2>
-            <p class="secao__sub">Tudo o que já selecionamos. Use a busca (aceita várias palavras separadas por vírgula) ou as categorias.</p>
+            <h2
+              class="secao__titulo"
+              id="novidades-titulo"
+            >
+              Achadinhos recentes
+            </h2>
+
+            <p class="secao__sub">
+              Tudo o que já selecionamos. Use a busca
+              (aceita várias palavras separadas por vírgula)
+              ou as categorias.
+            </p>
           </div>
+
           <div class="filtros">
-            <div id="filtro-categorias" class="chips" role="group" aria-label="Filtrar produtos por categoria"></div>
+
+            <div
+              id="filtro-categorias"
+              class="chips"
+              role="group"
+              aria-label="Filtrar produtos por categoria"
+            ></div>
+
             <div class="filtros__linha">
-              <label class="toggle"><input type="checkbox" id="so-ofertas" /> Só ofertas ativas com desconto</label>
-              <p class="filtros__status" id="produtos-status" role="status" aria-live="polite"></p>
+
+              <label class="toggle">
+                <input
+                  type="checkbox"
+                  id="so-ofertas"
+                />
+
+                Só ofertas ativas com desconto
+              </label>
+
+              <p
+                class="filtros__status"
+                id="produtos-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+
             </div>
           </div>
-          <div id="produtos-grid" class="produtos-grid" aria-label="Lista de produtos"></div>
+
+          <div
+            id="produtos-grid"
+            class="produtos-grid"
+            aria-label="Lista de produtos"
+          ></div>
+
         </div>
       </section>
 
-      <section class="secao secao--alt" id="sobre" aria-labelledby="sobre-titulo">
+
+      <section
+        class="secao secao--alt"
+        id="sobre"
+        aria-labelledby="sobre-titulo"
+      >
         <div class="container">
+
           <div class="secao__cab">
-            <h2 class="secao__titulo" id="sobre-titulo">Por que usar o Top Achadinho</h2>
-            <p class="secao__sub">Promoções reais, cupons exclusivos e dicas para economizar todos os dias.</p>
+            <h2
+              class="secao__titulo"
+              id="sobre-titulo"
+            >
+              Por que usar o Top Achadinho
+            </h2>
+
+            <p class="secao__sub">
+              Promoções reais, cupons exclusivos e dicas
+              para economizar todos os dias.
+            </p>
           </div>
+
           <div class="motivos">
+
             <article class="motivo">
-              <div class="motivo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.4 3 7.8 7.5 9.5 4.5-1.7 7.5-5.1 7.5-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></div>
+
+              <div class="motivo__icone">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 3 4.5 6v5.5c0 4.4 3 7.8 7.5 9.5 4.5-1.7 7.5-5.1 7.5-9.5V6z"
+                  />
+
+                  <path
+                    d="m9 12 2.2 2.2L15.5 10"
+                  />
+                </svg>
+              </div>
+
               <h3>Lojas confiáveis</h3>
-              <p>Apenas lojas confiáveis entram na nossa seleção.</p>
+
+              <p>
+                Apenas lojas confiáveis entram na nossa seleção.
+              </p>
+
             </article>
+
+
             <article class="motivo">
-              <div class="motivo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13 13 20.5a2 2 0 0 1-2.8 0L3.5 13.8V3.5h10.3L20.5 10a2 2 0 0 1 0 3z"/><circle cx="8" cy="8" r="1.3"/></svg></div>
+
+              <div class="motivo__icone">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20.5 13 13 20.5a2 2 0 0 1-2.8 0L3.5 13.8V3.5h10.3L20.5 10a2 2 0 0 1 0 3z"
+                  />
+
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="1.3"
+                  />
+                </svg>
+              </div>
+
               <h3>Promoções reais</h3>
-              <p>Ofertas e cupons exclusivos, com o prazo de cada oferta visível no card.</p>
+
+              <p>
+                Ofertas e cupons exclusivos, com o prazo
+                de cada oferta visível no card.
+              </p>
+
             </article>
+
+
             <article class="motivo">
-              <div class="motivo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></div>
-              <h3>Curadoria dos administradores</h3>
-              <p>As postagens são feitas somente pelos administradores do Top Achadinho.</p>
+
+              <div class="motivo__icone">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="12"
+                    cy="8"
+                    r="3.5"
+                  />
+
+                  <path
+                    d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"
+                  />
+                </svg>
+              </div>
+
+              <h3>
+                Curadoria dos administradores
+              </h3>
+
+              <p>
+                As postagens são feitas somente pelos
+                administradores do Top Achadinho.
+              </p>
+
             </article>
+
           </div>
         </div>
       </section>
 
-      <section class="cta-wa" id="whatsapp" aria-labelledby="wa-titulo">
+
+      <section
+        class="cta-wa"
+        id="whatsapp"
+        aria-labelledby="wa-titulo"
+      >
         <div class="container">
+
           <div class="cta-wa__caixa">
+
             <div>
-              <h2 class="cta-wa__titulo" id="wa-titulo">Receba os próximos <span>achadinhos</span></h2>
-              <p class="cta-wa__texto">Entre no nosso grupo e receba novidades, ofertas e produtos que valem a pena conferir.</p>
+              <h2
+                class="cta-wa__titulo"
+                id="wa-titulo"
+              >
+                Receba os próximos
+                <span>achadinhos</span>
+              </h2>
+
+              <p class="cta-wa__texto">
+                Entre no nosso grupo e receba novidades,
+                ofertas e produtos que valem a pena conferir.
+              </p>
             </div>
+
             <div class="cta-wa__acao">
-              <a class="btn btn--primario" href="https://chat.whatsapp.com/GZKmX76IJlRCjEy1NuF7ZB" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/><path d="M9.2 8.8c-.4 1.6 1.9 4.6 4.6 5.4l1.1-1.4-1.8-.9-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-.9-1.8z"/></svg>Entrar no WhatsApp</a>
+
+              <a
+                class="btn btn--primario"
+                href="https://chat.whatsapp.com/GZKmX76IJlRCjEy1NuF7ZB"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"
+                  />
+
+                  <path
+                    d="M9.2 8.8c-.4 1.6 1.9 4.6 4.6 5.4l1.1-1.4-1.8-.9-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-.9-1.8z"
+                  />
+                </svg>
+
+                Entrar no WhatsApp
+              </a>
+
             </div>
+
           </div>
         </div>
       </section>
+
     </main>
 
-    <footer class="rodape" id="contato">
+
+    <footer
+      class="rodape"
+      id="contato"
+    >
       <div class="container">
+
         <div class="rodape__grid">
+
           <div>
-            <a class="marca rodape__marca" href="#inicio"><svg viewBox="0 0 64 64" role="img" aria-label="Top Achadinho BR"><polygon points="8,34 32,24 56,34 32,44" fill="#171717"/><polygon points="8,34 32,44 32,62 8,52" fill="#F5C400"/><polygon points="56,34 32,44 32,62 56,52" fill="#FFD84D"/><path d="M32 1 35.5 8.5 43 12 35.5 15.5 32 23 28.5 15.5 21 12 28.5 8.5z" fill="#E53935"/></svg><span>Top Achadinho</span><span class="marca__br" style="color:#171717">BR</span></a>
-            <p class="rodape__desc">Achadinhos, produtos e oportunidades selecionadas.</p>
+
+            <a
+              class="marca rodape__marca"
+              href="#inicio"
+            >
+              <svg
+                viewBox="0 0 64 64"
+                role="img"
+                aria-label="Top Achadinho BR"
+              >
+                <polygon
+                  points="8,34 32,24 56,34 32,44"
+                  fill="#171717"
+                />
+
+                <polygon
+                  points="8,34 32,44 32,62 8,52"
+                  fill="#F5C400"
+                />
+
+                <polygon
+                  points="56,34 32,44 32,62 56,52"
+                  fill="#FFD84D"
+                />
+
+                <path
+                  d="M32 1 35.5 8.5 43 12 35.5 15.5 32 23 28.5 15.5 21 12 28.5 8.5z"
+                  fill="#E53935"
+                />
+              </svg>
+
+              <span>Top Achadinho</span>
+
+              <span
+                class="marca__br"
+                style="color:#171717"
+              >
+                BR
+              </span>
+            </a>
+
+            <p class="rodape__desc">
+              Achadinhos, produtos e oportunidades selecionadas.
+            </p>
+
           </div>
+
+
           <div>
-            <h2 class="rodape__titulo">Navegação</h2>
+
+            <h2 class="rodape__titulo">
+              Navegação
+            </h2>
+
             <ul class="rodape__lista">
               <li><a href="#inicio">Início</a></li>
               <li><a href="#ofertas">Ofertas</a></li>
               <li><a href="#categorias">Categorias</a></li>
               <li><a href="#sobre">Sobre</a></li>
-              <li><a href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!" target="_blank" rel="noopener noreferrer">Contato</a></li>
+
+              <li>
+                <a
+                  href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Contato
+                </a>
+              </li>
             </ul>
+
           </div>
+
+
           <div>
-            <h2 class="rodape__titulo">Redes sociais</h2>
+
+            <h2 class="rodape__titulo">
+              Redes sociais
+            </h2>
+
             <div class="redes">
-              <a href="https://chat.whatsapp.com/GZKmX76IJlRCjEy1NuF7ZB" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/><path d="M9.2 8.8c-.4 1.6 1.9 4.6 4.6 5.4l1.1-1.4-1.8-.9-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-.9-1.8z"/></svg></a>
-              <a href="https://www.instagram.com/top_achadinho.br" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a>
-              <a href="https://br.pinterest.com/topachadinhobr" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10.4 18.5 12 11.5M8.8 11c-.3-2.4 1.3-4 3.4-4 2 0 3.2 1.3 3.2 3 0 2.2-1.3 3.7-3 3.7-.8 0-1.4-.4-1.6-1"/></svg></a>
-              <a href="https://www.youtube.com/channel/UCDzLFznAsfidOweL2Skxyzw/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z" fill="currentColor"/></svg></a>
-              <a href="https://www.tiktok.com/@topachadinhosbr2026" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.2a3.7 3.7 0 1 1-3.7-3.7M14 4c.3 2.4 2 3.9 4.6 4.1"/></svg></a>
+
+              <a
+                href="https://chat.whatsapp.com/GZKmX76IJlRCjEy1NuF7ZB"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"
+                  />
+
+                  <path
+                    d="M9.2 8.8c-.4 1.6 1.9 4.6 4.6 5.4l1.1-1.4-1.8-.9-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-.9-1.8z"
+                  />
+                </svg>
+              </a>
+
+
+              <a
+                href="https://www.instagram.com/top_achadinho.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="3.5"
+                    y="3.5"
+                    width="17"
+                    height="17"
+                    rx="5"
+                  />
+
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                  />
+
+                  <circle
+                    cx="17.2"
+                    cy="6.8"
+                    r=".6"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+
+
+              <a
+                href="https://br.pinterest.com/topachadinhobr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Pinterest"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                  />
+
+                  <path
+                    d="M10.4 18.5 12 11.5M8.8 11c-.3-2.4 1.3-4 3.4-4 2 0 3.2 1.3 3.2 3 0 2.2-1.3 3.7-3 3.7-.8 0-1.4-.4-1.6-1"
+                  />
+                </svg>
+              </a>
+
+
+              <a
+                href="https://www.youtube.com/channel/UCDzLFznAsfidOweL2Skxyzw/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="2.5"
+                    y="5.5"
+                    width="19"
+                    height="13"
+                    rx="4"
+                  />
+
+                  <path
+                    d="m10 9.5 5 2.5-5 2.5z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+
+
+              <a
+                href="https://www.tiktok.com/@topachadinhosbr2026"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M14 4v10.2a3.7 3.7 0 1 1-3.7-3.7M14 4c.3 2.4 2 3.9 4.6 4.1"
+                  />
+                </svg>
+              </a>
+
             </div>
+
           </div>
+
+
           <div>
-            <h2 class="rodape__titulo">Legal</h2>
+
+            <h2 class="rodape__titulo">
+              Legal
+            </h2>
+
             <ul class="rodape__lista">
-              <li><a href="privacidade.html">Política de Privacidade</a></li>
-              <li><a href="termos.html">Termos de Uso</a></li>
+              <li>
+                <a href="privacidade.html">
+                  Política de Privacidade
+                </a>
+              </li>
+
+              <li>
+                <a href="termos.html">
+                  Termos de Uso
+                </a>
+              </li>
             </ul>
+
           </div>
+
         </div>
-        <p class="rodape__aviso">Alguns links disponíveis neste site podem gerar comissão para o Top Achadinho BR quando uma compra é realizada. Isso não altera o preço pago pelo consumidor.</p>
-        <p class="rodape__base">© <span id="ano-atual">2026</span> Top Achadinho BR. Todos os direitos reservados.</p>
+
+
+        <p class="rodape__aviso">
+          Alguns links disponíveis neste site podem gerar comissão
+          para o Top Achadinho BR quando uma compra é realizada.
+          Isso não altera o preço pago pelo consumidor.
+        </p>
+
+        <p class="rodape__base">
+          © <span id="ano-atual">2026</span>
+          Top Achadinho BR. Todos os direitos reservados.
+        </p>
+
       </div>
     </footer>
 
-    <a class="fab" href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!" target="_blank" rel="noopener noreferrer" aria-label="Falar com o administrador no WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/><path d="M9.2 8.8c-.4 1.6 1.9 4.6 4.6 5.4l1.1-1.4-1.8-.9-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-.9-1.8z"/></svg>Falar com o ADM</a>
+
+    <a
+      class="fab"
+      href="https://wa.me/556798135237?text=Ol%C3%A1%2C%20vim%20pelo%20site%20Top%20Achadinhos%20BR!"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar com o administrador no WhatsApp"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path
+          d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"
+        />
+
+        <path
+          d="M9.2 8.8c-.4 1.6 1.9 4.6 4.6 5.4l1.1-1.4-1.8-.9-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-.9-1.8z"
+        />
+      </svg>
+
+      Falar com o ADM
+    </a>
+
 
     <script src="js/data.js"></script>
     <script src="js/render.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/app.js"></script>
+
   </body>
 </html>

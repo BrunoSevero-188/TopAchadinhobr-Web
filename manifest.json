@@ -4,12 +4,22 @@
   "description": "Achadinhos, ofertas e produtos interessantes selecionados pelo Top Achadinho BR.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#101010",
   "theme_color": "#f5c400",
   "orientation": "portrait-primary",
   "lang": "pt-BR",
   "icons": [
-    { "src": "assets/TopAchadinhoLogo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "assets/logo-simbolo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    {
+      "src": "assets/TopAchadinhoLogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo-simbolo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
   ]
 }
