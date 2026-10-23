@@ -265,8 +265,8 @@
   },{
     "titulo": "Lavadora de Alta Pressão WAP WL 4000 2000W Vazão 420L/h 1950 PSI",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_729792-MLA115889929523_082026-F.webp",
-    "precoNovo": "R$ 2.000,00",
-    "precoAntigo": "R$ 827,91",
+    "precoNovo": "R$ 827,91",
+    "precoAntigo": "R$ 2.000,00",
     "link": "https://meli.la/2smHBCd",
     "dataFim": "2026-11-23",
     "categoria01": "Lavadora Alta Pressão",
@@ -297,8 +297,8 @@
   },{
     "titulo": "Aparador de Pelos Elétrico Lecom Prova D'Água Bivolt Barbear e Depilar",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_904329-MLA95656868822_102025-F.webp",
-    "precoNovo": "R$ 99,90",
-    "precoAntigo": "R$ 57,00",
+    "precoNovo": "R$ 57,00",
+    "precoAntigo": "R$ 99,90",
     "link": "https://meli.la/1DeHdEF",
     "dataFim": "2026-11-23",
     "categoria01": "Máquinas de Cortar Cabelo",
@@ -336,17 +336,16 @@
     "categoria03": "Moda Fitness",
     "categoria04": "Calçados, Roupas e Bolsas"
   },{
-    "titulo": "",
-    "imagem": "",
-    "precoNovo": "R$ ",
-    "precoAntigo": "R$ ",
-    "link": "",
-    "dataFim": "2026-11-01",
-    "categoria01": "",
-    "categoria02": "",
-    "categoria03": "",
-    "categoria04": "",
-    "categoria05": ""
+    "titulo": "Mala Streetbag Treino Bolsa Academia Fitness Multiuso Estilo Esportiva Preta",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_625897-MLA115260990468_082026-F.webp",
+    "precoNovo": "R$ 60,62",
+    "precoAntigo": "R$ 78,90",
+    "link": "https://meli.la/24qNvza",
+    "dataFim": "2026-11-23",
+    "categoria01": "Mala",
+    "categoria02": "Bolsas",
+    "categoria03": "Malas e Bolsas",
+    "categoria04": "Calçados, Roupas e Bolsas"
   },{
     "titulo": "",
     "imagem": "",

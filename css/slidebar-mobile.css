@@ -11,7 +11,7 @@
   background: rgba(37, 211, 102, 0.18);
   border: 1px solid rgba(37, 211, 102, 0.45);
   color: #eafff2;
-  font-family: 'Arial', sans-serif;
+  font-family: var(--font-display);
   text-decoration: none;
   font-weight: 700;
   box-shadow: var(--shadow-md);
@@ -34,7 +34,7 @@
 }
 
 .slidebar__toggle {
-  display: none; 
+  display: none; /* só aparece em telas grandes (ver media query abaixo) */
   align-items: center;
   justify-content: center;
   width: 36px;

@@ -46,11 +46,22 @@
     return { nomes: nomes, contagem: contagem };
   };
 
-  // Destaques: só ofertas ativas; prioriza "destaque: true", depois maior desconto (máx. 4)
+  // Destaques: só ofertas ativas; prioriza "destaque: true", depois maior desconto (máx. 12, usados no carrossel)
   TA.selecionarDestaques = function (lista) {
     var ativos = lista.filter(function (p) { return !TA.isIndisponivel(p); });
     var marcados = ativos.filter(function (p) { return p.destaque === true; });
     var base = marcados.length ? marcados : ativos.slice().sort(function (a, b) { return TA.getDesconto(b) - TA.getDesconto(a); });
-    return base.slice(0, 4);
+    return base.slice(0, 12);
+  };
+
+  // "Menos de R$ X": ofertas ativas com preço atual até o limite, maior desconto primeiro
+  TA.selecionarAteValor = function (lista, limite, max) {
+    return lista
+      .filter(function (p) {
+        var preco = TA.parsePreco(p.precoNovo);
+        return !TA.isIndisponivel(p) && !isNaN(preco) && preco > 0 && preco <= limite;
+      })
+      .sort(function (a, b) { return TA.getDesconto(b) - TA.getDesconto(a); })
+      .slice(0, max || 12);
   };
 })(window);

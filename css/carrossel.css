@@ -1,0 +1,177 @@
+/* Top Achadinho BR — Carrossel e card de produto (preço em destaque, estilo vitrine de marketplace) */
+
+/* ---------- Carrossel ---------- */
+.carrossel {
+  position: relative;
+}
+
+.carrossel__trilho {
+  display: flex;
+  gap: var(--esp-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--esp-1);
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  padding: var(--esp-2) var(--esp-1) var(--esp-4);
+  margin-inline: calc(var(--esp-1) * -1);
+  -webkit-overflow-scrolling: touch;
+}
+
+.carrossel__trilho::-webkit-scrollbar {
+  display: none;
+}
+
+.carrossel__trilho:focus-visible {
+  outline: 2px solid var(--cor-foco);
+  outline-offset: 2px;
+  border-radius: var(--raio-card);
+}
+
+.carrossel__trilho > .card {
+  flex: 0 0 min(72vw, 240px);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 720px) {
+  .carrossel__trilho {
+    gap: var(--esp-5);
+  }
+
+  .carrossel__trilho > .card {
+    flex-basis: 260px;
+  }
+}
+
+.carrossel__trilho > .vazio {
+  flex: 1 0 100%;
+}
+
+.carrossel__seta {
+  position: absolute;
+  top: 42%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--cor-texto);
+  box-shadow: var(--sombra-2);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: transform var(--transicao), background var(--transicao);
+}
+
+.carrossel__seta[hidden] {
+  display: none;
+}
+
+.carrossel__seta svg {
+  width: 20px;
+  height: 20px;
+}
+
+.carrossel__seta--prev {
+  left: -12px;
+}
+
+.carrossel__seta--next {
+  right: -12px;
+}
+
+@media (hover: hover) {
+  .carrossel__seta:hover {
+    transform: translateY(-50%) scale(1.08);
+    background: var(--cor-principal);
+  }
+}
+
+.carrossel__seta:focus-visible {
+  outline: 2px solid var(--cor-foco);
+  outline-offset: 2px;
+}
+
+/* No celular o dedo rola; as setas ficam só em telas com ponteiro preciso */
+@media (hover: none) {
+  .carrossel__seta {
+    display: none;
+  }
+}
+
+/* ---------- Preço do card ---------- */
+.card__preco {
+  margin-top: auto;
+  padding-top: var(--esp-2);
+  display: grid;
+  gap: 0;
+}
+
+.card__de {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+  text-decoration-thickness: 1px;
+}
+
+.card__atual {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--esp-2);
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  color: var(--cor-texto);
+  line-height: 1.2;
+}
+
+.card__moeda {
+  font-size: 1rem;
+  margin-right: -4px;
+}
+
+.card__inteiro {
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.card__centavos {
+  align-self: flex-start;
+  margin-left: -4px;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.card__atual-texto {
+  font-size: 1.5rem;
+}
+
+.card__off {
+  font-family: var(--fonte-corpo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #008a3e;
+  white-space: nowrap;
+}
+
+html[data-tema="escuro"] .card__off {
+  color: #4ade80;
+}
+
+html[data-tema="escuro"] .card__atual {
+  color: #fff;
+}
+
+html[data-tema="escuro"] .carrossel__seta {
+  background: #262626;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrossel__trilho {
+    scroll-behavior: auto;
+  }
+}

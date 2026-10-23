@@ -20,10 +20,12 @@ manifest.json         PWA
 data/produtos.json    catálogo de produtos
 css/globals.css       tokens de design (cores, espaçamentos, raios, sombras, fontes) e base
 css/styles.css        componentes (header, hero, cards, filtros, rodapé...)
+css/carrossel.css     carrosséis horizontais e preço do card (inteiro + centavos + % OFF)
 js/data.js            textos, regras de negócio (preço, desconto, prazo, categorias) e carregamento
 js/render.js          geração do HTML dos cards, chips e categorias
 js/filters.js         estado, busca, filtros, ordenação e seleção de destaques
 js/ui.js              menu mobile, header e utilidades de interface
+js/carrossel.js       setas e estado dos carrosséis (scroll-snap)
 js/app.js             orquestra tudo
 assets/               logo PNG original + logos SVG (símbolo, horizontal, escuro, monocromático)
 ```

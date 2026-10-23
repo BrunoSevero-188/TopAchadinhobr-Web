@@ -1,3 +1,4 @@
+/* Top Achadinho BR — Orquestração: carrega dados e liga filtros às seções */
 (function (global) {
   "use strict";
 
@@ -17,6 +18,17 @@
           "Estamos preparando os próximos achadinhos. Entre no grupo do WhatsApp para ser avisado.",
           true
         );
+    TA.atualizarCarrosseis();
+  }
+
+  function renderMenosDe100() {
+    var secao = el("menos-de-100");
+    var grid = el("menos-100-grid");
+    if (!secao || !grid) return;
+    var lista = TA.selecionarAteValor(produtos, 100, 12);
+    secao.hidden = !lista.length;
+    grid.innerHTML = TA.renderCards(lista);
+    TA.atualizarCarrosseis();
   }
 
   function renderCategorias() {
@@ -48,6 +60,7 @@
       status.textContent = produtos.length ? lista.length + (lista.length === 1 ? " achadinho" : " achadinhos") : "";
     }
 
+    // Atualiza o estado visual dos chips sem recriá-los
     document.querySelectorAll("#filtro-categorias .chip").forEach(function (c) {
       c.setAttribute("aria-pressed", String(c.getAttribute("data-categoria") === TA.estado.categoria));
     });
@@ -115,12 +128,14 @@
     TA.iniciarMenu();
     TA.iniciarHeaderScroll();
     TA.iniciarFallbackImagens();
+    TA.iniciarCarrosseis();
     ligarEventos();
 
     TA.carregarProdutos()
       .then(function (lista) {
         produtos = lista;
         renderDestaques();
+        renderMenosDe100();
         renderCategorias();
         renderLista();
       })

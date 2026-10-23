@@ -20,6 +20,28 @@
   }
   TA.esc = esc;
 
+  // 254.53 -> { inteiro: "254", centavos: "53" } (milhar com ponto, centavos sobrescritos)
+  function partesPreco(valor) {
+    var fixo = valor.toFixed(2).split(".");
+    return { inteiro: fixo[0].replace(/\B(?=(\d{3})+(?!\d))/g, "."), centavos: fixo[1] };
+  }
+
+  function precoAtualHtml(produto, desconto) {
+    var novo = TA.parsePreco(produto.precoNovo);
+    var off = desconto ? '<span class="card__off">' + desconto + "% OFF</span>" : "";
+    if (isNaN(novo)) {
+      return '<span class="card__atual"><span class="card__atual-texto">' + esc(produto.precoNovo || "") + "</span>" + off + "</span>";
+    }
+    var p = partesPreco(novo);
+    return (
+      '<span class="card__atual" aria-label="Por ' + esc(produto.precoNovo) + '">' +
+      '<span class="card__moeda" aria-hidden="true">R$</span>' +
+      '<span class="card__inteiro" aria-hidden="true">' + p.inteiro + "</span>" +
+      (p.centavos !== "00" ? '<sup class="card__centavos" aria-hidden="true">' + p.centavos + "</sup>" : "") +
+      off + "</span>"
+    );
+  }
+
   function categoriasHtml(produto) {
     return (
       '<div class="card__categorias">' +
@@ -48,11 +70,10 @@
     var href = TA.urlSegura(produto.link);
     var botaoTexto = produto.textoBotao || TA.textos.botaoPadrao;
 
-    var selo = desconto ? '<span class="card__selo">-' + desconto + "%</span>" : "";
     var antigo = TA.parsePreco(produto.precoAntigo);
     var novo = TA.parsePreco(produto.precoNovo);
     var de = !isNaN(antigo) && (isNaN(novo) || antigo > novo)
-      ? '<span class="card__de">De: <s>' + esc(produto.precoAntigo) + "</s></span>"
+      ? '<s class="card__de">' + esc(produto.precoAntigo) + "</s>"
       : "";
     var desc = produto.descricao ? '<p class="card__desc">' + esc(produto.descricao) + "</p>" : "";
     var validade = dias === 1 ? TA.textos.ofertaAteUm : TA.textos.ofertaAte.replace("{dias}", dias);
@@ -63,13 +84,12 @@
 
     return (
       '<article class="card">' +
-      '<div class="card__midia">' + selo + midiaHtml(produto, false) + "</div>" +
+      '<div class="card__midia">' + midiaHtml(produto, false) + "</div>" +
       '<div class="card__corpo">' +
       categoriasHtml(produto) +
       '<h3 class="card__titulo">' + esc(produto.titulo) + "</h3>" +
       desc +
-      '<p class="card__preco">' + de +
-      '<span class="card__por">Por: <strong>' + esc(produto.precoNovo || "") + "</strong></span></p>" +
+      '<p class="card__preco">' + de + precoAtualHtml(produto, desconto) + "</p>" +
       '<p class="card__validade">' + esc(validade) + "</p>" +
       "</div>" +
       '<div class="card__acao">' + acao + "</div>" +
