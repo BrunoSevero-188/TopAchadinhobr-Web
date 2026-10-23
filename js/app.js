@@ -1,4 +1,3 @@
-/* Top Achadinho BR — Orquestração: carrega dados e liga filtros às seções */
 (function (global) {
   "use strict";
 
@@ -49,7 +48,6 @@
       status.textContent = produtos.length ? lista.length + (lista.length === 1 ? " achadinho" : " achadinhos") : "";
     }
 
-    // Atualiza o estado visual dos chips sem recriá-los
     document.querySelectorAll("#filtro-categorias .chip").forEach(function (c) {
       c.setAttribute("aria-pressed", String(c.getAttribute("data-categoria") === TA.estado.categoria));
     });
