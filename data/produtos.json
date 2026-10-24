@@ -512,29 +512,25 @@
     "categoria01": "Saúde",
     "categoria02": "Suplementos Alimentares"
   },{
-    "titulo": "",
-    "imagem": "",
-    "precoNovo": "R$ ",
-    "precoAntigo": "R$ ",
-    "link": "",
-    "dataFim": "2026-11-01",
-    "categoria01": "",
-    "categoria02": "",
-    "categoria03": "",
-    "categoria04": "",
-    "categoria05": ""
+    "titulo": "Kit 02 Travesseiro Antialérgico Pluma De Ganso 70cm X 50cm Cor Branco",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_636485-MLA109126967806_042026-F.webp",
+    "precoNovo": "R$ 29,89",
+    "precoAntigo": "R$ 58,90",
+    "link": "https://meli.la/2NEYwk2",
+    "dataFim": "2026-11-24",
+    "categoria01": "Casa, Móveis e Decoração",
+    "categoria02": "Camas, Colchões e Acessórios",
+    "categoria03": "Travesseiros"
   },{
-    "titulo": "",
-    "imagem": "",
-    "precoNovo": "R$ ",
-    "precoAntigo": "R$ ",
-    "link": "",
-    "dataFim": "2026-11-01",
-    "categoria01": "",
-    "categoria02": "",
-    "categoria03": "",
-    "categoria04": "",
-    "categoria05": ""
+    "titulo": "Smart Tv 43 Philco P43vik Roku Led Dolby Audio Wi-fi Hdmi Hdr Full Hd 110/220v",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_697288-MLA100482486016_122025-F.webp",
+    "precoNovo": "R$ 1.499,00",
+    "precoAntigo": "R$ 2.499,00",
+    "link": "https://meli.la/23F94ok",
+    "dataFim": "2026-11-24",
+    "categoria01": "Eletrônicos, Áudio e Vídeo";
+    "categoria02": "Televisores",
+    "categoria03": "Smart Tv"
   },{
     "titulo": "",
     "imagem": "",
