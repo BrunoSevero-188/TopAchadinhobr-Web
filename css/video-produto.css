@@ -1,0 +1,134 @@
+/* Top Achadinho BR — carrossel de vídeos */
+.video-carrossel {
+  position: relative;
+}
+.video-carrossel__trilho {
+  display: flex;
+  gap: var(--esp-4);
+  overflow-x: auto;
+  padding: var(--esp-2) var(--esp-1) var(--esp-4);
+  margin-inline: calc(var(--esp-1) * -1);
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--esp-1);
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.video-carrossel__trilho::-webkit-scrollbar { display: none; }
+.video-carrossel__trilho:focus-visible {
+  outline: 2px solid var(--cor-foco);
+  outline-offset: 2px;
+  border-radius: var(--raio-card);
+}
+.video-card {
+  flex: 0 0 min(78vw, 310px);
+  min-width: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-card);
+  background: var(--cor-fundo);
+  box-shadow: var(--sombra-1);
+}
+.video-card__media,
+.video-card__media--youtube {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 470px;
+  object-fit: contain;
+  background: #090909;
+}
+.video-card__media--youtube img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-card__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #171717;
+  background: var(--cor-principal);
+  font-size: 1.4rem;
+  box-shadow: var(--sombra-2);
+}
+.video-card__media--youtube[hidden] { display: none; }
+.video-card__embed {
+  display: none;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 470px;
+  border: 0;
+  background: #090909;
+}
+.video-card__embed.is-active { display: block; }
+.video-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--esp-2);
+  padding: var(--esp-4);
+}
+.video-card__eyebrow {
+  color: var(--cor-acento);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.video-card__body h3 {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.video-card__product {
+  color: var(--cor-texto-secundario);
+  font-size: .9rem;
+}
+.video-card__link { width: 100%; margin-top: var(--esp-2); text-align: center; text-decoration: none; }
+.video-card__erro { color: var(--cor-acento); font-size: .85rem; }
+.video-vazio {
+  flex: 1 0 100%;
+  padding: var(--esp-6);
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-card);
+  color: var(--cor-texto-secundario);
+  text-align: center;
+}
+.video-vazio strong { display: block; margin-bottom: var(--esp-2); color: var(--cor-texto); }
+.video-vazio p { margin: 0; }
+.video-carrossel__seta[hidden] { display: none; }
+.video-carrossel__seta {
+  position: absolute;
+  top: 38%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  box-shadow: var(--sombra-2);
+}
+.video-carrossel__seta--prev { left: -12px; }
+.video-carrossel__seta--next { right: -12px; }
+@media (min-width: 720px) {
+  .video-carrossel__trilho { gap: var(--esp-5); }
+  .video-card { flex-basis: 280px; }
+}
+@media (hover: none) {
+  .video-carrossel__seta { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-carrossel__trilho { scroll-behavior: auto; }
+}
