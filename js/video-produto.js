@@ -41,7 +41,8 @@
     var saida = [];
     lista.forEach(function (produto) {
       if (!produto || !String(produto.nome || "").trim() || !Array.isArray(produto.videos)) return;
-      produto.videos.forEach(function (video) {
+      produto.videos.forEach(function (entrada) {
+        var video = typeof entrada === "string" ? { url: entrada } : entrada;
         if (!video || video.ativo === false) return;
         var url = urlSegura(video.url);
         if (!url) return;
