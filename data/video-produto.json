@@ -1,14 +1,1 @@
-[
-  {
-    "nome": "Nome do produto",
-    "videos": [
-      {
-        "url": "https://exemplo.com/video.mp4",
-        "tipo": "mp4",
-        "titulo": "Apresentação do produto",
-        "miniatura": "",
-        "ativo": true
-      }
-    ]
-  }
-]
+[]
