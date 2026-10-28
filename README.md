@@ -84,6 +84,7 @@ O vídeo se liga ao produto pelo `id`: o título, o preço, a imagem (capa) e o 
 
 ## Categorias na home
 
-- **"Explore por categoria"** é um carrossel com as categorias mais relevantes: ordenadas por quantidade de produtos, só as que têm 2 ou mais produtos, no máximo 12. As demais continuam acessíveis pela busca e pelos filtros de "Achadinhos recentes".
+- **"Explore por categoria"** é um carrossel com as categorias mais relevantes: ordenadas por quantidade de produtos, só as que têm 2 ou mais produtos, no máximo 12. As demais continuam acessíveis pela busca (que também procura nas categorias).
 - **Carrossel de produtos por categoria:** toda categoria com 5 ou mais produtos ganha, abaixo, um carrossel com os produtos dela (disponíveis primeiro, até 12) e um botão "Ver todos" que filtra a lista completa. No máximo 4 carrosséis.
+- Os **filtros (chips) de "Achadinhos recentes"** usam essa mesma lista reduzida, em vez das 121 categorias.
 - Os limites ficam no topo de `js/filters.js` (`CATEGORIAS_MIN_PRODUTOS`, `CATEGORIAS_MAX`, `VITRINE_MIN_PRODUTOS`, `VITRINE_MAX_CATEGORIAS`, `VITRINE_MAX_PRODUTOS`).

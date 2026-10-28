@@ -49,8 +49,14 @@
     }
     TA.iniciarCarrosseis();
     TA.atualizarCarrosseis();
+    // Filtro de "Achadinhos recentes": mesmas categorias principais (a busca cobre as demais)
     var chips = el("filtro-categorias");
-    if (chips) chips.innerHTML = info.nomes.length ? TA.renderChips(info.nomes, info.contagem, produtos.length, TA.estado.categoria) : "";
+    if (chips) {
+      var nomesChips = TA.selecionarCategorias(info);
+      var ativa = TA.estado.categoria;
+      if (ativa !== "todas" && info.contagem[ativa] && nomesChips.indexOf(ativa) === -1) nomesChips.push(ativa);
+      chips.innerHTML = nomesChips.length ? TA.renderChips(nomesChips, info.contagem, produtos.length, ativa) : "";
+    }
   }
 
   function renderLista() {
