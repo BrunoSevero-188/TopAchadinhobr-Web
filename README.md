@@ -17,7 +17,8 @@ index.html            página principal
 privacidade.html      Política de Privacidade (texto-base)
 termos.html           Termos de Uso (texto-base)
 manifest.json         PWA
-data/produtos.json    catálogo de produtos
+data/carta-produtos.json    catálogo de produtos (Nome, Preços, URL da Imagem, Link , Categorias(01 até ))
+data/video-produtos.json    catálogo de produtos
 css/globals.css       tokens de design (cores, espaçamentos, raios, sombras, fontes) e base
 css/styles.css        componentes (header, hero, cards, filtros, rodapé...)
 css/carrossel.css     carrosséis horizontais e preço do card (inteiro + centavos + % OFF)
