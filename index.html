@@ -519,10 +519,17 @@
             </p>
           </div>
 
-          <div
-            id="categorias-grid"
-            class="categorias-grid"
-          ></div>
+          <div class="carrossel" data-carrossel>
+            <button class="carrossel__seta carrossel__seta--prev" type="button" aria-label="Categorias anteriores" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7" /></svg>
+            </button>
+            <div id="categorias-grid" class="carrossel__trilho categorias__trilho" role="region" aria-label="Categorias de achadinhos" tabindex="0"></div>
+            <button class="carrossel__seta carrossel__seta--next" type="button" aria-label="Próximas categorias" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+            </button>
+          </div>
+
+          <div id="categorias-vitrines" class="vitrines"></div>
 
         </div>
       </section>

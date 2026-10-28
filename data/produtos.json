@@ -1,5 +1,17 @@
 [
   {
+    "id": 1,
+    "titulo": "Cama Pet Grande Impermeavel Ortopedica Sofa Luxo De Cachorro",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_866556-MLB116697821707_082026-F-cama-pet-grande-impermeavel-ortopedica-sofa-luxo-de-cachorro.webp",
+    "precoNovo": "R$ 254,53",
+    "precoAntigo": "R$ 409,00",
+    "link": "https://meli.la/2nBBKTZ",
+    "dataFim": "2026-11-01",
+    "categoria01": "Pet Shop",
+    "categoria02": "Casas",
+    "categoria03": "Camas"
+  },
+  {
     "id": 2,
     "titulo": "Comedouro Automático New Pet 4L com Gravação de Voz para Cães e Gatos",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_757321-MLA99462601664_112025-F.webp",
@@ -174,6 +186,16 @@
     "categoria01": "Computadores e Acessórios",
     "categoria02": "Componentes de Computadores e Notebooks",
     "categoria03": "Gabinetes"
+  },{
+    "id": 17,
+    "titulo": "Smartphone Oppo A6x 128GB 4GB Ram",
+    "imagem": "https://down-br.img.susercontent.com/file/br-11134207-820lm-mli6ghtqz5dz31@resize_w900_nl.webp",
+    "precoNovo": "R$ 1.091,63",
+    "precoAntigo": "R$ 00,00",
+    "link": "https://s.shopee.com.br/5AtM8LQJE1",
+    "dataFim": "2026-11-18",
+    "categoria01": "Celulares",
+    "categoria02": "Celulares e Dispositivos"
   },{
     "id": 18,
     "titulo": "Cozinha Compacta Pequim Multimóveis V2933 com Balcão",
@@ -401,6 +423,18 @@
     "dataFim": "2026-11-23",
     "categoria01": "Joias e Relógios",
     "categoria02": "Relógio de Pulso"
+  },{
+    "id": 38,
+    "titulo": "Kit 3 Pares Meias Kappa Sapatilha Soquete Invisível Original",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_926071-MLB117703265295_092026-F-kit-3-pares-meias-kappa-sapatilha-soquete-invisivel-original.webp",
+    "precoNovo": "R$ 29,99",
+    "precoAntigo": "R$ 49,99",
+    "link": "https://meli.la/2D2TKLT",
+    "dataFim": "2026-11-23",
+    "categoria01": "Moda Íntima e Lingerie",
+    "categoria02": "Roupa Intima",
+    "categoria03": "Meias e Meia Calças",
+    "categoria04": "MeiasSapatilha"
   },{
     "id": 39,
     "titulo": "Kit 5 Pares Meia Antiderrapante Esportiva Futebol Treino",

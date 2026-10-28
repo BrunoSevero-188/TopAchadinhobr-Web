@@ -30,8 +30,13 @@
     document.querySelectorAll("[data-carrossel]").forEach(atualizar);
   };
 
+  var globaisLigados = false;
+
+  // Pode ser chamada de novo: só liga os carrosséis que ainda não foram ligados
   TA.iniciarCarrosseis = function () {
     document.querySelectorAll("[data-carrossel]").forEach(function (raiz) {
+      if (raiz.getAttribute("data-carrossel-pronto")) return;
+      raiz.setAttribute("data-carrossel-pronto", "1");
       var trilho = raiz.querySelector(".carrossel__trilho");
       raiz.querySelector(".carrossel__seta--prev").addEventListener("click", function () { rolar(raiz, -1); });
       raiz.querySelector(".carrossel__seta--next").addEventListener("click", function () { rolar(raiz, 1); });
@@ -43,6 +48,8 @@
       });
       atualizar(raiz);
     });
+    if (globaisLigados) return;
+    globaisLigados = true;
     global.addEventListener("resize", TA.atualizarCarrosseis);
     // Imagens carregando mudam a largura útil; reavalia as setas
     global.addEventListener("load", TA.atualizarCarrosseis);

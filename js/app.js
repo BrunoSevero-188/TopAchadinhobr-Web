@@ -35,10 +35,20 @@
     var info = TA.contarCategorias(produtos);
     var grid = el("categorias-grid");
     if (grid) {
-      grid.innerHTML = info.nomes.length
-        ? TA.renderCategoriasCards(info.nomes, info.contagem)
+      var principais = TA.selecionarCategorias(info);
+      grid.innerHTML = principais.length
+        ? TA.renderCategoriasCards(principais, info.contagem)
         : TA.renderVazio("Categorias em breve", "Elas aparecem aqui assim que os primeiros produtos forem publicados.", false);
     }
+    // Categorias com 5+ produtos ganham um carrossel de produtos próprio
+    var vitrines = el("categorias-vitrines");
+    if (vitrines) {
+      vitrines.innerHTML = TA.selecionarVitrines(info)
+        .map(function (nome) { return TA.renderVitrine(nome, info.contagem[nome], TA.produtosDaCategoria(produtos, nome)); })
+        .join("");
+    }
+    TA.iniciarCarrosseis();
+    TA.atualizarCarrosseis();
     var chips = el("filtro-categorias");
     if (chips) chips.innerHTML = info.nomes.length ? TA.renderChips(info.nomes, info.contagem, produtos.length, TA.estado.categoria) : "";
   }
@@ -106,13 +116,14 @@
         if (b) escolherCategoria(b.getAttribute("data-categoria"), false);
       });
     }
-    var cards = el("categorias-grid");
-    if (cards) {
-      cards.addEventListener("click", function (e) {
+    ["categorias-grid", "categorias-vitrines"].forEach(function (id) {
+      var area = el(id);
+      if (!area) return;
+      area.addEventListener("click", function (e) {
         var b = e.target.closest("[data-categoria]");
         if (b) escolherCategoria(b.getAttribute("data-categoria"), true);
       });
-    }
+    });
   }
 
   function erroCarregamento() {

@@ -4,6 +4,14 @@
 
   var TA = global.TA;
 
+  // Seção "Explore por categoria": só as categorias mais relevantes
+  var CATEGORIAS_MIN_PRODUTOS = 2;  // categoria com 1 produto só não vira card
+  var CATEGORIAS_MAX = 12;
+  // Vitrine (carrossel de produtos) por categoria
+  var VITRINE_MIN_PRODUTOS = 5;     // a partir de quantos produtos a categoria ganha carrossel
+  var VITRINE_MAX_CATEGORIAS = 4;   // limite de carrosséis, para não esticar a página
+  var VITRINE_MAX_PRODUTOS = 12;    // produtos por carrossel
+
   TA.estado = { busca: "", categoria: "todas", soOfertas: false };
 
   // "perfume, natura" -> ["perfume", "natura"]
@@ -44,6 +52,36 @@
       return a.localeCompare(b, "pt-BR", { numeric: true, sensitivity: "base" });
     });
     return { nomes: nomes, contagem: contagem };
+  };
+
+  // Mais produtos primeiro; empate por ordem alfabética. Ignora "Sem categoria"
+  function porRelevancia(info) {
+    return info.nomes
+      .filter(function (n) { return n !== TA.textos.semCategoria; })
+      .sort(function (a, b) {
+        return info.contagem[b] - info.contagem[a] ||
+          a.localeCompare(b, "pt-BR", { numeric: true, sensitivity: "base" });
+      });
+  }
+
+  // Categorias exibidas no carrossel de "Explore por categoria"
+  TA.selecionarCategorias = function (info) {
+    var todas = porRelevancia(info);
+    var fortes = todas.filter(function (n) { return info.contagem[n] >= CATEGORIAS_MIN_PRODUTOS; });
+    return (fortes.length ? fortes : todas).slice(0, CATEGORIAS_MAX);
+  };
+
+  // Categorias com produtos suficientes para ter um carrossel próprio
+  TA.selecionarVitrines = function (info) {
+    return porRelevancia(info)
+      .filter(function (n) { return info.contagem[n] >= VITRINE_MIN_PRODUTOS; })
+      .slice(0, VITRINE_MAX_CATEGORIAS);
+  };
+
+  // Produtos de uma categoria (disponíveis primeiro), limitados ao tamanho do carrossel
+  TA.produtosDaCategoria = function (lista, nome) {
+    var da = lista.filter(function (p) { return TA.getCategorias(p).indexOf(nome) !== -1; });
+    return TA.ordenar(da).slice(0, VITRINE_MAX_PRODUTOS);
   };
 
   // Destaques: só ofertas ativas; prioriza "destaque: true", depois maior desconto (máx. 12, usados no carrossel)

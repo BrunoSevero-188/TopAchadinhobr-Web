@@ -171,4 +171,25 @@
       })
       .join("");
   };
+
+  var SETA_ESQ =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7" /></svg>';
+  var SETA_DIR =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>';
+
+  // Carrossel de produtos de uma categoria (título, "Ver todos" e cards)
+  TA.renderVitrine = function (nome, total, lista) {
+    return (
+      '<div class="vitrine">' +
+      '<div class="vitrine__cab"><h3 class="vitrine__titulo">' + esc(nome) +
+      '<span class="vitrine__qtd">' + total + (total === 1 ? " achadinho" : " achadinhos") + "</span></h3>" +
+      '<button type="button" class="btn btn--contorno btn--sm" data-categoria="' + esc(nome) + '">Ver todos</button></div>' +
+      '<div class="carrossel" data-carrossel>' +
+      '<button class="carrossel__seta carrossel__seta--prev" type="button" aria-label="Anteriores" hidden>' + SETA_ESQ + "</button>" +
+      '<div class="carrossel__trilho" role="region" aria-label="Achadinhos de ' + esc(nome) + '" tabindex="0">' +
+      TA.renderCards(lista) + "</div>" +
+      '<button class="carrossel__seta carrossel__seta--next" type="button" aria-label="Próximos" hidden>' + SETA_DIR + "</button>" +
+      "</div></div>"
+    );
+  };
 })(window);
