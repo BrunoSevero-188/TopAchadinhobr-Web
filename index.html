@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="css/styles.css" />
 
     <link rel="stylesheet" href="css/carrossel.css" />
+    <link rel="stylesheet" href="css/videos.css" />
 
     <title>
       Top Achadinho BR | Achadinhos, Ofertas e Produtos
@@ -458,6 +459,41 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
             </button>
           </div>
+
+        </div>
+      </section>
+
+
+      <section
+        class="secao"
+        id="videos"
+        aria-labelledby="videos-titulo"
+      >
+        <div class="container">
+
+          <div class="secao__cab">
+            <h2 class="secao__titulo" id="videos-titulo">
+              Vídeos dos achadinhos
+            </h2>
+
+            <p class="secao__sub">
+              Veja os produtos em ação antes de aproveitar a oferta.
+            </p>
+          </div>
+
+          <div class="carrossel" data-carrossel>
+            <button class="carrossel__seta carrossel__seta--prev" type="button" aria-label="Vídeos anteriores" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7" /></svg>
+            </button>
+            <div id="videos-trilho" class="carrossel__trilho videos__trilho" role="region" aria-label="Vídeos promocionais" tabindex="0">
+              <div class="vazio"><strong>Carregando vídeos…</strong></div>
+            </div>
+            <button class="carrossel__seta carrossel__seta--next" type="button" aria-label="Próximos vídeos" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+            </button>
+          </div>
+
+          <div id="videos-nav" class="videos__nav" hidden></div>
 
         </div>
       </section>
@@ -1057,6 +1093,7 @@
     <script src="js/filters.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/carrossel.js"></script>
+    <script src="js/videos.js"></script>
     <script src="js/app.js"></script>
 
   </body>

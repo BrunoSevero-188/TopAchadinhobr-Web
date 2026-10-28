@@ -131,7 +131,10 @@
     TA.iniciarCarrosseis();
     ligarEventos();
 
-    TA.carregarProdutos()
+    var promessaProdutos = TA.carregarProdutos();
+    if (TA.iniciarVideos) TA.iniciarVideos(promessaProdutos);
+
+    promessaProdutos
       .then(function (lista) {
         produtos = lista;
         renderDestaques();

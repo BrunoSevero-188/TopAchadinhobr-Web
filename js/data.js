@@ -88,6 +88,16 @@
     }
   };
 
+  // Busca um produto pelo campo "id" do catálogo (aceita 3 ou "3"); sem correspondência -> null
+  TA.getProdutoPorId = function (produtos, id) {
+    var alvo = /^\d+$/.test(String(id).trim()) ? Number(id) : NaN;
+    if (isNaN(alvo)) return null;
+    for (var i = 0; i < produtos.length; i++) {
+      if (Number(produtos[i].id) === alvo) return produtos[i];
+    }
+    return null;
+  };
+
   TA.carregarProdutos = function () {
     return fetch(TA.PRODUTOS_JSON_URL)
       .then(function (r) {

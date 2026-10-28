@@ -1,0 +1,218 @@
+/* Top Achadinho BR — Carrossel de vídeos promocionais
+   Usa os tokens de css/globals.css e o trilho scroll-snap de css/carrossel.css */
+
+.videos__trilho > .video-card {
+  flex: 0 0 min(72vw, 240px);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 720px) {
+  .videos__trilho > .video-card {
+    flex-basis: 260px;
+  }
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--cor-fundo-secundario);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-card);
+  box-shadow: var(--sombra-1);
+}
+
+/* Caixa 9:16 (vídeos verticais); horizontais ficam inteiros, com faixas pretas, sem corte */
+.video-card__midia {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  background: #000;
+}
+
+.video-card__video,
+.video-card__iframe,
+.video-card__facade img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+  background: #000;
+}
+
+.video-card__facade {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+}
+
+.video-card__facade:focus-visible,
+.video-card__externo:focus-visible {
+  outline: 3px solid var(--cor-principal);
+  outline-offset: -3px;
+}
+
+.video-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--cor-principal);
+  color: #171717;
+  box-shadow: var(--sombra-2);
+  transform: translate(-50%, -50%);
+  transition: transform var(--transicao), background var(--transicao);
+}
+
+.video-card__play svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 3px;
+}
+
+@media (hover: hover) {
+  .video-card__facade:hover .video-card__play,
+  .video-card__externo:hover .video-card__play {
+    background: var(--cor-principal-hover);
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* Link externo (Instagram, TikTok...) e erro de carregamento */
+.video-card__externo,
+.video-card__erro {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--esp-2);
+  padding: var(--esp-4);
+  background: #111;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.video-card__externo .video-card__play {
+  position: static;
+  margin-bottom: var(--esp-2);
+  transform: none;
+}
+
+.video-card__externo strong,
+.video-card__erro strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+}
+
+.video-card__externo span:last-child,
+.video-card__erro span {
+  color: #b5b5b5;
+  overflow-wrap: anywhere;
+}
+
+.video-card__corpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--esp-2);
+  padding: var(--esp-4);
+}
+
+.video-card__nome {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.video-card__preco {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  color: var(--cor-texto);
+}
+
+.video-card__acao {
+  margin-top: auto;
+}
+
+.video-card__acao .btn {
+  width: 100%;
+}
+
+.video-card__status {
+  margin-top: auto;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cor-texto-secundario);
+}
+
+/* ---------- Indicadores ---------- */
+.videos__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--esp-3);
+  margin-top: var(--esp-2);
+}
+
+.videos__nav[hidden] {
+  display: none;
+}
+
+.videos__contador {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+  font-variant-numeric: tabular-nums;
+}
+
+.videos__pontos {
+  display: flex;
+  gap: var(--esp-1);
+}
+
+.videos__ponto {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.videos__ponto::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: var(--raio-pill);
+  background: var(--cor-texto-secundario);
+  opacity: 0.35;
+  transition: width var(--transicao), opacity var(--transicao), background var(--transicao);
+}
+
+.videos__ponto[aria-current="true"]::before {
+  width: 22px;
+  background: var(--cor-principal);
+  opacity: 1;
+}
+
+html[data-tema="claro"] .videos__ponto[aria-current="true"]::before {
+  background: var(--cor-principal-hover);
+}

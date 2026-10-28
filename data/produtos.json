@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "titulo": "Cama Pet Grande Impermeavel Ortopedica Sofa Luxo De Cachorro",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_866556-MLB116697821707_082026-F-cama-pet-grande-impermeavel-ortopedica-sofa-luxo-de-cachorro.webp",
     "precoNovo": "R$ 254,53",
@@ -11,6 +12,7 @@
     "categoria03": "Camas"
   },
   {
+    "id": 2,
     "titulo": "Comedouro Automático New Pet 4L com Gravação de Voz para Cães e Gatos",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_757321-MLA99462601664_112025-F.webp",
     "precoNovo": "R$ 198,65",
@@ -22,6 +24,7 @@
     "categoria03": "Comedouros"
   },
   {
+    "id": 3,
     "titulo": "Lixeira Inteligente Automática Redonda Recarregável USB C Sensor para Cozinha Banheiro Escritório",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_890665-MLA116158791678_092026-F.webp",
     "precoNovo": "R$ 59,41",
@@ -34,6 +37,7 @@
     "categoria04": "Cestos de Papéis"
   },
   {
+    "id": 4,
     "titulo": "Air Fryer Oven Britânia 11L 8 Funções 1800W Painel Digital BAF11A",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_788191-MLA105750115584_022026-F.webp",
     "precoNovo": "R$ 329,00",
@@ -46,6 +50,7 @@
     "categoria04": "Fritadeira de Ar"
   },
   {
+    "id": 5,
     "titulo": "Tênis Kappa Run 200 Original Caminhada Academia",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_676335-MLB117966752223_092026-F-tnis-kappa-run-200-original-caminhada-academia.webp",
     "precoNovo": "R$ 70,32",
@@ -57,6 +62,7 @@
     "categoria03": "Tênis"
   },
   {
+    "id": 6,
     "titulo": "Bateria Eletrônica Profissional Vedo Mais 200 Sons Bfd",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_757225-MLB115726446668_092026-F-bateria-eletronica-profissional-vedo-mais-200-sons-bfd.webp",
     "precoNovo": "R$ 1.239,00",
@@ -69,6 +75,7 @@
     "categoria04": "Baterias Eletrônicas"
   },
   {
+    "id": 7,
     "titulo": "Tênis Nike Sb Force 58 Masculino",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_707207-MLB100396285912_122025-F-tnis-nike-sb-force-58-masculino.webp",
     "precoNovo": "R$ 312,79",
@@ -80,6 +87,7 @@
     "categoria03": "Tênis",
     "categoria04": "Tenis Nike"
   },{
+    "id": 8,
     "titulo": "Smart TV PRO LG 65'' 4K Ultra HD AI 65UN85C",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_695281-MLA115403895560_082026-F.webp",
     "precoNovo": "R$ 3.499,00",
@@ -89,6 +97,7 @@
     "categoria01": "Eletrônicos, Áudio e Vídeo",
     "categoria02": "Televisores"
   },{
+    "id": 9,
     "titulo": "Tênis New Balance Masculino 460v4 Corrida Training Original",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_601652-MLB117060417672_102026-F-tnis-new-balance-masculino-460v4-corrida-training-original.webp",
     "precoNovo": "R$ 309,99",
@@ -100,6 +109,7 @@
     "categoria03": "Tênis",
     "categoria04": "Tenis New Balance"
   },{
+    "id": 10,
     "titulo": "Jaqueta Bobojaco Casaco Forrado Impermeável Frio Neve Moto",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_721388-MLB107406653130_032026-F-jaqueta-bobojaco-casaco-forrado-impermeavel-frio-neve-moto.webp",
     "precoNovo": "R$ 137,27",
@@ -112,6 +122,7 @@
     "categoria04": "Jaqueta",
     "categoria05": "Bobojaco"
   },{
+    "id": 11,
     "titulo": "Creatina Soldiers Nutrition em pó Sem sabor x 1kg",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_998463-MLA116907384785_082026-F.webp",
     "precoNovo": "R$ 68,90",
@@ -122,6 +133,7 @@
     "categoria02": "Suplementos Alimentares",
     "categoria03": "Creatina"
   },{
+    "id": 12,
     "titulo": "Nintendo Switch Console OLED 64gb",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_928841-MLA93525033946_102025-F.webp",
     "precoNovo": "R$ 1.952,07",
@@ -132,6 +144,7 @@
     "categoria02": "Consoles",
     "categoria03": "Nintendo Switch"
   },{
+    "id": 13,
     "titulo": "Nintendo Switch 2 lcd 256gb novo",
     "imagem": "https://down-br.img.susercontent.com/file/br-11134207-820lk-mphcfvpoa51i4b.webp",
     "precoNovo": "R$ 3.578,80",
@@ -142,6 +155,7 @@
     "categoria02": "Consoles",
     "categoria03": "Switch"
   },{
+    "id": 14,
     "titulo": "Placa de Video PowerColor Radeon RX 9060 XT Reaper, 8GB, GDDR6, 128-bit, RX9060XT-8G-A",
     "imagem": "https://down-br.img.susercontent.com/file/sg-11134201-82603-mmc3o1v79f6763.webp",
     "precoNovo": "R$ 2.898,00",
@@ -152,6 +166,7 @@
     "categoria02": "Componentes de Computadores e Notebooks",
     "categoria03": "Placas de Vídeo"
   },{
+    "id": 15,
     "titulo": "Monitor Gamer 22 AOC 22B35HM23 120Hz 1ms Bordas Ultrafinas HDMI VGA Flicker-Free Low Blue Light Adaptive-Sync",
     "imagem": "https://down-br.img.susercontent.com/file/sg-11134201-82605-mlevg6wm0emn56@resize_w900_nl.webp",
     "precoNovo": "R$ 451,07",
@@ -161,6 +176,7 @@
     "categoria01": "Computadores e Acessórios",
     "categoria02": "Monitores"
   },{
+    "id": 16,
     "titulo": "Gabinete Gamer Mancer CV550, Mid-Tower, Lateral de Vidro, Branco, MCR-CV550-WH",
     "imagem": "https://down-br.img.susercontent.com/file/br-11134207-81ztc-mk1gtewxhr0heb@resize_w900_nl.webp",
     "precoNovo": "R$ 265,24",
@@ -171,6 +187,7 @@
     "categoria02": "Componentes de Computadores e Notebooks",
     "categoria03": "Gabinetes"
   },{
+    "id": 17,
     "titulo": "Smartphone Oppo A6x 128GB 4GB Ram",
     "imagem": "https://down-br.img.susercontent.com/file/br-11134207-820lm-mli6ghtqz5dz31@resize_w900_nl.webp",
     "precoNovo": "R$ 1.091,63",
@@ -180,6 +197,7 @@
     "categoria01": "Celulares",
     "categoria02": "Celulares e Dispositivos"
   },{
+    "id": 18,
     "titulo": "Cozinha Compacta Pequim Multimóveis V2933 com Balcão",
     "imagem": "https://down-br.img.susercontent.com/file/br-11134207-820m8-mo8mzbhs74sg0b@resize_w900_nl.webp",
     "precoNovo": "R$ 582,72",
@@ -190,6 +208,7 @@
     "categoria02": "Móveis",
     "categoria03": "Armários e Gabinetes"
   },{
+    "id": 19,
     "titulo": "Lavadora de Alta Pressão Kärcher Compacta 1.500 PSI/Libras 1400W 300L/h com Aplicador de Detergente e Lança Regulável 220v",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_681126-MLA115545993062_082026-F.webp",
     "precoNovo": "R$ 299,00",
@@ -201,6 +220,7 @@
     "categoria03": "Limpeza",
     "categoria04": "Lavadoras de Jato Elétricas"
   },{
+    "id": 20,
     "titulo": "Cabo Flexível 2,5mm Rolo 100m Unipolar 750v",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_751228-MLB117034907078_102026-F-cabo-flexivel-25mm-rolo-100m-unipolar-750v.webp",
     "precoNovo": "R$ 52,00",
@@ -212,6 +232,7 @@
     "categoria03": "Cabos e Acessórios",
     "categoria04": "Cabos Elétricos"
   },{
+    "id": 21,
     "titulo": "Fogão Cooktop de Mesa Portátil 4 Bocas a Gás Asiático Braslar Inox Preto ou Branco",
     "imagem": "https://down-br.img.susercontent.com/file/br-11134207-820ll-mpsd1eia8iyq24@resize_w900_nl.webp",
     "precoNovo": "R$ 180,50",
@@ -222,6 +243,7 @@
     "categoria02": "Utensílios de Cozinha",
     "categoria03": "Fogões, e Reguladores de Gás"
   },{
+    "id": 22,
     "titulo": "Guarda Roupa Casal 8 Portas 4 Gavetas Jatobá Yescasa",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_786048-MLB117050729656_102026-F-guarda-roupa-casal-8-portas-4-gavetas-jatoba-yescasa.webp",
     "precoNovo": "R$ 791,69",
@@ -233,6 +255,7 @@
     "categoria03": "Móveis de Armazenamento",
     "categoria04": "Guarda Roupas"
   },{
+    "id": 23,
     "titulo": "Console Sony PlayStation 5 Edição Digital",
     "imagem": "https://down-br.img.susercontent.com/file/sg-11134201-82583-mu9rtomzcufe3f@resize_w900_nl.webp",
     "precoNovo": "R$ 4.231,08",
@@ -243,6 +266,7 @@
     "categoria02": "Consoles",
     "categoria03": "Playstation"
   },{
+    "id": 24,
     "titulo": "Perfume Arábe Asad Bourbon 100ml - Marca Isabelle La Belle | Fixação Intensa, Notas Amadeiradas Marcantes E Elegância Masculina",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_862309-MLB109042590357_032026-F-perfume-arabe-asad-bourbon-100ml--marca-isabelle-la-belle--fixacao-intensa-notas-amadeiradas-marcantes-e-elegancia-masculina.webp",
     "precoNovo": "R$ 78,90",
@@ -252,6 +276,7 @@
     "categoria01": "Beleza e Cuidado Pessoal",
     "categoria02": "Perfumes"
   },{
+    "id": 25,
     "titulo": "Kit Reparo Pneu Furo Remendo Carro Moto + Refil Macarrão",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_868112-MLB89882441484_082025-F-kit-reparo-pneu-furo-remendo-carro-moto--refil-macarrao.webp",
     "precoNovo": "R$ 20,98",
@@ -263,6 +288,7 @@
     "categoria03": "Acessórios para Carros e Caminhonetes",
     "categoria04": "Acessórios para Veículos"
   },{
+    "id": 26,
     "titulo": "Lavadora de Alta Pressão WAP WL 4000 2000W Vazão 420L/h 1950 PSI",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_729792-MLA115889929523_082026-F.webp",
     "precoNovo": "R$ 827,91",
@@ -274,6 +300,7 @@
     "categoria03": "Limpeza",
     "categoria04": "Ferramentas Elétricas"
   },{
+    "id": 27,
     "titulo": "PENTA MAGNÉSIO - Bisglicinato + Dimalato + Citrato + Taurato + Óxido de Magnésio - A Combinação Perfeita com Máxima Pureza e Biodisponibilidade - 60 Cápsulas",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_604175-MLA113496610054_072026-F.webp",
     "precoNovo": "R$ 54,77",
@@ -283,6 +310,7 @@
     "categoria01": "Suplementos Alimentares",
     "categoria02": "Saúde"
   },{
+    "id": 28,
     "titulo": "Liftness Bicicleta Ergométrica Spinning Profissional 120kg Silenciosa",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_900551-MLA114020679714_072026-F.webp",
     "precoNovo": "R$ 380,61",
@@ -295,6 +323,7 @@
     "categoria04": "Esportes e Fitness",
     "categoria05": "Bicicleta"
   },{
+    "id": 29,
     "titulo": "Aparador de Pelos Elétrico Lecom Prova D'Água Bivolt Barbear e Depilar",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_904329-MLA95656868822_102025-F.webp",
     "precoNovo": "R$ 57,00",
@@ -305,6 +334,7 @@
     "categoria02": "Artefatos para Cabelo",
     "categoria03": "Beleza e Cuidado Pessoal"
   },{
+    "id": 30,
     "titulo": "Kit Perfume Cebolinha E Cascão Jequiti Original 25ml",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_977005-MLB114914239063_072026-F-kit-perfume-cebolinha-e-cascao-jequiti-original-25ml.webp",
     "precoNovo": "R$ 49,90",
@@ -315,6 +345,7 @@
     "categoria02": "Perfumes",
     "categoria03": "Beleza e Cuidado Pessoal"
   },{
+    "id": 31,
     "titulo": "Árvore De Natal Grande 2,10 Metros Pinheiro Tradicional 1000 Galhos Cheia Verde Luxo",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_945494-MLA116960701666_092026-F.webp",
     "precoNovo": "R$ 230,21",
@@ -325,6 +356,7 @@
     "categoria02": "Enfeites e Decoração de Natal",
     "categoria03": "Casa, Móveis e Decoração"
   },{
+    "id": 32,
     "titulo": "Kit 3 Bermudas Dry Fit De Alto Padrão Para Academia",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_653478-MLB108194594139_032026-F-kit-3-bermudas-dry-fit-de-alto-padro-para-academia.webp",
     "precoNovo": "R$ 84,57",
@@ -336,6 +368,7 @@
     "categoria03": "Moda Fitness",
     "categoria04": "Calçados, Roupas e Bolsas"
   },{
+    "id": 33,
     "titulo": "Mala Streetbag Treino Bolsa Academia Fitness Multiuso Estilo Esportiva Preta",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_625897-MLA115260990468_082026-F.webp",
     "precoNovo": "R$ 60,62",
@@ -347,6 +380,7 @@
     "categoria03": "Malas e Bolsas",
     "categoria04": "Calçados, Roupas e Bolsas"
   },{
+    "id": 34,
     "titulo": "Kit 3 Calça Tactel Jogger Masculina Elastano Treino Affluere",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_864286-MLB117931258213_092026-F-kit-3-calca-tactel-jogger-masculina-elastano-treino-affluere.webp",
     "precoNovo": "R$ 96,65",
@@ -357,6 +391,7 @@
     "categoria02": "Moda Fitness",
     "categoria03": "Calçados, Roupas e Bolsas"
   },{
+    "id": 35,
     "titulo": "Top Puma Academia Fitness Original Nadador Alta Sustentação",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_961178-MLB112153608802_062026-F-top-puma-academia-fitness-original-nadador-alta-sustentaco.webp",
     "precoNovo": "R$ 39,96",
@@ -367,6 +402,7 @@
     "categoria02": "Moda Fitness",
     "categoria03": "Tops de Fitness"
   },{
+    "id": 36,
     "titulo": "Massageador Pistola Elétrica Profissional Muscular Portátil Aparelho Fisioterapia Corporal, 6 Velocidades 4 Cabeças De Massagem - Micgeek",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_778765-MLA115823712578_092026-F.webp",
     "precoNovo": "R$ 32,42",
@@ -378,6 +414,7 @@
     "categoria03": "Massageadores",
     "categoria04": "SaúdeMassagem"
   },{
+    "id": 37,
     "titulo": "Relógio masculino Tommy Hilfiger Oceanic 1792201 preto",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_848516-MLA86740688066_072025-F.webp",
     "precoNovo": "R$ 456,14",
@@ -387,6 +424,7 @@
     "categoria01": "Joias e Relógios",
     "categoria02": "Relógio de Pulso"
   },{
+    "id": 38,
     "titulo": "Kit 3 Pares Meias Kappa Sapatilha Soquete Invisível Original",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_926071-MLB117703265295_092026-F-kit-3-pares-meias-kappa-sapatilha-soquete-invisivel-original.webp",
     "precoNovo": "R$ 29,99",
@@ -398,6 +436,7 @@
     "categoria03": "Meias e Meia Calças",
     "categoria04": "MeiasSapatilha"
   },{
+    "id": 39,
     "titulo": "Kit 5 Pares Meia Antiderrapante Esportiva Futebol Treino",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_689922-MLB97122320669_112025-F-kit-5-pares-meia--antiderrapante-esportiva-futebol-treino.webp",
     "precoNovo": "R$ 39,72",
@@ -410,6 +449,7 @@
     "categoria04": "Esportes e Fitness",
     "categoria05": "Futebol"
   },{
+    "id": 40,
     "titulo": "Maquina Cortar Cabelo Aparar Barba Kemei Km-032 Acabamento",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_676929-MLB117318035274_102026-F-maquina-cortar-cabelo-aparar-barba-kemei-km032-acabamento.webp",
     "precoNovo": "R$ 39,90",
@@ -421,6 +461,7 @@
     "categoria03": "Máquinas de Cortar Cabelo",
     "categoria04": "Maquina Cortar Cabelo"
   },{
+    "id": 41,
     "titulo": "Perfume Árabe Lattafa Asad Eau De Parfum 100 Ml Unissex",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_939283-MLB83972265604_052025-F-perfume-arabe-lattafa-asad-eau-de-parfum-100-ml-unissex.webp",
     "precoNovo": "R$ 193,74",
@@ -430,6 +471,7 @@
     "categoria01": "Beleza e Cuidado Pessoal",
     "categoria02": "Perfumes"
   },{
+    "id": 42,
     "titulo": "Perfume Arabe 9am Dive Afnan Edp 100ML Original",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_965797-MLA115245383757_072026-F.webp",
     "precoNovo": "R$ 247,25",
@@ -439,6 +481,7 @@
     "categoria01": "Beleza e Cuidado Pessoal",
     "categoria02": "Perfumes"
   },{
+    "id": 43,
     "titulo": "Perfume Club De Nuit Intense Da Armaf Edt 105ml Masculino",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_863486-MLB114945658162_082026-F-perfume-club-de-nuit-intense-da-armaf-edt-105ml-masculino.webp",
     "precoNovo": "R$ 200,78",
@@ -449,6 +492,7 @@
     "categoria02": "Beleza e Cuidado Pessoal",
     "categoria03": "Perfumes"
   },{
+    "id": 44,
     "titulo": "Pneu Itaro Aro 17 It301 165/40r17 72v V",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_699227-MLA108913315232_032026-F.webp",
     "precoNovo": "R$ 268,80",
@@ -459,6 +503,7 @@
     "categoria02": "Pneus e Acessórios",
     "categoria03": "Acessórios para Veículos"
   },{
+    "id": 45,
     "titulo": "Creatina Max Titanium 7 Belo em pó x 300g",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_676100-MLA110120181598_042026-F.webp",
     "precoNovo": "R$ 43,79",
@@ -469,6 +514,7 @@
     "categoria02": "Suplementos Alimentares",
     "categoria03": "Creatina Max Titanium"
   },{
+    "id": 46,
     "titulo": "Creatina Growth Supplements Monohidratada em pó Sem sabor x 250g",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_662415-MLA97812910758_112025-F.webp",
     "precoNovo": "R$ 39,90",
@@ -480,6 +526,7 @@
     "categoria03": "Suplementos",
     "categoria04": "Growth Supplements"
   },{
+    "id": 47,
     "titulo": "Bold Creatina (300g)",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_672052-MLB107725598341_022026-F-bold-creatina-300g.webp",
     "precoNovo": "R$ 59,90",
@@ -491,6 +538,7 @@
     "categoria03": "Suplementos",
     "categoria04": "Bold"
   },{
+    "id": 48,
     "titulo": "Controle Sem Fio Sony DualSense Hyperpop para PS5, Vermelho Techno Red",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_722164-MLA107465653880_032026-F.webp",
     "precoNovo": "R$ 449,10",
@@ -503,6 +551,7 @@
     "categoria04": "PlayStation 5",
     "categoria05": "Gamepads e Joysticks"
   },{
+    "id": 49,
     "titulo": "Creatina Dark Lab Premium em cápsula Sem sabor de 120 un",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_781740-MLA100071017091_122025-F.webp",
     "precoNovo": "R$ 32,90",
@@ -512,6 +561,7 @@
     "categoria01": "Saúde",
     "categoria02": "Suplementos Alimentares"
   },{
+    "id": 50,
     "titulo": "Kit 02 Travesseiro Antialérgico Pluma De Ganso 70cm X 50cm Cor Branco",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_636485-MLA109126967806_042026-F.webp",
     "precoNovo": "R$ 29,89",
@@ -522,6 +572,7 @@
     "categoria02": "Camas, Colchões e Acessórios",
     "categoria03": "Travesseiros"
   },{
+    "id": 51,
     "titulo": "Smart Tv 43 Philco P43vik Roku Led Dolby Audio Wi-fi Hdmi Hdr Full Hd 110/220v",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_697288-MLA100482486016_122025-F.webp",
     "precoNovo": "R$ 1.499,00",
@@ -532,6 +583,7 @@
     "categoria02": "Televisores",
     "categoria03": "Smart Tv"
   },{
+    "id": 52,
     "titulo": "Deo Colônia Ekos Ryo Chuva 75 Ml",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_935477-MLU77492687442_072024-F.webp",
     "precoNovo": "R$ 119,94",
@@ -541,6 +593,7 @@
     "categoria01": "Beleza e Cuidado Pessoal",
     "categoria02": "Perfumes"
   },{
+    "id": 53,
     "titulo": "#URBANO NATURA Masculino 100ml",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_875291-MLA90057026374_082025-F.webp",
     "precoNovo": "R$ 89,90",
@@ -550,6 +603,7 @@
     "categoria01": "Beleza e Cuidado Pessoal",
     "categoria02": "Perfumes"
   },{
+    "id": 54,
     "titulo": "Smart TVHisense FHD 40 Polegadas 40A4NV com HDR10, DTS Virtual X, Compatibilidade Alexa",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_617971-MLA117937963418_102026-F.webp",
     "precoNovo": "R$ 1.399,00",
@@ -559,6 +613,7 @@
     "categoria01": "Eletrônicos, Áudio e Vídeo",
     "categoria02": "Televisores"
   },{
+    "id": 55,
     "titulo": "Caixa de Som LG XBOOM XL7T Bluetooth 5.1, 250W, Som Potente, LED Personalizável, Party Mode, Resistente à Água IPX4, Bateria Longa Duração e Design Compacto",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_653368-MLA107759717948_032026-F.webp",
     "precoNovo": "R$ 1.424,90",
@@ -570,28 +625,18 @@
     "categoria03": "Caixas Bluetooth",
     "categoria04": "Caixa de Som"
   },{
+    "id": 56,
     "titulo": "Perfume Club De Nuit Intense Da Armaf Edt 105ml Masculino",
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_887864-MLB108264754941_032026-F-perfume-club-de-nuit-intense-da-armaf-edt-105ml-masculino.webp",
     "precoNovo": "R$ 190,74",
     "precoAntigo": "R$ 319,00",
     "link": "https://meli.la/2eue2u9",
-    "dataFim": "2026-11-26",
+    "dataFim": "2026-11-27",
     "categoria01": "Beleza e Cuidado Pessoal",
     "categoria02": "Perfumes",
     "categoria03": "Perfume Club de Nuit"
   },{
-    "titulo": "",
-    "imagem": "",
-    "precoNovo": "R$ ",
-    "precoAntigo": "R$ ",
-    "link": "",
-    "dataFim": "2026-11-28",
-    "categoria01": "",
-    "categoria02": "",
-    "categoria03": "",
-    "categoria04": "",
-    "categoria05": ""
-  },{
+    "id": 57,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -604,6 +649,7 @@
     "categoria04": "",
     "categoria05": ""
   },{
+    "id": 58,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -616,6 +662,7 @@
     "categoria04": "",
     "categoria05": ""
   },{
+    "id": 59,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -628,6 +675,7 @@
     "categoria04": "",
     "categoria05": ""
   },{
+    "id": 60,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -640,6 +688,7 @@
     "categoria04": "",
     "categoria05": ""
   },{
+    "id": 61,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -652,6 +701,7 @@
     "categoria04": "",
     "categoria05": ""
   },{
+    "id": 62,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -664,6 +714,7 @@
     "categoria04": "",
     "categoria05": ""
   },{
+    "id": 63,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -676,6 +727,20 @@
     "categoria04": "",
     "categoria05": ""
   },{
+    "id": 64,
+    "titulo": "",
+    "imagem": "",
+    "precoNovo": "R$ ",
+    "precoAntigo": "R$ ",
+    "link": "",
+    "dataFim": "2026-11-01",
+    "categoria01": "",
+    "categoria02": "",
+    "categoria03": "",
+    "categoria04": "",
+    "categoria05": ""
+  },{
+    "id": 65,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
