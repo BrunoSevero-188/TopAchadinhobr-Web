@@ -776,7 +776,9 @@
     "dataFim": "2026-11-29",
     "categoria01": "Joias e Relógios",
     "categoria02": "Relógios de Pulso",
-    "categoria03": "Relogio"
+    "categoria03": "Relogio",
+    "categoria04": "",
+    "categoria05": ""
   },{    
     "id": 70,
     "titulo": "",
@@ -790,17 +792,5 @@
     "categoria03": "",
     "categoria04": "",
     "categoria05": ""
-  },{},{
-        "id": 70,
-    "titulo": "",
-    "imagem": "",
-    "precoNovo": "R$ ",
-    "precoAntigo": "R$ ",
-    "link": "",
-    "dataFim": "2026-11-30",
-    "categoria01": "",
-    "categoria02": "",
-    "categoria03": "",
-    "categoria04": "",
-    "categoria05": ""
-  }
+  },{}
+]
