@@ -1,6 +1,3 @@
-/* Top Achadinho BR — Carrossel de vídeos promocionais
-   Lê data/video-produto.json, vincula cada vídeo ao produto do catálogo (quando existir)
-   e monta o carrossel. Reutiliza o carrossel scroll-snap (js/carrossel.js) para as setas. */
 (function (global) {
   "use strict";
 

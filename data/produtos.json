@@ -703,6 +703,61 @@
     "categoria03": "Playstation"
   },{
     "id": 63,
+    "titulo": "Hollow Knight PS5 Midia Fisica",
+    "imagem": "https://down-br.img.susercontent.com/file/sg-11134201-82589-mqopj31gbsb2a8@resize_w900_nl.webp",
+    "precoNovo": "R$ 234,63",
+    "precoAntigo": "R$ 00,00",
+    "link": "https://s.shopee.com.br/AAIJePJV0X",
+    "dataFim": "2026-11-29",
+    "categoria01": "Jogos e Consoles",
+    "categoria02": "Jogos",
+    "categoria03": "Playstation"
+  },{
+    "id": 64,
+    "titulo": "Castlevania Belmonts Curse Midnight Edition Ps5 Midia Fisica",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_979458-MLA116049593768_092026-F.webp",
+    "precoNovo": "R$ 397,00",
+    "precoAntigo": "R$ 00,00",
+    "link": "https://meli.la/1exzLBD",
+    "dataFim": "2026-11-29",
+    "categoria01": "Games",
+    "categoria02": "Video Games"
+  },{
+    "id": 65,
+    "titulo": "Monitor Gamer Curvo Tcl 34 Polegadas Qd-Mini Led Wqhd R83q 180hz 1ms (Gtg) Hdr 1400 Nits 34r83q",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_949367-MLA115998715922_092026-F.webp",
+    "precoNovo": "R$ 3.349,00",
+    "precoAntigo": "R$ 3.782,03",
+    "link": "https://meli.la/1etyaAf",
+    "dataFim": "2026-11-29",
+    "categoria01": "Monitores",
+    "categoria02": "Monitores e Acessórios",
+    "categoria03": "Informática"
+  },{
+    "id": 66,
+    "titulo": "Onimusha: Way of the Sword - PS5",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_881104-MLA115527858355_082026-F.webp",
+    "precoNovo": "R$ 316,11",
+    "precoAntigo": "R$ 339,90",
+    "link": "https://meli.la/1z3bMsj",
+    "dataFim": "2026-11-29",
+    "categoria01": "Games",
+    "categoria02": "Video Games"
+  },{
+    "id": 67,
+    "titulo": "Controle sem fio PlayStation DualSense – Remix Green",
+    "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_745279-MLA105010226029_012026-F.webp",
+    "precoNovo": "R$ 368,10",
+    "precoAntigo": "R$ 599,90",
+    "link": "https://meli.la/2RLzDpA",
+    "dataFim": "2026-11-29",
+    "categoria01": "Games",
+    "categoria02": "Acessórios para Consoles",
+    "categoria03": "Para PlayStation",
+    "categoria04": "PlayStation 5",
+    "categoria05": "Gamepads e Joysticks"
+  },{
+    "id": 68,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -715,7 +770,7 @@
     "categoria04": "",
     "categoria05": ""
   },{
-    "id": 64,
+    "id": 69,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
@@ -727,27 +782,14 @@
     "categoria03": "",
     "categoria04": "",
     "categoria05": ""
-  },{},{
-    "id": 57,
+  },{    
+    "id": 70,
     "titulo": "",
     "imagem": "",
     "precoNovo": "R$ ",
     "precoAntigo": "R$ ",
     "link": "",
-    "dataFim": "2026-11-29",
-    "categoria01": "",
-    "categoria02": "",
-    "categoria03": "",
-    "categoria04": "",
-    "categoria05": ""
-  },{},{
-    "id": 57,
-    "titulo": "",
-    "imagem": "",
-    "precoNovo": "R$ ",
-    "precoAntigo": "R$ ",
-    "link": "",
-    "dataFim": "2026-11-29",
+    "dataFim": "2026-11-30",
     "categoria01": "",
     "categoria02": "",
     "categoria03": "",
