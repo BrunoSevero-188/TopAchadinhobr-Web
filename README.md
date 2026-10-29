@@ -88,3 +88,14 @@ O vídeo se liga ao produto pelo `id`: o título, o preço, a imagem (capa) e o 
 - **Carrossel de produtos por categoria:** toda categoria com 5 ou mais produtos ganha, abaixo, um carrossel com os produtos dela (disponíveis primeiro, até 12) e um botão "Ver todos" que filtra a lista completa. No máximo 4 carrosséis.
 - Os **filtros (chips) de "Achadinhos recentes"** usam essa mesma lista reduzida, em vez das 121 categorias.
 - Os limites ficam no topo de `js/filters.js` (`CATEGORIAS_MIN_PRODUTOS`, `CATEGORIAS_MAX`, `VITRINE_MIN_PRODUTOS`, `VITRINE_MAX_CATEGORIAS`, `VITRINE_MAX_PRODUTOS`).
+
+## Quando o produto aparece (`dataFim`)
+
+O produto só é exibido no site a partir de **um mês antes do `dataFim`**, usando a data local do navegador de quem acessa:
+
+- `dataFim` 2026-12-03 → aparece a partir de 2026-11-03 (em 2026-11-01 ainda não aparece).
+- `dataFim` 2026-12-05 → aparece a partir de 2026-11-05 (inclusive).
+- Se o mês anterior for mais curto, vale o último dia dele (`dataFim` 2026-03-31 → aparece a partir de 2026-02-28).
+- Produto fora do período some de tudo: destaques, lista, categorias, carrosséis e o vídeo dele em `video-produto.json`.
+- Depois do `dataFim` o comportamento continua o de antes (card "Oferta encerrada").
+- Sem `dataFim` válido (vazio ou fora do formato `AAAA-MM-DD`) a regra não se aplica e o produto segue como antes.

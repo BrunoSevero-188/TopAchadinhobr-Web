@@ -177,18 +177,28 @@
   var SETA_DIR =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>';
 
-  // Carrossel de produtos de uma categoria (título, "Ver todos" e cards)
+  var SETA_VER =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>';
+
+  // Carrossel de produtos de uma categoria (título, "Ver todos", cards, setas e progresso)
   TA.renderVitrine = function (nome, total, lista) {
+    var restantes = total - lista.length;
+    var cartaoMais = restantes > 0
+      ? '<button type="button" class="vitrine__mais" data-categoria="' + esc(nome) + '">' +
+        '<span class="vitrine__mais-icone">' + SETA_VER + "</span>" +
+        "<strong>Ver todos</strong><span>+ " + restantes + (restantes === 1 ? " achadinho" : " achadinhos") + "</span></button>"
+      : "";
     return (
       '<div class="vitrine">' +
-      '<div class="vitrine__cab"><h3 class="vitrine__titulo">' + esc(nome) +
+      '<div class="vitrine__cab"><h3 class="vitrine__titulo"><span class="vitrine__nome">' + esc(nome) + "</span>" +
       '<span class="vitrine__qtd">' + total + (total === 1 ? " achadinho" : " achadinhos") + "</span></h3>" +
-      '<button type="button" class="btn btn--contorno btn--sm" data-categoria="' + esc(nome) + '">Ver todos</button></div>' +
+      '<button type="button" class="btn btn--contorno btn--sm vitrine__ver" data-categoria="' + esc(nome) + '">Ver todos' + SETA_VER + "</button></div>" +
       '<div class="carrossel" data-carrossel>' +
-      '<button class="carrossel__seta carrossel__seta--prev" type="button" aria-label="Anteriores" hidden>' + SETA_ESQ + "</button>" +
+      '<button class="carrossel__seta carrossel__seta--prev" type="button" aria-label="Produtos anteriores de ' + esc(nome) + '" hidden>' + SETA_ESQ + "</button>" +
       '<div class="carrossel__trilho" role="region" aria-label="Achadinhos de ' + esc(nome) + '" tabindex="0">' +
-      TA.renderCards(lista) + "</div>" +
-      '<button class="carrossel__seta carrossel__seta--next" type="button" aria-label="Próximos" hidden>' + SETA_DIR + "</button>" +
+      TA.renderCards(lista) + cartaoMais + "</div>" +
+      '<button class="carrossel__seta carrossel__seta--next" type="button" aria-label="Próximos produtos de ' + esc(nome) + '" hidden>' + SETA_DIR + "</button>" +
+      '<div class="vitrine__progresso" aria-hidden="true"><span></span></div>' +
       "</div></div>"
     );
   };

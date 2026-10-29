@@ -14,6 +14,13 @@
     var temRolagem = max > 4;
     prev.hidden = !temRolagem || trilho.scrollLeft <= 4;
     next.hidden = !temRolagem || trilho.scrollLeft >= max - 4;
+
+    // Estado para o CSS: barra de progresso e degradês que indicam "tem mais"
+    var visivel = trilho.scrollWidth ? trilho.clientWidth / trilho.scrollWidth : 1;
+    raiz.style.setProperty("--carrossel-vis", Math.min(1, visivel).toFixed(4));
+    raiz.style.setProperty("--carrossel-pos", (temRolagem ? Math.min(1, trilho.scrollLeft / max) : 0).toFixed(4));
+    raiz.setAttribute("data-mais-esq", String(!prev.hidden));
+    raiz.setAttribute("data-mais-dir", String(!next.hidden));
   }
 
   function rolar(raiz, direcao) {

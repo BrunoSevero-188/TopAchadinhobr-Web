@@ -755,15 +755,70 @@
   scroll-snap-align: start;
 }
 
-/* Carrossel de produtos por categoria (5+ produtos) */
+/* Setas da seção de categorias: amarelas, maiores e visíveis também no celular */
+#categorias .carrossel__seta {
+  width: 48px;
+  height: 48px;
+  background: var(--cor-principal);
+  color: #171717;
+  border: 3px solid var(--cor-fundo-secundario);
+  box-shadow: var(--sombra-2);
+}
+
+#categorias .carrossel__seta[hidden] {
+  display: none;
+}
+
+#categorias .carrossel__seta svg {
+  width: 22px;
+  height: 22px;
+}
+
+#categorias .carrossel__seta--prev {
+  left: -8px;
+}
+
+#categorias .carrossel__seta--next {
+  right: -8px;
+}
+
+@media (hover: hover) {
+  #categorias .carrossel__seta:hover {
+    background: var(--cor-principal-hover);
+  }
+}
+
+@media (hover: none) {
+  #categorias .carrossel__seta {
+    display: grid;
+    width: 40px;
+    height: 40px;
+  }
+
+  #categorias .carrossel__seta[hidden] {
+    display: none;
+  }
+}
+
+/* ---------- Carrossel de produtos por categoria (5+ produtos) ---------- */
 .vitrines {
   display: grid;
-  gap: var(--esp-6);
-  margin-top: var(--esp-5);
+  gap: var(--esp-7);
+  margin-top: var(--esp-6);
 }
 
 .vitrines:empty {
   display: none;
+}
+
+.vitrine {
+  --vitrine-card: min(72vw, 240px);
+}
+
+@media (min-width: 720px) {
+  .vitrine {
+    --vitrine-card: 260px;
+  }
 }
 
 .vitrine__cab {
@@ -778,16 +833,163 @@
 .vitrine__titulo {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--esp-2);
-  font-size: 1.25rem;
+  align-items: center;
+  gap: var(--esp-2) var(--esp-3);
+  font-size: 1.3rem;
   font-weight: 800;
 }
 
+.vitrine__nome {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+}
+
+.vitrine__nome::before {
+  content: "";
+  width: 5px;
+  height: 1.2em;
+  border-radius: var(--raio-pill);
+  background: var(--cor-principal);
+}
+
 .vitrine__qtd {
+  padding: 2px var(--esp-3);
+  border-radius: var(--raio-pill);
+  background: var(--cor-principal-suave);
+  color: var(--cor-texto);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.vitrine__ver svg {
+  width: 16px;
+  height: 16px;
+}
+
+.vitrine .carrossel__trilho > .card,
+.vitrine .carrossel__trilho > .vitrine__mais {
+  flex: 0 0 var(--vitrine-card);
+  scroll-snap-align: start;
+}
+
+.vitrine .carrossel__trilho {
+  padding-top: var(--esp-3);
+  padding-bottom: var(--esp-3);
+}
+
+/* Setas centralizadas na área da foto do produto */
+.vitrine .carrossel__seta {
+  top: calc(var(--vitrine-card) / 2 + var(--esp-3));
+}
+
+/* Degradês nas bordas: indicam que há mais produtos para os lados */
+.vitrine .carrossel::before,
+.vitrine .carrossel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 40px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transicao);
+}
+
+.vitrine .carrossel::before {
+  left: calc(var(--esp-1) * -1);
+  background: linear-gradient(to right, var(--cor-fundo-secundario), transparent);
+}
+
+.vitrine .carrossel::after {
+  right: calc(var(--esp-1) * -1);
+  background: linear-gradient(to left, var(--cor-fundo-secundario), transparent);
+}
+
+.vitrine .carrossel[data-mais-esq="true"]::before,
+.vitrine .carrossel[data-mais-dir="true"]::after {
+  opacity: 1;
+}
+
+/* Barra de progresso do carrossel */
+.vitrine__progresso {
+  height: 4px;
+  margin-inline: var(--esp-1);
+  border-radius: var(--raio-pill);
+  background: rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transition: opacity var(--transicao);
+}
+
+.vitrine__progresso span {
+  display: block;
+  height: 100%;
+  width: calc(var(--carrossel-vis, 1) * 100%);
+  margin-left: calc((1 - var(--carrossel-vis, 1)) * var(--carrossel-pos, 0) * 100%);
+  border-radius: inherit;
+  background: var(--cor-principal);
+}
+
+.vitrine .carrossel[data-mais-esq="false"][data-mais-dir="false"] .vitrine__progresso {
+  opacity: 0;
+}
+
+html[data-tema="escuro"] .vitrine__progresso {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Cartão final: "Ver todos" quando há mais produtos do que cabem no carrossel */
+.vitrine__mais {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--esp-2);
+  padding: var(--esp-4);
+  border: 2px dashed var(--cor-principal);
+  border-radius: var(--raio-card);
+  background: transparent;
+  color: var(--cor-texto);
+  text-align: center;
+  cursor: pointer;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.vitrine__mais-icone {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--cor-principal);
+  color: #171717;
+}
+
+.vitrine__mais-icone svg {
+  width: 24px;
+  height: 24px;
+}
+
+.vitrine__mais strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+}
+
+.vitrine__mais span:last-child {
   font-size: 0.85rem;
-  font-weight: 600;
   color: var(--cor-texto-secundario);
+}
+
+@media (hover: hover) {
+  .vitrine__mais:hover {
+    background: var(--cor-principal-suave);
+  }
+}
+
+.vitrine__mais:focus-visible {
+  outline: 2px solid var(--cor-foco);
+  outline-offset: 2px;
 }
 
 .categoria-card {

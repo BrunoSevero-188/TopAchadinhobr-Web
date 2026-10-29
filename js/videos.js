@@ -76,6 +76,8 @@
       var v = classificar(item.video);
       if (!v) return;
       var produto = TA.getProdutoPorId(produtos, item.id);
+      // Produto ainda fora do período de exibição (dataFim - 1 mês): o vídeo dele também não aparece
+      if (!produto && TA.getProdutoPorId(TA.produtosAgendados || [], item.id)) return;
       if (!produto && global.console) console.warn("[videos] id sem produto correspondente:", item.id);
       slides.push({
         produto: produto,

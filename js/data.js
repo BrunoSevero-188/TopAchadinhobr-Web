@@ -53,6 +53,35 @@
     return TA.getDiasRestantes(produto) <= 0;
   };
 
+  // Primeiro dia de exibição = dataFim menos um mês, como número AAAAMMDD (inválido/ausente = NaN).
+  // Ex.: "2026-12-03" -> 20261103. Se o mês anterior for mais curto, usa o último dia dele
+  // (ex.: "2026-03-31" -> 20260228).
+  TA.getInicioExibicao = function (produto) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String((produto && produto.dataFim) || "").trim());
+    if (!m) return NaN;
+    var ano = Number(m[1]);
+    var mes = Number(m[2]) - 1;
+    var dia = Number(m[3]);
+    var conferida = new Date(ano, mes, dia);
+    if (conferida.getFullYear() !== ano || conferida.getMonth() !== mes || conferida.getDate() !== dia) return NaN;
+    var anoAlvo = mes === 0 ? ano - 1 : ano;
+    var mesAlvo = mes === 0 ? 11 : mes - 1;
+    var ultimoDia = new Date(anoAlvo, mesAlvo + 1, 0).getDate();
+    return anoAlvo * 10000 + (mesAlvo + 1) * 100 + Math.min(dia, ultimoDia);
+  };
+
+  // Mostra o produto se a data local do navegador for >= dataFim menos um mês.
+  // Sem dataFim válida não há como aplicar a regra: o produto segue o comportamento de sempre.
+  TA.estaNoPeriodoDeExibicao = function (produto, agora) {
+    var inicio = TA.getInicioExibicao(produto);
+    if (isNaN(inicio)) return true;
+    var hoje = agora || new Date();
+    return hoje.getFullYear() * 10000 + (hoje.getMonth() + 1) * 100 + hoje.getDate() >= inicio;
+  };
+
+  // Produtos válidos que ainda não entraram no período de exibição (ficam fora do site)
+  TA.produtosAgendados = [];
+
   function normalizarCategoria(bruta) {
     var t = String(bruta || "").trim();
     return t ? t.charAt(0).toUpperCase() + t.slice(1) : "";
@@ -105,7 +134,10 @@
         return r.json();
       })
       .then(function (lista) {
-        return Array.isArray(lista) ? lista.filter(TA.ehProdutoValido) : [];
+        var validos = Array.isArray(lista) ? lista.filter(TA.ehProdutoValido) : [];
+        var agora = new Date();
+        TA.produtosAgendados = validos.filter(function (p) { return !TA.estaNoPeriodoDeExibicao(p, agora); });
+        return validos.filter(function (p) { return TA.estaNoPeriodoDeExibicao(p, agora); });
       });
   };
 })(window);
