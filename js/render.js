@@ -193,12 +193,12 @@
       '<div class="vitrine__cab"><h3 class="vitrine__titulo"><span class="vitrine__nome">' + esc(nome) + "</span>" +
       '<span class="vitrine__qtd">' + total + (total === 1 ? " achadinho" : " achadinhos") + "</span></h3>" +
       '<button type="button" class="btn btn--contorno btn--sm vitrine__ver" data-categoria="' + esc(nome) + '">Ver todos' + SETA_VER + "</button></div>" +
-      '<div class="carrossel" data-carrossel>' +
+      '<div class="carrossel carrossel--faixa" data-carrossel>' +
       '<button class="carrossel__seta carrossel__seta--prev" type="button" aria-label="Produtos anteriores de ' + esc(nome) + '" hidden>' + SETA_ESQ + "</button>" +
       '<div class="carrossel__trilho" role="region" aria-label="Achadinhos de ' + esc(nome) + '" tabindex="0">' +
       TA.renderCards(lista) + cartaoMais + "</div>" +
       '<button class="carrossel__seta carrossel__seta--next" type="button" aria-label="Próximos produtos de ' + esc(nome) + '" hidden>' + SETA_DIR + "</button>" +
-      '<div class="vitrine__progresso" aria-hidden="true"><span></span></div>' +
+      '<div class="carrossel__progresso" aria-hidden="true"><span></span></div>' +
       "</div></div>"
     );
   };

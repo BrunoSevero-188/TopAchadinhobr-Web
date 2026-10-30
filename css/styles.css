@@ -755,49 +755,119 @@
   scroll-snap-align: start;
 }
 
-/* Setas da seção de categorias: amarelas, maiores e visíveis também no celular */
-#categorias .carrossel__seta {
-  width: 48px;
-  height: 48px;
+/* ---------- Carrossel "faixa" ----------
+   Configurações compartilhadas por "Explore por categoria" e pelos carrosséis
+   das categorias com 5+ produtos. Para ajustar os dois de uma vez, mude aqui. */
+.carrossel--faixa {
+  --faixa-seta: 48px;        /* tamanho das setas (computador) */
+  --faixa-seta-toque: 40px;  /* tamanho das setas (celular/tablet) */
+  --faixa-seta-y: 42%;       /* altura das setas dentro do carrossel */
+  --faixa-borda-seta: 8px;   /* quanto a seta avança para fora do carrossel */
+  --faixa-fade: 40px;        /* largura do degradê nas bordas */
+  --faixa-barra: 4px;        /* espessura da barra de progresso */
+  --faixa-fundo: var(--cor-fundo-secundario); /* cor do fundo da seção (degradê e borda das setas) */
+}
+
+/* Setas: amarelas, maiores e visíveis também em telas de toque */
+.carrossel--faixa .carrossel__seta {
+  top: var(--faixa-seta-y);
+  width: var(--faixa-seta);
+  height: var(--faixa-seta);
   background: var(--cor-principal);
   color: #171717;
-  border: 3px solid var(--cor-fundo-secundario);
+  border: 3px solid var(--faixa-fundo);
   box-shadow: var(--sombra-2);
 }
 
-#categorias .carrossel__seta[hidden] {
+.carrossel--faixa .carrossel__seta[hidden] {
   display: none;
 }
 
-#categorias .carrossel__seta svg {
+.carrossel--faixa .carrossel__seta svg {
   width: 22px;
   height: 22px;
 }
 
-#categorias .carrossel__seta--prev {
-  left: -8px;
+.carrossel--faixa .carrossel__seta--prev {
+  left: calc(var(--faixa-borda-seta) * -1);
 }
 
-#categorias .carrossel__seta--next {
-  right: -8px;
+.carrossel--faixa .carrossel__seta--next {
+  right: calc(var(--faixa-borda-seta) * -1);
 }
 
 @media (hover: hover) {
-  #categorias .carrossel__seta:hover {
+  .carrossel--faixa .carrossel__seta:hover {
     background: var(--cor-principal-hover);
   }
 }
 
 @media (hover: none) {
-  #categorias .carrossel__seta {
+  .carrossel--faixa .carrossel__seta {
     display: grid;
-    width: 40px;
-    height: 40px;
+    width: var(--faixa-seta-toque);
+    height: var(--faixa-seta-toque);
   }
 
-  #categorias .carrossel__seta[hidden] {
+  .carrossel--faixa .carrossel__seta[hidden] {
     display: none;
   }
+}
+
+/* Degradês nas bordas: indicam que há mais itens para os lados */
+.carrossel--faixa::before,
+.carrossel--faixa::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: var(--faixa-fade);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transicao);
+}
+
+.carrossel--faixa::before {
+  left: calc(var(--esp-1) * -1);
+  background: linear-gradient(to right, var(--faixa-fundo), transparent);
+}
+
+.carrossel--faixa::after {
+  right: calc(var(--esp-1) * -1);
+  background: linear-gradient(to left, var(--faixa-fundo), transparent);
+}
+
+.carrossel--faixa[data-mais-esq="true"]::before,
+.carrossel--faixa[data-mais-dir="true"]::after {
+  opacity: 1;
+}
+
+/* Barra de progresso (posição dentro do carrossel) */
+.carrossel__progresso {
+  height: var(--faixa-barra);
+  margin-inline: var(--esp-1);
+  border-radius: var(--raio-pill);
+  background: rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transition: opacity var(--transicao);
+}
+
+.carrossel__progresso span {
+  display: block;
+  height: 100%;
+  width: calc(var(--carrossel-vis, 1) * 100%);
+  margin-left: calc((1 - var(--carrossel-vis, 1)) * var(--carrossel-pos, 0) * 100%);
+  border-radius: inherit;
+  background: var(--cor-principal);
+}
+
+.carrossel--faixa[data-mais-esq="false"][data-mais-dir="false"] .carrossel__progresso {
+  opacity: 0;
+}
+
+html[data-tema="escuro"] .carrossel__progresso {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 /* ---------- Carrossel de produtos por categoria (5+ produtos) ---------- */
@@ -879,64 +949,8 @@
 }
 
 /* Setas centralizadas na área da foto do produto */
-.vitrine .carrossel__seta {
-  top: calc(var(--vitrine-card) / 2 + var(--esp-3));
-}
-
-/* Degradês nas bordas: indicam que há mais produtos para os lados */
-.vitrine .carrossel::before,
-.vitrine .carrossel::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  width: 40px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--transicao);
-}
-
-.vitrine .carrossel::before {
-  left: calc(var(--esp-1) * -1);
-  background: linear-gradient(to right, var(--cor-fundo-secundario), transparent);
-}
-
-.vitrine .carrossel::after {
-  right: calc(var(--esp-1) * -1);
-  background: linear-gradient(to left, var(--cor-fundo-secundario), transparent);
-}
-
-.vitrine .carrossel[data-mais-esq="true"]::before,
-.vitrine .carrossel[data-mais-dir="true"]::after {
-  opacity: 1;
-}
-
-/* Barra de progresso do carrossel */
-.vitrine__progresso {
-  height: 4px;
-  margin-inline: var(--esp-1);
-  border-radius: var(--raio-pill);
-  background: rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-  transition: opacity var(--transicao);
-}
-
-.vitrine__progresso span {
-  display: block;
-  height: 100%;
-  width: calc(var(--carrossel-vis, 1) * 100%);
-  margin-left: calc((1 - var(--carrossel-vis, 1)) * var(--carrossel-pos, 0) * 100%);
-  border-radius: inherit;
-  background: var(--cor-principal);
-}
-
-.vitrine .carrossel[data-mais-esq="false"][data-mais-dir="false"] .vitrine__progresso {
-  opacity: 0;
-}
-
-html[data-tema="escuro"] .vitrine__progresso {
-  background: rgba(255, 255, 255, 0.18);
+.vitrine .carrossel--faixa {
+  --faixa-seta-y: calc(var(--vitrine-card) / 2 + var(--esp-3));
 }
 
 /* Cartão final: "Ver todos" quando há mais produtos do que cabem no carrossel */

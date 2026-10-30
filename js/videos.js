@@ -1,10 +1,13 @@
+/* Top Achadinho BR — Carrossel de vídeos promocionais
+   Lê data/video-produto.json, vincula cada vídeo ao produto do catálogo (quando existir)
+   e monta o carrossel. Reutiliza o carrossel scroll-snap (js/carrossel.js) para as setas. */
 (function (global) {
   "use strict";
 
   var TA = global.TA;
 
   var URL_JSON = "data/video-produto.json";
-  var EXT_ARQUIVO = /\.(mp4|webm|ogv|ogg|m4v|m3u8)$/i;
+  var EXT_ARQUIVO = /\.(mp4|webm|ogv|ogg|m4v|prod)$/i
   var TIPOS = { arquivo: true, youtube: true, link: true };
   var MAX_PONTOS = 10;
   var TITULO_PADRAO = "Vídeo do achadinho";
