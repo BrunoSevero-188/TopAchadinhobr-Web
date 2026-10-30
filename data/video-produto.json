@@ -60,6 +60,6 @@
     {"id": 64, "video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/505b67d4-9cce-4c0c-9876-4e4d349b0445/3bw0xn.m3u8" },
     {"id": 67, "video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/f3b2ccda-c391-43ec-bf8c-c21adccda6bc/e1aXL5.m3u8" },
     {"id": 69, "video": "https://http2.mlstatic.com/storage/shorts-api/videos-middleware/playlists/639ac0d4-98a8-4216-bb2e-637e98f21123/AMGOnS.m3u8"}
-    {"id": 71, "video": "https://down-tx-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6v65c-mgscl2iw1ds492.16000081762542258.mp4"}
-    {"id": 72, "video": "https://unagi.amazon.com.br/1/events/com.amazon.csm.nexusclient.prod"},
+    {"id": 71, "video": "https://down-tx-br.vod.susercontent.com/api/v4/11110105/mms/br-11110105-6v65c-mgscl2iw1ds492.16000081762542258.mp4"},
+    {"id": 72, "video": "https://unagi.amazon.com.br/1/events/com.amazon.csm.nexusclient.prod"}
 ]
