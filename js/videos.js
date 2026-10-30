@@ -7,7 +7,7 @@
   var TA = global.TA;
 
   var URL_JSON = "data/video-produto.json";
-  var EXT_ARQUIVO = /\.(mp4|webm|ogv|ogg|m4v|prod)$/i
+  var EXT_ARQUIVO = /\.(mp4|mov|avi|mkv|wmv|flv|mpg|mpeg|webm|ogv|ogg|m4v)$/i
   var TIPOS = { arquivo: true, youtube: true, link: true };
   var MAX_PONTOS = 10;
   var TITULO_PADRAO = "Vídeo do achadinho";
