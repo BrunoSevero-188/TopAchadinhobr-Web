@@ -783,6 +783,12 @@
   display: none;
 }
 
+/* Tema escuro: a regra geral das setas (css/carrossel.css) deixaria a seta cinza */
+html[data-tema="escuro"] .carrossel--faixa .carrossel__seta {
+  background: var(--cor-principal);
+  color: #171717;
+}
+
 .carrossel--faixa .carrossel__seta svg {
   width: 22px;
   height: 22px;
@@ -873,12 +879,33 @@ html[data-tema="escuro"] .carrossel__progresso {
 /* ---------- Carrossel de produtos por categoria (5+ produtos) ---------- */
 .vitrines {
   display: grid;
+  /* minmax(0, 1fr): a coluna não cresce com o conteúdo do carrossel (senão a página ganha rolagem lateral no celular) */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--esp-7);
   margin-top: var(--esp-6);
 }
 
+.vitrine {
+  min-width: 0;
+}
+
 .vitrines:empty {
   display: none;
+}
+
+/* Seta centralizada na foto do produto (a 42% ela cairia sobre o texto do card no celular) */
+.vitrine {
+  --vitrine-card: min(72vw, 240px);
+}
+
+@media (min-width: 720px) {
+  .vitrine {
+    --vitrine-card: 260px;
+  }
+}
+
+.vitrine .carrossel--faixa {
+  --faixa-seta-y: calc(var(--vitrine-card) / 2 + var(--esp-2));
 }
 
 .vitrine__cab {
