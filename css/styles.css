@@ -881,16 +881,6 @@ html[data-tema="escuro"] .carrossel__progresso {
   display: none;
 }
 
-.vitrine {
-  --vitrine-card: min(72vw, 240px);
-}
-
-@media (min-width: 720px) {
-  .vitrine {
-    --vitrine-card: 260px;
-  }
-}
-
 .vitrine__cab {
   display: flex;
   flex-wrap: wrap;
@@ -937,20 +927,16 @@ html[data-tema="escuro"] .carrossel__progresso {
   height: 16px;
 }
 
-.vitrine .carrossel__trilho > .card,
+/* Cartão final com a mesma largura dos cards do carrossel padrão */
 .vitrine .carrossel__trilho > .vitrine__mais {
-  flex: 0 0 var(--vitrine-card);
+  flex: 0 0 min(72vw, 240px);
   scroll-snap-align: start;
 }
 
-.vitrine .carrossel__trilho {
-  padding-top: var(--esp-3);
-  padding-bottom: var(--esp-3);
-}
-
-/* Setas centralizadas na área da foto do produto */
-.vitrine .carrossel--faixa {
-  --faixa-seta-y: calc(var(--vitrine-card) / 2 + var(--esp-3));
+@media (min-width: 720px) {
+  .vitrine .carrossel__trilho > .vitrine__mais {
+    flex-basis: 260px;
+  }
 }
 
 /* Cartão final: "Ver todos" quando há mais produtos do que cabem no carrossel */

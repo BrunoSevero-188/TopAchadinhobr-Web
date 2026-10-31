@@ -180,7 +180,7 @@
   var SETA_VER =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>';
 
-  // Carrossel de produtos de uma categoria (título, "Ver todos", cards, setas e progresso)
+  // Carrossel de produtos de uma categoria (título, "Ver todos" e o mesmo carrossel padrão do "Menos de R$ 100")
   TA.renderVitrine = function (nome, total, lista) {
     var restantes = total - lista.length;
     var cartaoMais = restantes > 0
@@ -193,12 +193,11 @@
       '<div class="vitrine__cab"><h3 class="vitrine__titulo"><span class="vitrine__nome">' + esc(nome) + "</span>" +
       '<span class="vitrine__qtd">' + total + (total === 1 ? " achadinho" : " achadinhos") + "</span></h3>" +
       '<button type="button" class="btn btn--contorno btn--sm vitrine__ver" data-categoria="' + esc(nome) + '">Ver todos' + SETA_VER + "</button></div>" +
-      '<div class="carrossel carrossel--faixa" data-carrossel>' +
+      '<div class="carrossel" data-carrossel>' +
       '<button class="carrossel__seta carrossel__seta--prev" type="button" aria-label="Produtos anteriores de ' + esc(nome) + '" hidden>' + SETA_ESQ + "</button>" +
       '<div class="carrossel__trilho" role="region" aria-label="Achadinhos de ' + esc(nome) + '" tabindex="0">' +
       TA.renderCards(lista) + cartaoMais + "</div>" +
       '<button class="carrossel__seta carrossel__seta--next" type="button" aria-label="Próximos produtos de ' + esc(nome) + '" hidden>' + SETA_DIR + "</button>" +
-      '<div class="carrossel__progresso" aria-hidden="true"><span></span></div>' +
       "</div></div>"
     );
   };
